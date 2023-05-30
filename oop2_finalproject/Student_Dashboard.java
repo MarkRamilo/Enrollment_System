@@ -36,7 +36,9 @@ public class Student_Dashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1080, 800));
         setMinimumSize(new java.awt.Dimension(1080, 800));
+        setPreferredSize(new java.awt.Dimension(1080, 800));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
