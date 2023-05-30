@@ -1,5 +1,5 @@
 /*
- * Hi arnold
+ * Hi Leonel
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package oop2_finalproject;
@@ -13,7 +13,7 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
-    // hello8u9807
+    // hello
     public static Dashboard dashboard;
 
     public Dashboard() {
