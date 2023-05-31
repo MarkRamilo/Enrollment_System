@@ -4,6 +4,7 @@
  */
 package Enrollment;
 import Connection.ConnectionToDatabase;
+<<<<<<< HEAD:Enrollment/EnrollmentStudentDetails.java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,6 +12,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+=======
+>>>>>>> 1043e397baee2c16b952ca298a211a299f0fbc52:Enrollment_System/Enrollment/EnrollmentStudentDetails.java
 
 /**
  *
