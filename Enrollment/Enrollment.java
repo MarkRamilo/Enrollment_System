@@ -5,7 +5,6 @@ import java.util.Scanner;
 import Information.Student;
 import Information.User;
 import Connection.ConnectionToDatabase;
-import java.util.Arrays;
 
 public class Enrollment implements ConnectionToDatabase {
 
@@ -36,7 +35,7 @@ public class Enrollment implements ConnectionToDatabase {
 //
 //        Student student = new Student(name, age, email, contact_Number, course, year, type, 1);
         Enrollment test  = new Enrollment();
-        String[] a = test.getCity();
-        System.out.println(Arrays.toString(a));
+        test.connect();
+
     }
 }
