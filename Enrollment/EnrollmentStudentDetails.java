@@ -4,13 +4,11 @@
  */
 package Enrollment;
 
-import Connection.ConnectionToDatabase;
-
 /**
  *
  * @author arnol
  */
-public class EnrollmentStudentDetails extends javax.swing.JPanel implements ConnectionToDatabase {
+public class EnrollmentStudentDetails extends javax.swing.JPanel {
 
     /**
      * Creates new form EnrollmentStudentDetails
@@ -146,7 +144,7 @@ public class EnrollmentStudentDetails extends javax.swing.JPanel implements Conn
         jLabel14.setText("Date of Birth:");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 329, -1, 28));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(this.getCity()));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 332, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

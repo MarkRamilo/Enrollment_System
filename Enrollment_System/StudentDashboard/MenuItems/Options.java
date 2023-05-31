@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package StudentDashboard.MenuItems;
+package oop2_finalproject;
 
 /**
  *
  * @author asus
  */
-public class Options extends javax.swing.JPanel {
+public class MenuItem_Options extends javax.swing.JPanel {
 
     /**
      * Creates new form MenuItem_Profile
      */
-    public Options() {
+    public MenuItem_Options() {
         initComponents();
     }
 
