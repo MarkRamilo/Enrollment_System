@@ -8,12 +8,12 @@ package StudentDashboard.MenuItems;
  *
  * @author asus
  */
-public class MenuItem_Options extends javax.swing.JPanel {
+public class Options extends javax.swing.JPanel {
 
         /**
          * Creates new form MenuItem_Profile
          */
-        public MenuItem_Options() {
+        public Options() {
                 initComponents();
         }
 
