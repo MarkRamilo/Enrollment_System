@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public interface ConnectionToDatabase {
 
@@ -51,7 +52,7 @@ public interface ConnectionToDatabase {
             String[] subItems = new String[items.size()];
             //System.out.println(items.toString());
             items.toArray(subItems);
-            System.out.println(subItems.toString());
+            System.out.println(Arrays.toString(subItems));
             return subItems;
             
             
