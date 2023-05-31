@@ -3,12 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Enrollment;
+import Connection.ConnectionToDatabase;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author arnol
  */
-public class EnrollmentStudentDetails extends javax.swing.JPanel {
+public class EnrollmentStudentDetails extends javax.swing.JPanel implements ConnectionToDatabase {
 
     /**
      * Creates new form EnrollmentStudentDetails
@@ -144,14 +152,14 @@ public class EnrollmentStudentDetails extends javax.swing.JPanel {
         jLabel14.setText("Date of Birth:");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 329, -1, 28));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(this.getCity()));
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 332, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(688, 332, -1, -1));
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, -1, -1));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(804, 332, -1, -1));
+        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 330, -1, -1));
 
         jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("Invalid First Name");
@@ -187,7 +195,48 @@ public class EnrollmentStudentDetails extends javax.swing.JPanel {
 
         }
     }//GEN-LAST:event_jTextField5KeyTyped
+    
+    @Override
+    public String[] getCity() {
+                String url="jdbc:mysql://dusk.mysql.database.azure.com:3306/sakila?useSSL=true";
 
+        try (Connection con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6")) {
+            System.out.println("6th");
+
+            Statement st = con.createStatement();
+            String sql = "select city from city";
+                        System.out.println("5th");
+
+            ResultSet rs = st.executeQuery(sql);
+                        System.out.println("6th");
+
+            //ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+            ArrayList<String> items = new ArrayList();
+
+            System.out.println("3rd");
+
+            while (rs.next()) {
+                String a = rs.getString("city");
+                items.add(a);
+            }
+            System.out.println("4th");
+
+            st.close();
+            String[] subItems = new String[items.size()];
+            //System.out.println(items.toString());
+            items.toArray(subItems);
+            System.out.println(Arrays.toString(subItems));
+            return subItems;
+            
+            
+        } catch (Exception e) {
+                        System.out.println("2nd");
+
+            JOptionPane.showMessageDialog(null, e.getMessage());
+
+        }
+        return null;
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
