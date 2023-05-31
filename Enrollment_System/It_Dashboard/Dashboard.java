@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Hi Leonel
-=======
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
->>>>>>> 3bce851441506a1e2b4a893e2a3aeae56b414a34
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package StudentDashboard;

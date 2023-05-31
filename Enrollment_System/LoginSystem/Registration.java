@@ -1,4 +1,4 @@
-package Login_System;
+package LoginSystem;
 
 public class Registration {
 
