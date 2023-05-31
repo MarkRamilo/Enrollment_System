@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Enrollment;
+<<<<<<< HEAD
 import Connection.ConnectionToDatabase;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,12 +12,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+=======
+>>>>>>> a7244fff1a1403b2aa02442650773c6e02afa7ea
 
 /**
  *
  * @author arnol
  */
-public class EnrollmentStudentDetails extends javax.swing.JPanel implements ConnectionToDatabase {
+public class EnrollmentStudentDetails extends javax.swing.JPanel {
 
     /**
      * Creates new form EnrollmentStudentDetails
@@ -152,7 +155,7 @@ public class EnrollmentStudentDetails extends javax.swing.JPanel implements Conn
         jLabel14.setText("Date of Birth:");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 329, -1, 28));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(this.getCity()));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 332, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

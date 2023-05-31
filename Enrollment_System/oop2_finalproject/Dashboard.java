@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package StudentDashboard;
+package oop2_finalproject;
 
 /**
  *
@@ -32,18 +32,22 @@ public class Dashboard extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        options1 = new StudentDashboard.MenuItems.Options();
+        menuItem_Profile1 = new oop2_finalproject.MyProfile();
+        menuItem_Options2 = new oop2_finalproject.MenuItem_Options();
+        menu1 = new oop2_finalproject.Menu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane2.addTab("tab1", options1);
+        jTabbedPane2.addTab("tab1", menuItem_Profile1);
+        jTabbedPane2.addTab("tab2", menuItem_Options2);
 
         getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -36, 840, 850));
+        getContentPane().add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 820));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -91,6 +95,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTabbedPane jTabbedPane2;
-    private StudentDashboard.MenuItems.Options options1;
+    private oop2_finalproject.Menu menu1;
+    private oop2_finalproject.MenuItem_Options menuItem_Options2;
+    private oop2_finalproject.MyProfile menuItem_Profile1;
     // End of variables declaration//GEN-END:variables
 }

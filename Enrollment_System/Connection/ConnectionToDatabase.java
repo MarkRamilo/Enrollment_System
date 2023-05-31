@@ -2,10 +2,13 @@ package Connection;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
+=======
+>>>>>>> a7244fff1a1403b2aa02442650773c6e02afa7ea
 
 public interface ConnectionToDatabase {
 
@@ -23,6 +26,7 @@ public interface ConnectionToDatabase {
         
         return null;
     }
+<<<<<<< HEAD
     
     default String[] getCity() {
                 String url="jdbc:mysql://dusk.mysql.database.azure.com:3306/sakila?useSSL=true";
@@ -64,5 +68,6 @@ public interface ConnectionToDatabase {
         }
         return null;
     } 
+=======
+>>>>>>> a7244fff1a1403b2aa02442650773c6e02afa7ea
 }
-
