@@ -8,12 +8,12 @@ package StudentDashboard.MenuItems;
  *
  * @author PC
  */
-public class Options extends javax.swing.JPanel {
+public class Registration extends javax.swing.JPanel {
 
     /**
      * Creates new form Options
      */
-    public Options() {
+    public Registration() {
         initComponents();
     }
 
@@ -26,12 +26,12 @@ public class Options extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 153));
+        setBackground(new java.awt.Color(102, 0, 102));
         setPreferredSize(new java.awt.Dimension(800, 725));
 
-        jLabel1.setForeground(new java.awt.Color(204, 0, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Settings");
+        jLabel1.setText("Registration");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
