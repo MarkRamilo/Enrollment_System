@@ -35,7 +35,8 @@ public class Menu2 extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(57, 75, 88));
+        setForeground(new java.awt.Color(57, 75, 88));
 
         jPanel1.setBackground(new java.awt.Color(57, 75, 88));
         jPanel1.setForeground(new java.awt.Color(57, 75, 88));
@@ -159,7 +160,7 @@ public class Menu2 extends javax.swing.JPanel {
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 51));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Student Dashboard");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
