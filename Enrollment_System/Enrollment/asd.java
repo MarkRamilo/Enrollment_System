@@ -27,11 +27,15 @@ public class asd extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        enrollmentStudentDetails1 = new Enrollment.StudentDetails();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
-        getContentPane().add(jPanel1);
+        jPanel1.add(enrollmentStudentDetails1);
+        enrollmentStudentDetails1.setBounds(100, 20, 1080, 800);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -72,6 +76,7 @@ public class asd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Enrollment.StudentDetails enrollmentStudentDetails1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
