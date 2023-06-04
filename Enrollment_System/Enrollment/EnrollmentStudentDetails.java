@@ -153,6 +153,11 @@ public class EnrollmentStudentDetails extends javax.swing.JPanel implements Conn
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 329, -1, 28));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(this.getCity()));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 332, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -195,6 +200,10 @@ public class EnrollmentStudentDetails extends javax.swing.JPanel implements Conn
 
         }
     }//GEN-LAST:event_jTextField5KeyTyped
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
     
     @Override
     public String[] getCity() {
