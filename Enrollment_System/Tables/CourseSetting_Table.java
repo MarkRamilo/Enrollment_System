@@ -94,8 +94,7 @@ public class CourseSetting_Table extends JTable {
                              + "AND class.Semester_ID = 6;"*/
                 ResultSet rs = st.executeQuery(sql);
                  PreparedStatement pst = con.prepareStatement(sql);
-                String StudentCode = code1;
-                pst.setString(1,StudentCode);
+                pst.setString(1,"2021-01799");
                 ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
 
                 //int columnsNumber = rsmd.getColumnCount();
