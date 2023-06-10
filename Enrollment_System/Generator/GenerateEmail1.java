@@ -5,17 +5,20 @@
 package Generator;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.time.LocalDate;
 import java.time.Year;
+import java.time.Month;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author PC
  */
-public interface GenerateEmail {
+public interface GenerateEmail1 {
     Year year = Year.now();
-    final String domainName = "hogwarts.com.ph";
-    StringBuilder emailAddress = new StringBuilder();
+    Month month = Month.from(LocalDate.now());
+    StringBuilder referenceNumber = new StringBuilder();
+    
      default Connection connect() {
         System.out.println("Connecting to database...");
         String url="jdbc:mysql://dusk.mysql.database.azure.com:3306/try?useSSL=true";
@@ -31,12 +34,8 @@ public interface GenerateEmail {
         return null;
     }
      
-     static String generateEmail(String firstName, String lastName, int Student_ID) {
-        emailAddress.append(year + "-");
-        emailAddress.append(firstName.toLowerCase() + lastName.toLowerCase() + "@");
-        emailAddress.append(domainName);
+     static String generateReferenceNumber(String firstName, String lastName, int Student_ID) {
         
-        return emailAddress.toString();
         
     }
 }
