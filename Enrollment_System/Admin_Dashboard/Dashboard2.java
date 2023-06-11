@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Dean_Dashboard;
+package Admin_Dashboard;
 
 
 /**
@@ -32,10 +32,10 @@ public class Dashboard2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        menu22 = new Dean_Dashboard.Menu2();
+        menu22 = new Admin_Dashboard.Menu2();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        courseSetting2 = new Dean_Dashboard.MenuItems.CourseSetting();
-        classSetting1 = new Dean_Dashboard.MenuItems.ClassSetting();
+        courseSetting2 = new Admin_Dashboard.MenuItems.CourseSetting();
+        classSetting1 = new Admin_Dashboard.MenuItems.ClassSetting();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,10 +117,10 @@ public class Dashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Dean_Dashboard.MenuItems.ClassSetting classSetting1;
-    private Dean_Dashboard.MenuItems.CourseSetting courseSetting2;
+    private Admin_Dashboard.MenuItems.ClassSetting classSetting1;
+    private Admin_Dashboard.MenuItems.CourseSetting courseSetting2;
     private javax.swing.JLayeredPane jLayeredPane1;
     private static javax.swing.JTabbedPane jTabbedPane2;
-    private Dean_Dashboard.Menu2 menu22;
+    private Admin_Dashboard.Menu2 menu22;
     // End of variables declaration//GEN-END:variables
 }
