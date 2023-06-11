@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Enrollment;
-import Connection.ConnectionToDatabase;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,12 +13,13 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import Connection.DatabaseConnection;
 
 /**
  *
  * @author arnol
  */
-public class StudentDetails extends javax.swing.JPanel implements ConnectionToDatabase {
+public class StudentDetails extends javax.swing.JPanel implements DatabaseConnection {
 
     /**
      * Creates new form EnrollmentStudentDetails
@@ -147,7 +147,7 @@ public class StudentDetails extends javax.swing.JPanel implements ConnectionToDa
             }
         });
         jPanel1.add(jRadioButton1);
-        jRadioButton1.setBounds(647, 51, 68, 32);
+        jRadioButton1.setBounds(647, 51, 66, 32);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -158,7 +158,7 @@ public class StudentDetails extends javax.swing.JPanel implements ConnectionToDa
             }
         });
         jPanel1.add(jRadioButton2);
-        jRadioButton2.setBounds(721, 51, 87, 32);
+        jRadioButton2.setBounds(721, 51, 85, 32);
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -169,7 +169,7 @@ public class StudentDetails extends javax.swing.JPanel implements ConnectionToDa
             }
         });
         jPanel1.add(jRadioButton3);
-        jRadioButton3.setBounds(826, 51, 79, 32);
+        jRadioButton3.setBounds(826, 51, 77, 32);
 
         jTextField9.setBackground(new java.awt.Color(204, 204, 204));
         jTextField9.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,7 +208,7 @@ public class StudentDetails extends javax.swing.JPanel implements ConnectionToDa
         jPanel1.add(jLabel13);
         jLabel13.setBounds(557, 125, 39, 28);
         jPanel1.add(jTextField10);
-        jTextField10.setBounds(600, 130, 31, 26);
+        jTextField10.setBounds(600, 130, 31, 22);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel9.setText("Last Name:");
@@ -226,7 +226,7 @@ public class StudentDetails extends javax.swing.JPanel implements ConnectionToDa
             }
         });
         jPanel1.add(jTextField8);
-        jTextField8.setBounds(170, 290, 212, 26);
+        jTextField8.setBounds(170, 290, 212, 22);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel14.setText("Date of Birth:");
@@ -235,15 +235,15 @@ public class StudentDetails extends javax.swing.JPanel implements ConnectionToDa
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year"}));
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(683, 190, 76, 26);
+        jComboBox1.setBounds(683, 190, 72, 22);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(790, 190, 76, 26);
+        jComboBox2.setBounds(790, 190, 72, 22);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" }));
         jPanel1.add(jComboBox3);
-        jComboBox3.setBounds(890, 190, 76, 26);
+        jComboBox3.setBounds(890, 190, 72, 22);
 
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -280,7 +280,7 @@ public class StudentDetails extends javax.swing.JPanel implements ConnectionToDa
         jPanel1.add(jButton1);
         jButton1.setBounds(930, 460, 90, 40);
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 1070, 540));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 1060, 540));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 1090, -1));
     }// </editor-fold>//GEN-END:initComponents
