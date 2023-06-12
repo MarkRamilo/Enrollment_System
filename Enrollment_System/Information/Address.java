@@ -7,6 +7,7 @@ package Information;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -17,50 +18,135 @@ import Connection.DatabaseConnection;
  * @author arnol
  */
 public class Address implements DatabaseConnection {
+    
+    String street;
+    String cityID;
+    String Additional;
 
-    public String[] getProvince() throws SQLException {
+    public Address(String street, String city, String Additional) {
+        // TODO Auto-generated constructor stub
+        this.street = street;
+        this.cityID = city;
+        this.Additional = Additional;
 
-        Connection con = connect();
-        Statement st = con.createStatement();
-        String sql = "select province from provinces";
+        try (Connection con = connect()) {
 
-        ResultSet rs = st.executeQuery(sql);
+            String sql = "Insert into Address values (null, ?, ?, ?)";
 
-        ArrayList<String> items = new ArrayList<>();
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, street);
+            pst.setString(2, cityID);
+            pst.setString(3, Additional);
+            pst.executeQuery();
+            pst.close();
 
-        while (rs.next()) {
-            String province = rs.getString("province");
-            items.add(province);
+        } catch (SQLException e) {
+            e.getMessage();
         }
-        items.add(0, "Province");
+    }
+    
+    public String[] getProvince() {
 
-        String[] subItems = new String[items.size()];
-        items.toArray(subItems);
-        st.close();
+        try (Connection con = connect()) {
+            Statement st = con.createStatement();
 
-        return subItems;
+            String sql = "select province from provinces";
+
+            ResultSet rs = st.executeQuery(sql);
+
+            ArrayList<String> items = new ArrayList<>();
+
+            while (rs.next()) {
+                String province = rs.getString("province");
+                items.add(province);
+            }
+            items.add(0, "Province");
+
+            String[] subItems = new String[items.size()];
+            items.toArray(subItems);
+            st.close();
+
+            return subItems;
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.getMessage();
+        }
+        return null;
+
     }
 
-    protected String[] getCity(int province_ID) throws SQLException {
+    public String[] getCity(int province_ID) {
 
         Connection con = connect();
-        Statement st = con.createStatement();
-        String sql = "select city from cities where province_ID = " + province_ID;
+        try {
 
-        ResultSet rs = st.executeQuery(sql);
+            Statement st = con.createStatement();
+            String sql = "select city from cities where province_ID = " + province_ID;
 
-        ArrayList<String> items = new ArrayList<>();
+            ResultSet rs = st.executeQuery(sql);
 
-        while (rs.next()) {
-            String city = rs.getString("city");
-            items.add(city);
+            ArrayList<String> items = new ArrayList<>();
+
+            while (rs.next()) {
+                String city = rs.getString("city");
+                items.add(city);
+            }
+            items.add(0, "City");
+
+            String[] subItems = new String[items.size()];
+            items.toArray(subItems);
+            st.close();
+
+            return subItems;
+
+        } catch (SQLException e) {
+            e.getMessage();
         }
-        items.add(0, "City");
+        return null;
 
-        String[] subItems = new String[items.size()];
-        items.toArray(subItems);
-        st.close();
+    }
 
-        return subItems;
+    private int getCityID(String city) {
+
+        
+        try (Connection con = connect()) {
+
+            Statement st = con.createStatement();
+            String sql = "select city_ID from cities where city = " + city;
+
+            ResultSet rs = st.executeQuery(sql);
+
+            int city_ID = rs.getInt("city_ID");
+
+            st.close();
+
+            return city_ID;
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return 0;
+
+    }
+
+    public int getAddressID() {
+
+        try (Connection con = connect()) {
+
+            Statement st = con.createStatement();
+            String sql = "select address_ID from Address where city_ID = " + cityID + " and additional = " + Additional;
+
+            ResultSet rs = st.executeQuery(sql);
+
+            int address_ID = rs.getInt("address_ID");
+
+            st.close();
+
+            return address_ID;
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return 0;
     }
 }
