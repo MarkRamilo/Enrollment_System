@@ -4,6 +4,13 @@
  */
 package Enrollment;
 
+import Information.Address;
+import Information.City;
+import Information.Province;
+import Information.Guardian;
+import Information.GuardianContactInformation;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC
@@ -26,13 +33,8 @@ public class GuardianContactDetails extends javax.swing.JPanel {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,9 +44,15 @@ public class GuardianContactDetails extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -57,36 +65,17 @@ public class GuardianContactDetails extends javax.swing.JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(1060, 574));
         jPanel2.setLayout(null);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox3);
-        jComboBox3.setBounds(735, 270, 90, 30);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(563, 270, 90, 30);
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox2);
-        jComboBox2.setBounds(434, 270, 80, 30);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel8.setText("District:");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(659, 266, 70, 30);
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setText("Region:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(358, 266, 70, 30);
+        jLabel6.setBounds(230, 270, 70, 30);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setText("Email Address:");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(170, 203, 130, 30);
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(360, 211, 370, 22);
         jPanel2.add(jTextField3);
-        jTextField3.setBounds(360, 148, 370, 22);
+        jTextField3.setBounds(360, 148, 370, 26);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setText("Contact Number (63+) :");
@@ -98,9 +87,9 @@ public class GuardianContactDetails extends javax.swing.JPanel {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(90, 80, 210, 27);
         jPanel2.add(jTextField2);
-        jTextField2.setBounds(360, 80, 370, 22);
+        jTextField2.setBounds(360, 80, 370, 26);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(363, 20, 369, 22);
+        jTextField1.setBounds(363, 20, 369, 26);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel2.setText("Guardian Name:");
@@ -110,19 +99,14 @@ public class GuardianContactDetails extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setText("City:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(520, 268, 38, 27);
+        jLabel7.setBounds(590, 270, 38, 27);
         jPanel2.add(jTextField5);
-        jTextField5.setBounds(358, 339, 467, 22);
+        jTextField5.setBounds(360, 340, 467, 26);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel9.setText("Street/Building Name:");
+        jLabel9.setText("Additional Information:");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(101, 333, 200, 27);
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel10.setText("Address:");
-        jPanel2.add(jLabel10);
-        jLabel10.setBounds(219, 268, 80, 27);
+        jLabel9.setBounds(90, 380, 210, 27);
 
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +125,33 @@ public class GuardianContactDetails extends javax.swing.JPanel {
         });
         jPanel2.add(jButton2);
         jButton2.setBounds(930, 520, 90, 40);
+        jPanel2.add(jTextField6);
+        jTextField6.setBounds(360, 211, 370, 26);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel10.setText("Street/Building Name:");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(101, 333, 200, 27);
+        jPanel2.add(jTextField9);
+        jTextField9.setBounds(360, 340, 467, 26);
+        jPanel2.add(jTextField10);
+        jTextField10.setBounds(360, 380, 467, 26);
+        jPanel2.add(jTextField11);
+        jTextField11.setBounds(360, 380, 467, 26);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new City().getCity()));
+        jComboBox1.setEnabled(false);
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(640, 270, 190, 26);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new Province().getProvinces()));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox2);
+        jComboBox2.setBounds(360, 270, 200, 26);
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 196, 1070, 598));
 
@@ -184,15 +195,30 @@ public class GuardianContactDetails extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Dashboard.closeDashboard();
+        Dashboard.setTab(2);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Dashboard.setTab(1);
+        Address guardianAddress = new Address(jTextField5.getText(), new City().getCityID(String.valueOf(jComboBox1.getSelectedItem())), jTextField10.getText());
+        GuardianContactInformation guardianInfo = new GuardianContactInformation( guardianAddress.getAddressID(), jTextField6.getText(), jTextField3.getText());
+        Guardian guardian = new Guardian(jTextField1.getText(), jTextField2.getText(), guardianInfo.getGuardianContactInformationID());
+        Dashboard.setStudentGuardian(guardian.getGuardianID());
+        JOptionPane.showMessageDialog(null, "Success");
+        Dashboard.close();
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        
+        if (jComboBox2.getSelectedIndex() != 0) {
+            jComboBox1.setEnabled(true);
+        } else {
+            jComboBox1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -200,7 +226,6 @@ public class GuardianContactDetails extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -209,15 +234,17 @@ public class GuardianContactDetails extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,25 +18,27 @@ import Connection.DatabaseConnection;
  * @author arnol
  */
 public class Address implements DatabaseConnection {
-    
+
     String street;
-    String cityID;
+    int city_ID;
     String Additional;
 
-    public Address(String street, String city, String Additional) {
+    public Address(String street, int city_ID, String Additional) {
         // TODO Auto-generated constructor stub
         this.street = street;
-        this.cityID = city;
+        this.city_ID = city_ID;
         this.Additional = Additional;
 
         try (Connection con = connect()) {
 
-            String sql = "Insert into Address values (null, ?, ?, ?)";
+            String sql = "Insert into Address values(null, ?, ?, ?)";
 
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, street);
-            pst.setString(2, cityID);
+            pst.setInt(2, city_ID);
             pst.setString(3, Additional);
+
+            pst.executeUpdate();
             pst.executeQuery();
             pst.close();
 
@@ -44,109 +46,35 @@ public class Address implements DatabaseConnection {
             e.getMessage();
         }
     }
-    
-    public String[] getProvince() {
-
-        try (Connection con = connect()) {
-            Statement st = con.createStatement();
-
-            String sql = "select province from provinces";
-
-            ResultSet rs = st.executeQuery(sql);
-
-            ArrayList<String> items = new ArrayList<>();
-
-            while (rs.next()) {
-                String province = rs.getString("province");
-                items.add(province);
-            }
-            items.add(0, "Province");
-
-            String[] subItems = new String[items.size()];
-            items.toArray(subItems);
-            st.close();
-
-            return subItems;
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.getMessage();
-        }
-        return null;
-
-    }
-
-    public String[] getCity(int province_ID) {
-
-        Connection con = connect();
-        try {
-
-            Statement st = con.createStatement();
-            String sql = "select city from cities where province_ID = " + province_ID;
-
-            ResultSet rs = st.executeQuery(sql);
-
-            ArrayList<String> items = new ArrayList<>();
-
-            while (rs.next()) {
-                String city = rs.getString("city");
-                items.add(city);
-            }
-            items.add(0, "City");
-
-            String[] subItems = new String[items.size()];
-            items.toArray(subItems);
-            st.close();
-
-            return subItems;
-
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return null;
-
-    }
-
-    private int getCityID(String city) {
-
-        
-        try (Connection con = connect()) {
-
-            Statement st = con.createStatement();
-            String sql = "select city_ID from cities where city = " + city;
-
-            ResultSet rs = st.executeQuery(sql);
-
-            int city_ID = rs.getInt("city_ID");
-
-            st.close();
-
-            return city_ID;
-
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return 0;
-
-    }
 
     public int getAddressID() {
 
         try (Connection con = connect()) {
 
-            Statement st = con.createStatement();
-            String sql = "select address_ID from Address where city_ID = " + cityID + " and additional = " + Additional;
+            // get address id from database
+            String sql = "select Address_ID from address where House_Number = ? and city_ID = ? and street = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, street);
+            pst.setInt(2, city_ID);
+            pst.setString(3, Additional);
 
-            ResultSet rs = st.executeQuery(sql);
-
-            int address_ID = rs.getInt("address_ID");
-
-            st.close();
-
-            return address_ID;
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                int address_ID = rs.getInt("Address_ID");
+                return address_ID;
+            }
 
         } catch (SQLException e) {
             e.getMessage();
         }
         return 0;
+    }
+
+    public void printAddress() {
+        // print street city_id and additional
+        System.out.println("Street: " + street);
+        System.out.println("City ID: " + city_ID);
+        System.out.println("Additional: " + Additional);
+
     }
 }

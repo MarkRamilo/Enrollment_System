@@ -5,8 +5,10 @@
 package Enrollment;
 
 import Information.Address;
-import Information.Parent;
-import javax.swing.DefaultComboBoxModel;
+import Information.City;
+import Information.Province;
+import Information.ContactInformation;
+import Information.ParentContactInformation;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +31,7 @@ public class ContactDetails extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -40,7 +43,6 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -54,9 +56,10 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(1080, 800));
 
@@ -84,19 +87,19 @@ public class ContactDetails extends javax.swing.JPanel {
         jPanel2.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel3.setText("Student Contact Number (63+) :");
+        jLabel3.setText("Email Address :");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(10, 190, 290, 30);
+        jLabel3.setBounds(140, 250, 140, 30);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel4.setText("Region:");
+        jLabel4.setText("Region :");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 250, 70, 27);
+        jLabel4.setBounds(210, 290, 80, 27);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setText("City:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(300, 250, 40, 27);
+        jLabel5.setBounds(460, 290, 40, 27);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel10.setText("Mother's Name:");
@@ -107,22 +110,17 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel9.setText("Father's Name:");
         jPanel2.add(jLabel9);
         jLabel9.setBounds(20, 91, 140, 27);
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel6.setText("District:");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(530, 250, 70, 27);
         jPanel2.add(jTextField3);
-        jTextField3.setBounds(310, 350, 690, 26);
+        jTextField3.setBounds(310, 380, 690, 26);
         jPanel2.add(jTextField2);
-        jTextField2.setBounds(310, 190, 210, 26);
+        jTextField2.setBounds(310, 250, 380, 26);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel7.setText("Additional Address Information: ");
+        jLabel7.setText("Additional Address Information : ");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(20, 346, 300, 30);
+        jLabel7.setBounds(20, 380, 300, 30);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(210, 300, 780, 26);
+        jTextField1.setBounds(210, 340, 780, 26);
         jPanel2.add(jTextField8);
         jTextField8.setBounds(163, 91, 210, 26);
 
@@ -145,7 +143,7 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel8.setText("Street/Building Name:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(10, 300, 200, 30);
+        jLabel8.setBounds(10, 340, 200, 30);
 
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,12 +162,27 @@ public class ContactDetails extends javax.swing.JPanel {
         });
         jPanel2.add(jButton2);
         jButton2.setBounds(930, 490, 90, 40);
-        jPanel2.add(jTextField5);
-        jTextField5.setBounds(620, 250, 190, 26);
-        jPanel2.add(jTextField6);
-        jTextField6.setBounds(90, 250, 190, 26);
-        jPanel2.add(jTextField7);
-        jTextField7.setBounds(360, 250, 160, 26);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel14.setText("Student Contact Number (63+) :");
+        jPanel2.add(jLabel14);
+        jLabel14.setBounds(10, 190, 290, 30);
+        jPanel2.add(jTextField11);
+        jTextField11.setBounds(310, 190, 210, 26);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Province().getProvinces()));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(310, 290, 110, 26);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new City().getCity()));
+        jComboBox2.setEnabled(false);
+        jPanel2.add(jComboBox2);
+        jComboBox2.setBounds(520, 290, 110, 26);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -196,37 +209,62 @@ public class ContactDetails extends javax.swing.JPanel {
                                 .addContainerGap()));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        if (jComboBox1.getSelectedIndex() != 0) {
+            jComboBox2.setEnabled(true);
+        } else {
+            jComboBox2.setEnabled(false);
+        }
+    }// GEN-LAST:event_jComboBox1ActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Dashboard.setTab(2);
+        Dashboard.setTab(1);
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         if (jTextField1.getText().equals("") || jTextField2.getText().equals("") || jTextField3.getText().equals("")
-                || jTextField4.getText().equals("") || jTextField5.getText().equals("")
-                || jTextField6.getText().equals("") || jTextField7.getText().equals("")
-                || jTextField8.getText().equals("") || jTextField9.getText().equals("")
-                || jTextField10.getText().equals("")) {
+                || jTextField4.getText().equals("") || jTextField8.getText().equals("")
+                || jTextField9.getText().equals("") || jTextField10.getText().equals("")
+                || jComboBox1.getSelectedIndex() == 0 || jComboBox2.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Please fill up all the fields!");
         } else {
-            Parent mother = new Parent(jTextField4.getText(), );
+            Address studentAddress = new Address(jTextField1.getText(),
+                    new City().getCityID(String.valueOf(jComboBox2.getSelectedItem())), jTextField3.getText());
+            studentAddress.printAddress();
+            ParentContactInformation mother = new ParentContactInformation(studentAddress.getAddressID(), null,
+                    jTextField9.getText());
+            ParentContactInformation father = new ParentContactInformation(studentAddress.getAddressID(), null,
+                    jTextField9.getText());
+            ContactInformation student = new ContactInformation(studentAddress.getAddressID(), jTextField2.getText(),
+                    jTextField11.getText());
+
+            Dashboard.setParentDetails(jTextField4.getText(), mother.getParentContactInformationID());
+            Dashboard.setParentDetails(jTextField8.getText(), father.getParentContactInformationID());
+
+            Dashboard.setStudentContactDetails(studentAddress.getAddressID(), student.getContactInformationID());
+            JOptionPane.showMessageDialog(null, "Success");
+            Dashboard.setTab(3);
+
         }
-        Dashboard.setTab(0);
 
     }// GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -234,12 +272,10 @@ public class ContactDetails extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables

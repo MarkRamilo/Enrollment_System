@@ -8,7 +8,7 @@ public class Person {
     int address_ID;
     int contact_info_ID;
 
-    public Person(String firstName, String middleName, String lastName, int address_ID, int contact_info_ID) {
+    public Person(String firstName, String middleName, String lastName, int contact_info_ID) {
         // this.person_ID = person_ID;
         this.firstName = firstName;
         this.middleName = middleName;

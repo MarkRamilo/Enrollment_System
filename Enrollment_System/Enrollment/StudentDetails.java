@@ -4,16 +4,10 @@
  */
 package Enrollment;
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import Connection.DatabaseConnection;
+import Information.ClassProgram;
+import Information.User;
 
 /**
  *
@@ -29,7 +23,6 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         jLabel1.setVisible(false);
         jLabel2.setVisible(false);
         jLabel3.setVisible(false);
-        jLabel4.setVisible(false);
 
     }
 
@@ -56,13 +49,10 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jTextField9 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -70,8 +60,10 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         jTextField17 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jComboBox4 = new javax.swing.JComboBox<>();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(1080, 800));
@@ -147,7 +139,7 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
             }
         });
         jPanel1.add(jRadioButton1);
-        jRadioButton1.setBounds(647, 51, 66, 32);
+        jRadioButton1.setBounds(647, 51, 68, 32);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -158,7 +150,7 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
             }
         });
         jPanel1.add(jRadioButton2);
-        jRadioButton2.setBounds(721, 51, 85, 32);
+        jRadioButton2.setBounds(721, 51, 87, 32);
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -169,7 +161,7 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
             }
         });
         jPanel1.add(jRadioButton3);
-        jRadioButton3.setBounds(826, 51, 77, 32);
+        jRadioButton3.setBounds(826, 51, 79, 32);
 
         jTextField9.setBackground(new java.awt.Color(204, 204, 204));
         jTextField9.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,14 +182,6 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         jPanel1.add(jTextField9);
         jTextField9.setBounds(910, 50, 108, 32);
 
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField6KeyReleased(evt);
-            }
-        });
-        jPanel1.add(jTextField6);
-        jTextField6.setBounds(170, 200, 162, 30);
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel8.setText("Middle Name:");
         jPanel1.add(jLabel8);
@@ -208,42 +192,29 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         jPanel1.add(jLabel13);
         jLabel13.setBounds(557, 125, 39, 28);
         jPanel1.add(jTextField10);
-        jTextField10.setBounds(600, 130, 31, 22);
+        jTextField10.setBounds(600, 130, 31, 26);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel9.setText("Last Name:");
+        jLabel9.setText("Course:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(50, 200, 100, 28);
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel10.setText("Email  Address:");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(20, 290, 131, 28);
-
-        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField8KeyReleased(evt);
-            }
-        });
-        jPanel1.add(jTextField8);
-        jTextField8.setBounds(170, 290, 212, 22);
+        jLabel9.setBounds(80, 290, 70, 28);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel14.setText("Date of Birth:");
         jPanel1.add(jLabel14);
         jLabel14.setBounds(557, 187, 114, 28);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year"}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new ClassProgram().getPrograms()));
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(683, 190, 72, 22);
+        jComboBox1.setBounds(170, 290, 630, 26);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(790, 190, 72, 22);
+        jComboBox2.setBounds(790, 190, 76, 26);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" }));
         jPanel1.add(jComboBox3);
-        jComboBox3.setBounds(890, 190, 72, 22);
+        jComboBox3.setBounds(890, 190, 76, 26);
 
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -265,12 +236,6 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         jPanel1.add(jLabel3);
         jLabel3.setBounds(350, 200, 109, 20);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel4.setText("Invalid Email Address");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(400, 290, 129, 20);
-
         jButton1.setText("Next");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,7 +245,24 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         jPanel1.add(jButton1);
         jButton1.setBounds(930, 460, 90, 40);
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 1060, 540));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel10.setText("Last Name:");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(50, 200, 100, 28);
+
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField7KeyReleased(evt);
+            }
+        });
+        jPanel1.add(jTextField7);
+        jTextField7.setBounds(170, 200, 162, 30);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year", "2023"}));
+        jPanel1.add(jComboBox4);
+        jComboBox4.setBounds(683, 190, 76, 26);
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 1070, 540));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 1090, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -304,16 +286,6 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         }
     }//GEN-LAST:event_jTextField5KeyReleased
 
-    private void jTextField8KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyReleased
-        // TODO add your handling code here:
-        if (!jTextField8.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$") && !jTextField8.getText().equals("")) {
-           jLabel4.setVisible(true);
-        } else {
-            jLabel4.setVisible(false);
-
-        }
-    }//GEN-LAST:event_jTextField8KeyReleased
-
     private void jTextField17KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyReleased
         // TODO add your handling code here:
         if (jTextField17.getText().matches(".*[0-9~`!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?].*") && !jTextField17.getText().equals("")) {
@@ -322,15 +294,6 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
             jLabel2.setVisible(false);
         }
     }//GEN-LAST:event_jTextField17KeyReleased
-
-    private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
-        // TODO add your handling code here:
-        if (jTextField6.getText().matches(".*[0-9~`!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?].*") && !jTextField6.getText().equals("")) {
-           jLabel3.setVisible(true);
-        } else {
-            jLabel3.setVisible(false);
-        }
-    }//GEN-LAST:event_jTextField6KeyReleased
 
     private void jTextField9FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField9FocusLost
         // TODO add your handling code here:
@@ -364,12 +327,36 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
         if(jTextField9.getText().equals("")) {
             jTextField9.setEnabled(false);
         }
+        
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Dashboard.setTab(1);
+        boolean noInputs = jTextField5.getText().equals("") || jTextField17.getText().equals("") || jTextField7.getText().equals("") || jTextField10.getText().equals("") || (jRadioButton3.isSelected() && jTextField9.getText().equals(""));
+        boolean errorVisible = jLabel1.isVisible() || jLabel2.isVisible() || jLabel3.isVisible();
+        boolean dateOfBirthIndex = jComboBox3.getSelectedIndex() == 0 || jComboBox4.getSelectedIndex() == 0 || jComboBox1.getSelectedIndex() == 0;
+        boolean checkGender = buttonGroup1.getSelection() == null;
+        
+        if (errorVisible || dateOfBirthIndex || noInputs || checkGender) {
+            JOptionPane.showMessageDialog(null, "Invalid Input");
+            
+        } else {
+            ClassProgram classProgram = new ClassProgram();
+            Dashboard.setStudentDetails(jTextField5.getText(), jTextField17.getText(), jTextField17.getText(), new User().getUserID(), classProgram.getClassProgramID(String.valueOf(jComboBox1.getSelectedItem())));
+            JOptionPane.showMessageDialog(null, "Success");
+            Dashboard.setTab(2);
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
+        // TODO add your handling code here:
+        if (jTextField17.getText().matches(".*[0-9~`!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?].*") && !jTextField17.getText().equals("")) {
+           jLabel2.setVisible(true);
+        } else {
+            jLabel2.setVisible(false);
+        }
+    }//GEN-LAST:event_jTextField7KeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -377,6 +364,7 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -385,7 +373,6 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -399,8 +386,7 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

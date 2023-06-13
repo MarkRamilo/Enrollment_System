@@ -1,26 +1,32 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Information;
 
+import Connection.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import Connection.DatabaseConnection;
-
-public class ContactInformation implements DatabaseConnection {
+/**
+ *
+ * @author PC
+ */
+public class GuardianContactInformation extends ContactInformation implements DatabaseConnection {
 
     String phone_Number;
-    String email;
 
-    public ContactInformation(int Address_ID, String email, String phone_Number) {
+    public GuardianContactInformation(int Address_ID, String email, String phone_Number) {
+
+        super(Address_ID, email, phone_Number);
 
         this.phone_Number = phone_Number;
-        this.email = email;
-
         try (Connection con = connect()) {
 
-            String sql = "Insert into contact_info values(null, ?, ?, ?)";
+            String sql = "Insert into guardian_contact_info values(null, ?, ?, ?)";
 
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, Address_ID);
@@ -36,11 +42,11 @@ public class ContactInformation implements DatabaseConnection {
         }
     }
 
-    public int getContactInformationID() {
+    public int getGuardianContactInformationID() {
 
         try (Connection con = connect()) {
 
-            String sql = "select Contact_Info_ID from contact_info where Phone_Number = ? and Email = ?";
+            String sql = "select Guardian_Contact_Info_ID from guardian_contact_info where Phone_Number = ? and Email = ?";
 
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, phone_Number);
@@ -49,8 +55,8 @@ public class ContactInformation implements DatabaseConnection {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                int Contact_Info_ID = rs.getInt("Contact_Info_ID");
-                return Contact_Info_ID;
+                int guardian_Contact_Info_ID = rs.getInt("Guardian_Contact_Info_ID");
+                return guardian_Contact_Info_ID;
             }
 
         } catch (SQLException e) {

@@ -1,24 +1,32 @@
 package Information;
 
-public class StudentGuardian {
+import Connection.DatabaseConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-    int guardian_ID;
-    String guardian_Name;
-    String relationship;
-    String guardian_Contact_Number;
-    String guardian_Email;
-    String guardian_Address;
-    String additionalInfo;
+public class StudentGuardian implements DatabaseConnection {
 
-    public StudentGuardian(int guardian_ID, String guardian_Name, String relationship, String guardian_Contact_Number,
-            String guardian_Email, String guardian_Address, String additionalInfo) {
-        this.guardian_ID = guardian_ID;
-        this.guardian_Name = guardian_Name;
-        this.relationship = relationship;
-        this.guardian_Contact_Number = guardian_Contact_Number;
-        this.guardian_Email = guardian_Email;
-        this.guardian_Address = guardian_Address;
-        this.additionalInfo = additionalInfo;
+    public StudentGuardian(int Guardian_ID, int Student_ID) {
+
+        try (Connection con = connect()) {
+
+            String sql = "insert into Student_Guardian values (null, ?, ?)";
+
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, Guardian_ID);
+            pst.setInt(2, Student_ID);
+
+            pst.executeUpdate();
+            pst.executeQuery();
+            pst.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+
     }
 
 }
