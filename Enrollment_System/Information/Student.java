@@ -1,29 +1,68 @@
 package Information;
 
-public class Student extends Person {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-    int student_ID;
-    String course;
-    String year;
-    String type;
+import Connection.DatabaseConnection;
 
-    public Student(String name, int age, String email, String contact_Number, String course, String year, String type,
-            int accessLevel) {
-        super(name, age, email, contact_Number, accessLevel);
-        // TODO Auto-generated constructor stub
+public class Student extends Person implements DatabaseConnection {
 
-        this.course = course;
-        this.year = year;
-        this.type = type;
+    int user_ID;
+
+    public Student(String firstName, String middleName, String lastName, int contact_info_ID,
+            int user_ID, int Class_Program_ID) {
+        super(firstName, middleName, lastName, contact_info_ID);
+        this.user_ID = user_ID;
+        try (Connection con = connect()) {
+
+            String sql = "Insert into student values(null, ?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            
+            pst.setString(1, firstName);
+            pst.setString(2, middleName);
+            pst.setString(3, lastName);
+            pst.setInt(4, user_ID);
+            pst.setInt(5, contact_info_ID);
+            pst.setInt(6, Class_Program_ID);
+            pst.executeUpdate();
+            pst.executeQuery();
+            System.out.println("Success adding student");
+
+            pst.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
 
     }
 
-    // public int getStudent_ID() {
-    // return student_ID;
-    // }
+    public int getStudentID() {
+        // get studentid from database
+        try (Connection con = connect()) {
 
-    // public void setStudent_ID(int student_ID) {
-    // this.student_ID = student_ID;
-    // }
+            String sql = "select Student_ID from student where User_ID = ?";
+
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, user_ID);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                int student_ID = rs.getInt("Student_ID");
+                return student_ID;
+
+            }         
+            pst.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return 0;
+
+    }
 
 }
