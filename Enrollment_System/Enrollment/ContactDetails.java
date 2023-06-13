@@ -32,7 +32,7 @@ public class ContactDetails extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -60,6 +60,10 @@ public class ContactDetails extends javax.swing.JPanel {
         jTextField11 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1080, 800));
 
@@ -71,17 +75,19 @@ public class ContactDetails extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(368, 368, 368)
-                                .addComponent(jLabel1)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(368, 368, 368)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(jLabel1)
-                                .addContainerGap(77, Short.MAX_VALUE)));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jLabel1)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(null);
@@ -89,17 +95,17 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setText("Email Address :");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(140, 250, 140, 30);
+        jLabel3.setBounds(160, 260, 140, 30);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setText("Region :");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(210, 290, 80, 27);
+        jLabel4.setBounds(220, 300, 71, 27);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel5.setText("City:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(460, 290, 40, 27);
+        jLabel5.setBounds(460, 300, 40, 27);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel10.setText("Mother's Name:");
@@ -111,39 +117,39 @@ public class ContactDetails extends javax.swing.JPanel {
         jPanel2.add(jLabel9);
         jLabel9.setBounds(20, 91, 140, 27);
         jPanel2.add(jTextField3);
-        jTextField3.setBounds(310, 380, 690, 26);
+        jTextField3.setBounds(310, 390, 690, 26);
         jPanel2.add(jTextField2);
-        jTextField2.setBounds(310, 250, 380, 26);
+        jTextField2.setBounds(310, 260, 380, 26);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setText("Additional Address Information : ");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(20, 380, 300, 30);
+        jLabel7.setBounds(10, 390, 300, 30);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(210, 340, 780, 26);
+        jTextField1.setBounds(210, 350, 780, 26);
         jPanel2.add(jTextField8);
         jTextField8.setBounds(163, 91, 210, 26);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel13.setText("Contact Number (63+) :");
+        jLabel13.setText("Phone (63+) :");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(463, 91, 210, 27);
+        jLabel13.setBounds(770, 90, 120, 27);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel12.setText("Contact Number (63+) :");
+        jLabel12.setText("Phone (63+) :");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(470, 30, 220, 27);
+        jLabel12.setBounds(770, 30, 120, 27);
         jPanel2.add(jTextField10);
-        jTextField10.setBounds(693, 91, 290, 26);
+        jTextField10.setBounds(900, 90, 90, 26);
         jPanel2.add(jTextField9);
-        jTextField9.setBounds(693, 30, 290, 26);
+        jTextField9.setBounds(900, 30, 90, 26);
         jPanel2.add(jTextField4);
         jTextField4.setBounds(160, 30, 210, 26);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel8.setText("Street/Building Name:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(10, 340, 200, 30);
+        jLabel8.setBounds(10, 350, 200, 30);
 
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,9 +172,9 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel14.setText("Student Contact Number (63+) :");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(10, 190, 290, 30);
+        jLabel14.setBounds(10, 220, 290, 30);
         jPanel2.add(jTextField11);
-        jTextField11.setBounds(310, 190, 210, 26);
+        jTextField11.setBounds(310, 220, 210, 26);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Province().getProvinces()));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -177,36 +183,46 @@ public class ContactDetails extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(310, 290, 110, 26);
+        jComboBox1.setBounds(310, 300, 110, 26);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new City().getCity()));
         jComboBox2.setEnabled(false);
         jPanel2.add(jComboBox2);
-        jComboBox2.setBounds(520, 290, 110, 26);
+        jComboBox2.setBounds(520, 300, 110, 26);
+        jPanel2.add(jTextField12);
+        jTextField12.setBounds(480, 90, 210, 26);
+        jPanel2.add(jTextField5);
+        jTextField5.setBounds(480, 30, 210, 26);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel11.setText("Email :");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(420, 90, 60, 27);
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel15.setText("Email :");
+        jPanel2.add(jLabel15);
+        jLabel15.setBounds(420, 30, 60, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox1ActionPerformed
@@ -228,15 +244,16 @@ public class ContactDetails extends javax.swing.JPanel {
         if (jTextField1.getText().equals("") || jTextField2.getText().equals("") || jTextField3.getText().equals("")
                 || jTextField4.getText().equals("") || jTextField8.getText().equals("")
                 || jTextField9.getText().equals("") || jTextField10.getText().equals("")
+                || jTextField5.getText().equals("") || jTextField12.getText().equals("")
                 || jComboBox1.getSelectedIndex() == 0 || jComboBox2.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Please fill up all the fields!");
         } else {
             Address studentAddress = new Address(jTextField1.getText(),
                     new City().getCityID(String.valueOf(jComboBox2.getSelectedItem())), jTextField3.getText());
             studentAddress.printAddress();
-            ParentContactInformation mother = new ParentContactInformation(studentAddress.getAddressID(), null,
+            ParentContactInformation mother = new ParentContactInformation(studentAddress.getAddressID(), jTextField5.getText(),
                     jTextField9.getText());
-            ParentContactInformation father = new ParentContactInformation(studentAddress.getAddressID(), null,
+            ParentContactInformation father = new ParentContactInformation(studentAddress.getAddressID(), jTextField12.getText(),
                     jTextField9.getText());
             ContactInformation student = new ContactInformation(studentAddress.getAddressID(), jTextField2.getText(),
                     jTextField11.getText());
@@ -259,9 +276,11 @@ public class ContactDetails extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -273,9 +292,11 @@ public class ContactDetails extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables

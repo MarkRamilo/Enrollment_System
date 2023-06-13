@@ -351,7 +351,7 @@ public class StudentDetails extends javax.swing.JPanel implements DatabaseConnec
 
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         // TODO add your handling code here:
-        if (jTextField17.getText().matches(".*[0-9~`!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?].*") && !jTextField17.getText().equals("")) {
+        if (jTextField17.getText().matches(".*[0-9~`!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?].*") && !jTextField7.getText().equals("")) {
            jLabel2.setVisible(true);
         } else {
             jLabel2.setVisible(false);
