@@ -8,12 +8,12 @@ package Admin_Dashboard.MenuItems;
  *
  * @author asus
  */
-public class ClassSetting extends javax.swing.JPanel {
+public class ClassSetting2 extends javax.swing.JPanel {
 
     /**
      * Creates new form ClassSetting
      */
-    public ClassSetting() {
+    public ClassSetting2() {
         initComponents();
     }
 

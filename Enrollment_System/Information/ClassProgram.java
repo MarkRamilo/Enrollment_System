@@ -72,4 +72,31 @@ public class ClassProgram implements DatabaseConnection {
         return null;
 
     }
+    
+    public String getName(int Class_Program_ID) {
+        try (Connection con = connect()) {
+            
+            
+            Statement st = con.createStatement();
+
+            String sql = "select Program_Name from Class_Program where Class_Program_ID = ?";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,Class_Program_ID );
+            ResultSet rs = ps.executeQuery();
+
+            
+            if (rs.next()) {
+                String programName = rs.getString("Program_Name");
+                return programName;
+            }         
+            ps.close();
+        
+            
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return "wala";
+
+    }
 }

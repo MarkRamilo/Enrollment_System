@@ -16,6 +16,7 @@ import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import Information.ClassProgram;
 
 
 /**
@@ -28,16 +29,19 @@ public class CourseSetting extends javax.swing.JPanel {
      * Creates new form newlang
      */
     
-    public static CourseSetting course;
+    public CourseSetting course;
     public CourseSetting() {
+        
+      
         initComponents();
 
     }
     
 
 
-
-    private void search(){
+    public void search(){
+        ClassProgram program = new ClassProgram();
+        
    String url="jdbc:mysql://dusk.mysql.database.azure.com:3306/Enrollment_System?useSSL=true";
 
         try (Connection con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6")) {
@@ -54,11 +58,11 @@ public class CourseSetting extends javax.swing.JPanel {
             ResultSet rs = pst.executeQuery();
             rs.next();
             jTextField4.setText(rs.getString("Name"));
-            jTextField5.setText(rs.getString("curriculum.Curriculum_Name"));
+            jTextField5.setText(program.getName(2));
 /*
+            a
             
-            
-            
+           
             
             
             
@@ -119,7 +123,10 @@ public class CourseSetting extends javax.swing.JPanel {
   
     }
     
-    private void updateTable(){
+    /**
+     *
+     */
+    public void updateTable(){
         
         //Empty Table
             jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -129,7 +136,12 @@ public class CourseSetting extends javax.swing.JPanel {
                 new String [] {
                      "Courses_Name","Course_Credits","Courses_Code"
                 }
-                ));
+                )
+            { public boolean isCellEditable(int row, int column)
+    {
+      return false;//This causes all cells to be not editable
+    }}
+            );
         
         
         //Update Table
@@ -203,6 +215,8 @@ public class CourseSetting extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        courses1 = new Information.Courses();
+        courses2 = new Information.Courses();
         jLabel1 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -332,12 +346,14 @@ public class CourseSetting extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private Information.Courses courses1;
+    private Information.Courses courses2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;

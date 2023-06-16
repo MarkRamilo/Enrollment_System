@@ -19,20 +19,23 @@ import java.util.ArrayList;
  *
  * @author PC
  */
-public class ClassProgram implements DatabaseConnection {
 
-    public int getClassProgramID(String ClassProgram) {
+
+public class Curriculum implements DatabaseConnection {
+
+    //Connect to Class Program Table
+    public  int getCurriculumID(int ClassProgramID) {
         // get curriculum id from database using curriculum
         try (Connection con = connect()) {
             
-           String sql = "SELECT Class_Program_ID FROM Class_Program WHERE Program_Name = ?";
+           String sql = "SELECT Curriculum_ID FROM Student WHERE StudentID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, ClassProgram);
+            ps.setInt(1, ClassProgramID);
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) {
-               int Class_Program_ID = rs.getInt("Class_Program_ID");
-                return Class_Program_ID;
+               int Curriculum_ID = rs.getInt("Curriculum_ID");
+                return Curriculum_ID;
 
             }    
             
@@ -42,34 +45,5 @@ public class ClassProgram implements DatabaseConnection {
         return 0;
     }
     
-    public String[] getPrograms() {
-        try (Connection con = connect()) {
-            
-            Statement st = con.createStatement();
 
-            String sql = "select Program_Name from Class_Program";
-            
-            ResultSet rs = st.executeQuery(sql);
-            
-            ArrayList<String> items = new ArrayList();
-
-
-            while (rs.next()) {
-                String a = rs.getString("Program_Name");
-                items.add(a);
-            }  
-            items.add(0, "Courses");
-            st.close();
-            String[] subItems = new String[items.size()];
-            items.toArray(subItems);
-            return subItems;
-
-        
-            
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return null;
-
-    }
 }

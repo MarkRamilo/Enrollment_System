@@ -7,8 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Connection.DatabaseConnection;
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
 import java.sql.DriverManager;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -19,20 +21,56 @@ import java.util.ArrayList;
  *
  * @author PC
  */
-public class ClassProgram implements DatabaseConnection {
 
-    public int getClassProgramID(String ClassProgram) {
+
+public class CurriculumCourses implements DatabaseConnection {
+
+    //Connect to Class Program Table
+    
+    public  int[] getCoursesID(int CurriculumID) {
         // get curriculum id from database using curriculum
         try (Connection con = connect()) {
             
-           String sql = "SELECT Class_Program_ID FROM Class_Program WHERE Program_Name = ?";
+           String sql = "SELECT Courses_ID FROM curriculum_courses WHERE Curriculum_ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, ClassProgram);
+            ps.setInt(1, CurriculumID);
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+
+                //int columnsNumber = rsmd.getColumnCount();
+                int i = 0;
+                int[] courses = new int[i];
+                
+            while (rs.next()) {
+                int a = rs.getInt("Courses_ID");
+                courses = Arrays.copyOf(courses, ++i);
+                courses[i-1] = a;
+        
+            }    
+            //items.add(0, "City");
+
+            ps.close();
+            return courses;
+           
+                        
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return null;
+    }
+    
+    public  int getCurriculumCoursesID(int CurriculumID) {
+        // get curriculum id from database using curriculum
+        try (Connection con = connect()) {
+            
+           String sql = "SELECT Curriculum_Courses_ID FROM curriculum_courses WHERE CurriculumID = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, CurriculumID);
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) {
-               int Class_Program_ID = rs.getInt("Class_Program_ID");
-                return Class_Program_ID;
+               int CurriculumCoursesID = rs.getInt("Curriculum_Courses_ID");
+                return CurriculumCoursesID;
 
             }    
             
@@ -42,34 +80,5 @@ public class ClassProgram implements DatabaseConnection {
         return 0;
     }
     
-    public String[] getPrograms() {
-        try (Connection con = connect()) {
-            
-            Statement st = con.createStatement();
 
-            String sql = "select Program_Name from Class_Program";
-            
-            ResultSet rs = st.executeQuery(sql);
-            
-            ArrayList<String> items = new ArrayList();
-
-
-            while (rs.next()) {
-                String a = rs.getString("Program_Name");
-                items.add(a);
-            }  
-            items.add(0, "Courses");
-            st.close();
-            String[] subItems = new String[items.size()];
-            items.toArray(subItems);
-            return subItems;
-
-        
-            
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return null;
-
-    }
 }

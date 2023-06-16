@@ -16,28 +16,46 @@ import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import Information.ClassProgram;
+import Information.CurriculumCourses;
+import Tables.CoursesTable;
+import Connection.DatabaseConnection;
+import Information.Courses;
+import javax.swing.table.TableColumnModel;
 
 
 /**
  *
  * @author james
  */
-public class CourseSetting extends javax.swing.JPanel {
+public class ClassSetting extends javax.swing.JPanel implements DatabaseConnection{
 
-    /**
-     * Creates new form newlang
-     */
-    
-    public static CourseSetting course;
-    public CourseSetting() {
+    int globalStudentID;
+    public ClassSetting course;
+    public ClassSetting() {
         initComponents();
-
+        
+       
+         
     }
-    
+    //Used on Submit button only
+ public Connection connectLocal(){
+        String url = "jdbc:mysql://localhost:3306/oop2";
+        try{
+          Class.forName("com.mysql.cj.jdbc.Driver");
+          Connection con = DriverManager.getConnection(url,"root","");
+          return con;
+          
+          }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return null;
+    }
+  
 
-
-
-    private void search(){
+    public int search(){
+        ClassProgram program = new ClassProgram();
+        
    String url="jdbc:mysql://dusk.mysql.database.azure.com:3306/Enrollment_System?useSSL=true";
 
         try (Connection con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6")) {
@@ -45,70 +63,22 @@ public class CourseSetting extends javax.swing.JPanel {
              String code = jTextField2.getText();
             
 
-            String sql = "select concat(First_Name,' ',Middle_Name,' ',Last_Name) as name, curriculum.Curriculum_Name from student\n" +
+            String sql = "select Student_ID,concat(First_Name,' ',Middle_Name,' ',Last_Name) as name, student.Curriculum_ID, curriculum.Curriculum_Name from student\n " +
                             "left join curriculum on curriculum.Curriculum_ID = student.Curriculum_ID \n" +
                             " where Student_Number = ?;";
         
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1,code);
             ResultSet rs = pst.executeQuery();
-            rs.next();
+            
+            
+            if(rs.next()){
             jTextField4.setText(rs.getString("Name"));
-            jTextField5.setText(rs.getString("curriculum.Curriculum_Name"));
-/*
-            
-            
-            
-            
-            
-            
-            
-            CourseSetting course= new CourseSetting();
-             pst.close();
-             con.close();
-             
-             
-         
-                              try{
-               tf_name.setText(rs.getString("STUD_NAME"));
-            tf_address.setText(rs.getString("STUD_ADDRESS"));
-            tf_gender.setText(rs.getString("STUD_GENDER"));
-            
-            String a = rs.getString("city");
-            
-        connect();
-        String sql = "DELETE FROM tbl_stud where ID=?";
-        PreparedStatement pst = connect().prepareStatement(sql);
-        pst.setInt(1,Integer.parseInt(tf_id.getText()));
-        pst.executeUpdate();
-        JOptionPane.showMessageDialog(null, "Working!");
-        }catch(Exception ex){
-           
-                        
-    String sql = "INSERT INTO tbl_stud(ID,STUD_NAME,STUD_ADDRESS,STUD_GENDER) VALUES(?,?,?,?)";
-        //Connection con = connect();
-        PreparedStatement pst = connect().prepareStatement(sql);
-        
-           pst.setString(1,id);
-          pst.setString(2,name);
-          pst.setString (3,address);
-          pst.setString(4,gender);
-          pst.executeUpdate();
-          
-          JOptionPane.showMessageDialog(null, "Working!");
-          connect().close();
-          
-          tf_id.setText(null);
-          tf_name.setText(null);
-          tf_address.setText(null);
-          tf_gender.setText(null);
-          
-          
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        }
-                     
-            */
+            int curriculumnID = rs.getInt("student.Curriculum_ID");
+            int cName = curriculumnID;
+            jTextField5.setText(program.getName(cName));
+              return curriculumnID;
+            }
         } catch (Exception e) {
                         System.out.println("2nd");
 
@@ -116,12 +86,16 @@ public class CourseSetting extends javax.swing.JPanel {
 
         }
        
-  
+  return 0;
     }
     
-    private void updateTable(){
+    /**
+     *
+     */
+    public void updateTable(int curriculumID){
         
         //Empty Table
+        //This causes all cells to be not editable
             jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object [][] {
                    
@@ -129,69 +103,76 @@ public class CourseSetting extends javax.swing.JPanel {
                 new String [] {
                      "Courses_Name","Course_Credits","Courses_Code"
                 }
-                ));
-        
-        
-        //Update Table
+                )
+            { public boolean isCellEditable(int row, int column)
+    {
+      return false;
+    }}
+            );
+ 
         DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
             // tableModel.addRow(tableContents);
-            String url="jdbc:mysql://dusk.mysql.database.azure.com:3306/Enrollment_System?useSSL=true";
-            try (Connection con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6")) {
+            
+            CurriculumCourses cc = new CurriculumCourses();
+            
+            try (Connection con = connect()) {
                 
                 // PreparedStatement pst = con.prepareStatement(sql);
-                Statement st = con.createStatement();
-                String sql = "SELECT curriculum_courses.Courses_ID, courses.Courses_Name, courses.Course_Credits, courses.Course_Syllabus, courses.Courses_Code "
-                        + "from curriculum_courses "
-                        + "left join courses on curriculum_courses.Courses_ID = courses.Courses_ID "
-                        + "right join class on class.Courses_ID = curriculum_courses.Courses_ID "
-                        + "right join student on student.Curriculum_ID = curriculum_courses.Curriculum_ID "
-                        + "where student.Student_Number = ?;";
+                String sql ="SELECT Courses_Name,Course_Credits,Courses_Code,class.Class_ID "
+                        + "FROM courses "
+                        + "right join curriculum_courses on curriculum_courses.Courses_ID = courses.Courses_ID "
+                        
+                         //Para dina mag preparedstatement ulit
+                        + "left join class on class.Courses_ID = courses.Courses_ID "
+                        + "WHERE curriculum_courses.Curriculum_ID = ?;";
+
+
+                PreparedStatement ps = con.prepareStatement(sql);
                 
-                        //Statement w/ SQL
-                                /*"SELECT curriculum_courses.Courses_ID, courses.Courses_Name, "
-                             + "courses.Course_Credits, courses.Course_Syllabus, courses.Courses_Code "
-                             + "from curriculum_courses left join courses on curriculum_courses.Courses_ID = courses.Courses_ID "
-                             + "right join student on student.Curriculum_ID = curriculum_courses.Curriculum_ID "
-                             + "right join class on class.Courses_ID = curriculum_courses.Courses_ID Where student.Student_Number = '202102113' "
-                             + "AND class.Semester_ID = 6;"*/
-                                
-                PreparedStatement pst = con.prepareStatement(sql);
-                String studentCode = jTextField2.getText();
-                pst.setString(1, studentCode);
-                
-                ResultSet rs = pst.executeQuery();
+                ps.setInt(1, curriculumID);
+
+                ResultSet rs = ps.executeQuery();
                 
                 ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-                
-              
                 //int columnsNumber = rsmd.getColumnCount();
-                String[] rowNames = new String[rsmd.getColumnCount()];
+                String[] rowNames = new String[4];
 
-          
-                
-                for (int i = 0; i < rowNames.length; i++) {
-                    rowNames[i] =  rsmd.getColumnName(i + 1);
-                }
+               rowNames[0] =  "Name";
+               rowNames[1] =  "Credits";
+               rowNames[2] =  "Code";
+               rowNames[3] =  "Hidden";
+               
+               
 
                 tableModel.setColumnIdentifiers(rowNames);
                 while (rs.next()) {
-                    String id = rs.getString("Courses_ID");
                     String name = rs.getString("Courses_Name");
-                    String credit = rs.getString("Course_Credits");
-                    String syllabus = rs.getString("Course_Syllabus");
+                    String credits = rs.getString("Course_Credits");
                     String code = rs.getString("Courses_Code");
-                    tableModel.addRow(new Object[] { id, name, credit, syllabus, code });
-                }
                     
+                    //Hidden - Para dina mag loop sa table yung row sa executeBatch (tipid nadin ng 2 prepared statement)
+                    String classID = rs.getString("class.Class_ID");
+                    tableModel.addRow(new Object[] { name, credits, code, classID });
+                }
+                //Hide Hidden Column(ClassId)
+                TableColumnModel tcm = jTable1.getColumnModel();
+                tcm.removeColumn( tcm.getColumn(3) );
+                
+                
                 JOptionPane.showMessageDialog(null, "Success");
-                st.close();
+                ps.close();
                 con.close();
-
+                
+               
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null,ex.getMessage());
 
             }
-    }
+             
+            }
+            
+            
+         
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -203,15 +184,21 @@ public class CourseSetting extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        courses1 = new Information.Courses();
+        courses2 = new Information.Courses();
         jLabel1 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        AddToJTable = new javax.swing.JButton();
+        DeleteToJTable = new javax.swing.JButton();
+        SubmitUpdateToDatabase = new javax.swing.JButton();
+        jTextField6 = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel1.setText("Name ");
@@ -240,16 +227,6 @@ public class CourseSetting extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Courses_Name", "Course_Credits", "Courses_Code"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable1);
-
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel3.setText("Student Number");
 
@@ -257,6 +234,64 @@ public class CourseSetting extends javax.swing.JPanel {
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Courses_Name","Course_Credits","Courses_Code"
+            }
+        )
+        { public boolean isCellEditable(int row, int column)
+            {
+                return false;
+            }}
+        );
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                Delete(evt);
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        AddToJTable.setText("Add");
+        AddToJTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddToJTableActionPerformed(evt);
+            }
+        });
+
+        DeleteToJTable.setText("Delete");
+        DeleteToJTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteToJTableActionPerformed(evt);
+            }
+        });
+
+        SubmitUpdateToDatabase.setText("Submit");
+        SubmitUpdateToDatabase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitUpdateToDatabaseActionPerformed(evt);
+            }
+        });
+
+        jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
             }
         });
 
@@ -270,23 +305,32 @@ public class CourseSetting extends javax.swing.JPanel {
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                                    .addComponent(jTextField4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))))
+                                    .addComponent(jTextField4)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addGap(89, 89, 89)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField6)
+                                .addGap(18, 18, 18)
+                                .addComponent(AddToJTable)
+                                .addGap(18, 18, 18)
+                                .addComponent(DeleteToJTable)
+                                .addGap(18, 18, 18)
+                                .addComponent(SubmitUpdateToDatabase))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,9 +348,15 @@ public class CourseSetting extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddToJTable)
+                    .addComponent(DeleteToJTable)
+                    .addComponent(SubmitUpdateToDatabase)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -314,11 +364,11 @@ public class CourseSetting extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+        
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      
-      search();
-      updateTable();
-      
+      globalStudentID = search();
+      updateTable(globalStudentID);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -329,17 +379,135 @@ public class CourseSetting extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    private void SubmitUpdateToDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitUpdateToDatabaseActionPerformed
+        
+        try{
+        connectLocal();
+        String sqlDelete = "DELETE FROM class_student WHERE Student_ID = ?";
+        String sqlAdd = "insert into class_student values (null,?,?)";
+        
+        PreparedStatement psDEL = connectLocal().prepareStatement(sqlDelete);
+        
+        //clear class that containins the student_ID
+        psDEL.setString(1, Integer.toString(globalStudentID));
+        psDEL.executeUpdate();
+        
+        PreparedStatement psADD = connectLocal().prepareStatement(sqlAdd);
+        
+        for (int row = 0; row < jTable1.getRowCount(); row++) {
+                // Retrieve the data from column
+                String hiddenColumn4 = jTable1.getModel().getValueAt(row, 3).toString();
+
+                // Set the values in the prepared statement
+                psADD.setString(1, hiddenColumn4 );
+                psADD.setInt(2, globalStudentID);
+
+                // Execute the insert statement
+                psADD.executeUpdate();
+                
+            }
+        if(psADD.executeUpdate()!=0){
+                JOptionPane.showMessageDialog(null,"Success!");
+                }
+        }catch(Exception ex){
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_SubmitUpdateToDatabaseActionPerformed
+
+    private void AddToJTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToJTableActionPerformed
+        // TODO add your handling code here:
+        String courseName = jTextField6.getText();
+        
+        Courses c = new Courses();
+        String[] courseInfo = new String[4];
+        courseInfo = c.getCourseInfo(courseName);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+       
+        
+        Object[] rowData = {courseInfo[0], courseInfo[1], courseInfo[2], courseInfo[3]};
+        
+        //Check for duplicates (GTP hehe)
+        boolean hasDuplicate = false;
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            boolean match = true;
+            for (int j = 0; j < jTable1.getColumnCount(); j++) {
+                Object value = jTable1.getValueAt(i, j);
+                if (!rowData[j].equals(value)) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) {
+                hasDuplicate = true;
+                break;
+            }
+        }
+        
+        if (!hasDuplicate) {
+            //insert row on top
+             model.insertRow(0, rowData);
+        } else {
+            JOptionPane.showMessageDialog(null, "Duplicate values found in the row!");
+        }
+        
+       
+    }//GEN-LAST:event_AddToJTableActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void DeleteToJTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteToJTableActionPerformed
+        // TODO add your handling code here:
+        
+        // Remove the row from the data model    
+        int selectedRow = jTable1.getSelectedRow();
+        
+        if (selectedRow != -1) { // Check if a row is selected
+            
+            jTextField6.setText(""); 
+            ((javax.swing.table.DefaultTableModel) jTable1.getModel()).removeRow(selectedRow);
+            
+            
+            
+        }
+    }//GEN-LAST:event_DeleteToJTableActionPerformed
+
+    private void Delete(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_Delete
+
+    }//GEN-LAST:event_Delete
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+        //Action Listener for selecting table row
+          int selectedRow =  jTable1.getSelectedRow();
+
+                Object selectedValue =  jTable1.getValueAt(selectedRow, 0);
+
+                jTextField6.setText(selectedValue.toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddToJTable;
+    private javax.swing.JButton DeleteToJTable;
+    private javax.swing.JButton SubmitUpdateToDatabase;
     private javax.swing.ButtonGroup buttonGroup1;
+    private Information.Courses courses1;
+    private Information.Courses courses2;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

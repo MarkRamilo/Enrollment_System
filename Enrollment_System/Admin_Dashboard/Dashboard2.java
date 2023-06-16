@@ -34,13 +34,13 @@ public class Dashboard2 extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         menu22 = new Admin_Dashboard.Menu2();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        courseSetting2 = new Admin_Dashboard.MenuItems.CourseSetting();
-        classSetting1 = new Admin_Dashboard.MenuItems.ClassSetting();
+        classSetting2 = new Admin_Dashboard.MenuItems.ClassSetting();
+        courseSetting1 = new Admin_Dashboard.MenuItems.CourseSetting();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane2.addTab("tab1", courseSetting2);
-        jTabbedPane2.addTab("tab2", classSetting1);
+        jTabbedPane2.addTab("tab1", classSetting2);
+        jTabbedPane2.addTab("tab2", courseSetting1);
 
         jLayeredPane1.setLayer(menu22, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jTabbedPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -117,8 +117,8 @@ public class Dashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Admin_Dashboard.MenuItems.ClassSetting classSetting1;
-    private Admin_Dashboard.MenuItems.CourseSetting courseSetting2;
+    private Admin_Dashboard.MenuItems.ClassSetting classSetting2;
+    private Admin_Dashboard.MenuItems.CourseSetting courseSetting1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private static javax.swing.JTabbedPane jTabbedPane2;
     private Admin_Dashboard.Menu2 menu22;
