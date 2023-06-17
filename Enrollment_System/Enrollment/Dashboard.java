@@ -4,13 +4,16 @@
  */
 package Enrollment;
 
+import Information.Address;
 import Information.Parent;
+import Information.ParentContactInformation;
 import Information.Student;
 import Information.StudentGuardian;
 import LoginSystem.Login;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC
@@ -27,15 +30,16 @@ public class Dashboard extends javax.swing.JFrame {
     private static ArrayList<Integer> studentContactDetails;
     private static ArrayList<Integer> guardianDetails;
     private static ArrayList<String> parentName;
-    private static ArrayList<Integer> parentDetails;
-
+    private static ArrayList<String> parentDetails;
+    private static ArrayList<Object> address;
 
     public Dashboard() {
         initComponents();
         studentName = new ArrayList<>();
         studentDetails = new ArrayList<>();
         studentContactDetails = new ArrayList<>();
-        parentName = new ArrayList<>();       
+        parentName = new ArrayList<>();
+        address = new ArrayList<>();
         parentDetails = new ArrayList<>();
         guardianDetails = new ArrayList<>();
     }
@@ -70,7 +74,6 @@ public class Dashboard extends javax.swing.JFrame {
     protected static void setParentDetails(String name, int contact_Info_ID) {
         parentName.add(name);
         parentDetails.add(contact_Info_ID);
-        
 
     }
 
@@ -84,6 +87,18 @@ public class Dashboard extends javax.swing.JFrame {
         guardianDetails.add(guardian_ID);
     }
 
+    protected static void setParentContactInformation(String email, String phoneNumber) {
+        parentDetails.add(email);
+        parentDetails.add(phoneNumber);
+    }
+
+    protected static void setAddress(String street, int city, String Additional) {
+
+        address.add(street);
+        address.add(city);
+        address.add(Additional);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,7 +107,8 @@ public class Dashboard extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         guardianContactDetails1 = new Enrollment.GuardianContactDetails();
@@ -121,13 +137,11 @@ public class Dashboard extends javax.swing.JFrame {
         javax.swing.GroupLayout newJPanel1Layout = new javax.swing.GroupLayout(newJPanel1);
         newJPanel1.setLayout(newJPanel1Layout);
         newJPanel1Layout.setHorizontalGroup(
-            newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
-        );
+                newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1080, Short.MAX_VALUE));
         newJPanel1Layout.setVerticalGroup(
-            newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 769, Short.MAX_VALUE)
-        );
+                newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 769, Short.MAX_VALUE));
 
         jTabbedPane1.addTab("tab1", newJPanel1);
         jTabbedPane1.addTab("tab2", studentDetails1);
@@ -139,28 +153,30 @@ public class Dashboard extends javax.swing.JFrame {
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
         jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                jLayeredPane1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
