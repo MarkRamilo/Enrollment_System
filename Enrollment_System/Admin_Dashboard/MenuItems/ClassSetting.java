@@ -38,28 +38,12 @@ public class ClassSetting extends javax.swing.JPanel implements DatabaseConnecti
        
          
     }
-    //Used on Submit button only
- public Connection connectLocal(){
-        String url = "jdbc:mysql://localhost:3306/oop2";
-        try{
-          Class.forName("com.mysql.cj.jdbc.Driver");
-          Connection con = DriverManager.getConnection(url,"root","");
-          return con;
-          
-          }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-        return null;
-    }
   
 
     public int search(){
-        ClassProgram program = new ClassProgram();
-        
-   String url="jdbc:mysql://dusk.mysql.database.azure.com:3306/Enrollment_System?useSSL=true";
 
-        try (Connection con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6")) {
-    
+        try (Connection con = connect()){
+             ClassProgram program = new ClassProgram();
              String code = jTextField2.getText();
             
 
@@ -80,7 +64,6 @@ public class ClassSetting extends javax.swing.JPanel implements DatabaseConnecti
               return curriculumnID;
             }
         } catch (Exception e) {
-                        System.out.println("2nd");
 
             JOptionPane.showMessageDialog(null, e.getMessage());
 
@@ -381,18 +364,10 @@ public class ClassSetting extends javax.swing.JPanel implements DatabaseConnecti
 
     private void SubmitUpdateToDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitUpdateToDatabaseActionPerformed
         
-        try{
-        connectLocal();
-        String sqlDelete = "DELETE FROM class_student WHERE Student_ID = ?";
+        try(Connection con = connect()){
         String sqlAdd = "insert into class_student values (null,?,?)";
         
-        PreparedStatement psDEL = connectLocal().prepareStatement(sqlDelete);
-        
-        //clear class that containins the student_ID
-        psDEL.setString(1, Integer.toString(globalStudentID));
-        psDEL.executeUpdate();
-        
-        PreparedStatement psADD = connectLocal().prepareStatement(sqlAdd);
+        PreparedStatement psADD = con.prepareStatement(sqlAdd);
         
         for (int row = 0; row < jTable1.getRowCount(); row++) {
                 // Retrieve the data from column
