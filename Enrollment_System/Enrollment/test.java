@@ -14,10 +14,16 @@ import Information.*;
 public class test implements DatabaseConnection {
 
     public static void main(String[] args) {
-        test t = new test();
+        //test t = new test();
 
-        Address us = new Address("test", 2, "asdsada");
-
-        System.out.println(us.getAddressID());
+        Courses us = new Courses();
+       // String[] courseInfo = new String[3];
+        us.getCourseInfo("Computer Programming 1");
+        
+        //for(int i = 0;i<3;i++){
+        //System.out.println(courseInfo[i]);
+        //}
+        
+        
     }
 }
