@@ -4,6 +4,10 @@
  */
 package StudentDashboard;
 
+import Information.Courses;
+import Information.StudentDetails;
+import java.util.ArrayList;
+
 /**
  *
  * @author PC
@@ -15,8 +19,9 @@ public class Dashboard2 extends javax.swing.JFrame {
      */
 
     public static Dashboard2 dashboard;
-    private int user_ID;
-
+    private static int user_ID;
+    private ArrayList<String> items;
+    private ArrayList<String[]> curriculumItems;
     public Dashboard2() {
         initComponents();
         new TestTheme();
@@ -27,13 +32,22 @@ public class Dashboard2 extends javax.swing.JFrame {
         this.user_ID = user_ID;
         initComponents();
         new TestTheme();
-        System.out.println(this.user_ID);
+        
+         StudentDetails studentDetails = new StudentDetails();
+         Courses courses = new Courses();
+        this.items = studentDetails.getDetails(user_ID);
+        curriculumItems = courses.getCourses(user_ID);
+        
+        initComponents();
     }
 
     protected static void setTab(int number) {
         jTabbedPane1.setSelectedIndex(number);
     }
-
+    
+    public static int getUserID() {
+        return user_ID;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,14 +58,17 @@ public class Dashboard2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        options1 = new StudentDashboard.MenuItems.Options();
+        curriculum1 = new StudentDashboard.MenuItems.Curriculum();
+        registration1 = new StudentDashboard.MenuItems.Registration();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        myProfile1 = new StudentDashboard.MenuItems.MyProfile(20);
-        options1 = new StudentDashboard.MenuItems.Options();
-        curriculum1 = new StudentDashboard.MenuItems.Curriculum();
-        registration1 = new StudentDashboard.MenuItems.Registration();
+        myProfile1 = new StudentDashboard.MenuItems.MyProfile();
+        options2 = new StudentDashboard.MenuItems.Options();
+        curriculum2 = new StudentDashboard.MenuItems.Curriculum();
+        registration2 = new StudentDashboard.MenuItems.Registration();
         menu21 = new StudentDashboard.Menu2();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,23 +89,23 @@ public class Dashboard2 extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(308, 308, 308)
+                .addGap(1142, 1142, 1142)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(528, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(299, 299, 299)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(498, Short.MAX_VALUE))
+                .addContainerGap(805, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", jPanel1);
         jTabbedPane1.addTab("tab2", myProfile1);
-        jTabbedPane1.addTab("tab3", options1);
-        jTabbedPane1.addTab("tab4", curriculum1);
-        jTabbedPane1.addTab("tab5", registration1);
+        jTabbedPane1.addTab("tab3", options2);
+        jTabbedPane1.addTab("tab4", curriculum2);
+        jTabbedPane1.addTab("tab5", registration2);
 
         jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1040, -1));
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
@@ -157,6 +174,7 @@ public class Dashboard2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private StudentDashboard.MenuItems.Curriculum curriculum1;
+    private StudentDashboard.MenuItems.Curriculum curriculum2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
@@ -164,6 +182,8 @@ public class Dashboard2 extends javax.swing.JFrame {
     private StudentDashboard.Menu2 menu21;
     private StudentDashboard.MenuItems.MyProfile myProfile1;
     private StudentDashboard.MenuItems.Options options1;
+    private StudentDashboard.MenuItems.Options options2;
     private StudentDashboard.MenuItems.Registration registration1;
+    private StudentDashboard.MenuItems.Registration registration2;
     // End of variables declaration//GEN-END:variables
 }
