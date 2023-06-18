@@ -230,7 +230,10 @@ public class ContactDetails extends javax.swing.JPanel {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         if (jComboBox1.getSelectedIndex() != 0) {
-            jComboBox2.setEnabled(true);
+            // set jcombobox2 value to cities of selected province
+            jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(
+                    new City().getCities(jComboBox1.getSelectedItem().toString())));
+            jComboBox2.jComboBox2.setEnabled(true);
         } else {
             jComboBox2.setEnabled(false);
         }
@@ -252,12 +255,12 @@ public class ContactDetails extends javax.swing.JPanel {
         } else {
             Dashboard.setAddress(jTextField1.getText(),
                     String.valueOf(jComboBox2.getSelectedItem()), jTextField3.getText());
-            
+
             Dashboard.setParentContactInformation(jTextField5.getText(), jTextField9.getText());
             Dashboard.setParentContactInformation(jTextField2.getText(), jTextField10.getText());
-            
+
             Dashboard.setStudentContactDetails(jTextField2.getText(), jTextField11.getText());
-            
+
             Dashboard.setParentDetails(jTextField4.getText());
             Dashboard.setParentDetails(jTextField8.getText());
 

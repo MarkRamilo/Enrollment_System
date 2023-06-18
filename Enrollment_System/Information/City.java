@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 public class City implements DatabaseConnection {
@@ -42,15 +41,16 @@ public class City implements DatabaseConnection {
 
     }
 
-    public String[] getCity() {
+    public String[] getCity(int Province_ID) {
 
         try (Connection con = connect()) {
 
-            Statement st = con.createStatement();
+            String sql = "select City from Cities where Province_ID = ?";
 
-            String sql = "select City from Cities";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, Province_ID);
 
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = pst.executeQuery(sql);
 
             // ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
             ArrayList<String> items = new ArrayList<>();
@@ -60,7 +60,7 @@ public class City implements DatabaseConnection {
                 items.add(a);
             }
             items.add(0, "City");
-            st.close();
+            pst.close();
             String[] subItems = new String[items.size()];
             items.toArray(subItems);
             return subItems;
