@@ -45,4 +45,10 @@ public class Province implements DatabaseConnection {
         return null;
 
     }
+
+    @Override
+    public int getID() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getID'");
+    }
 }

@@ -251,22 +251,16 @@ public class ContactDetails extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please fill up all the fields!");
         } else {
             Dashboard.setAddress(jTextField1.getText(),
-                    new City().getCityID(String.valueOf(jComboBox2.getSelectedItem())), jTextField3.getText());
+                    String.valueOf(jComboBox2.getSelectedItem()), jTextField3.getText());
+            
+            Dashboard.setParentContactInformation(jTextField5.getText(), jTextField9.getText());
+            Dashboard.setParentContactInformation(jTextField2.getText(), jTextField10.getText());
+            
+            Dashboard.setStudentContactDetails(jTextField2.getText(), jTextField11.getText());
+            
+            Dashboard.setParentDetails(jTextField4.getText());
+            Dashboard.setParentDetails(jTextField8.getText());
 
-            ParentContactInformation mother = new ParentContactInformation(
-                    jTextField5.getText(),
-                    jTextField9.getText());
-
-            ParentContactInformation father = new ParentContactInformation(studentAddress,
-                    jTextField12.getText(),
-                    jTextField9.getText());
-            ContactInformation student = new ContactInformation(studentAddress.getAddressID(), jTextField2.getText(),
-                    jTextField11.getText());
-
-            Dashboard.setParentDetails(jTextField4.getText(), mother.getParentContactInformationID());
-            Dashboard.setParentDetails(jTextField8.getText(), father.getParentContactInformationID());
-
-            Dashboard.setStudentContactDetails(studentAddress.getAddressID(), student.getContactInformationID());
             JOptionPane.showMessageDialog(null, "Success");
             Dashboard.setTab(3);
 

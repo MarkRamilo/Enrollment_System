@@ -5,10 +5,16 @@
 package Enrollment;
 
 import Information.Address;
+import Information.City;
+import Information.ClassProgram;
+import Information.ContactInformation;
+import Information.Guardian;
+import Information.GuardianContactInformation;
 import Information.Parent;
 import Information.ParentContactInformation;
 import Information.Student;
 import Information.StudentGuardian;
+import Information.User;
 import LoginSystem.Login;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,23 +31,25 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public static Dashboard dashboard;
 
-    private static ArrayList<String> studentName;
-    private static ArrayList<Integer> studentDetails;
-    private static ArrayList<Integer> studentContactDetails;
-    private static ArrayList<Integer> guardianDetails;
-    private static ArrayList<String> parentName;
+    private static ArrayList<String> student1;
+    private static ArrayList<String> studentContactDetails;
+    private static ArrayList<String> parent;
     private static ArrayList<String> parentDetails;
-    private static ArrayList<Object> address;
+    private static ArrayList<String> address;
+    private static ArrayList<String> guardianContactInformation;
+    private static ArrayList<String> guardianAddress;
+    private static ArrayList<String> guardian;
 
     public Dashboard() {
         initComponents();
-        studentName = new ArrayList<>();
-        studentDetails = new ArrayList<>();
+        student1 = new ArrayList<>();
         studentContactDetails = new ArrayList<>();
-        parentName = new ArrayList<>();
+        parent = new ArrayList<>();
         address = new ArrayList<>();
         parentDetails = new ArrayList<>();
-        guardianDetails = new ArrayList<>();
+        guardianAddress = new ArrayList<>();
+        guardianContactInformation = new ArrayList<>();
+        guardian = new ArrayList<>();
     }
 
     protected static void setTab(int number) {
@@ -49,42 +57,53 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     protected static void close() {
-        Student student = new Student(studentName.get(0), studentName.get(1), studentName.get(2),
-                studentContactDetails.get(0), studentDetails.get(0), studentDetails.get(1));
-        Parent parent1 = new Parent(parentName.get(0), parentDetails.get(0), student.getStudentID());
-        parent1.printParent();
-        Parent parent2 = new Parent(parentName.get(1), parentDetails.get(1), student.getStudentID());
-        parent2.printParent();
-        StudentGuardian studentGuardian = new StudentGuardian(guardianDetails.get(0), student.getStudentID());
+
+        User user = new User();
+        ClassProgram classProgram = new ClassProgram(student1.get(3));
+        City city = new City(address.get(1));
+        Address studentAddress = new Address(address.get(0), city.getID(), address.get(2));
+        ContactInformation studentContactInformation = new ContactInformation(studentAddress.getID(),
+                studentContactDetails.get(0), studentContactDetails.get(1));
+        Student student = new Student(student1.get(0), student1.get(1), student1.get(2),
+                studentContactInformation.getID(), user.getID(), classProgram.getID());
+
+        ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
+                parentDetails.get(0), parentDetails.get(1));
+        ParentContactInformation parentContactInformation2 = new ParentContactInformation(studentAddress.getID(),
+                parentDetails.get(0), parentDetails.get(1));
+        Parent parent1 = new Parent(parent.get(0), parentContactInformation1.getID(), student.getID());
+        Parent parent2 = new Parent(parent.get(1), parentContactInformation2.getID(), student.getID());
+
+        City guardianCity = new City(guardianAddress.get(1));
+        Address guardianAddress1 = new Address(guardianAddress.get(0), guardianCity.getID(), guardianAddress.get(2));
+        GuardianContactInformation guardianCotactInformation = new GuardianContactInformation(guardianAddress1.getID(),
+                guardianContactInformation.get(0), guardianContactInformation.get(1));
+        Guardian guardian1 = new Guardian(guardian.get(0), guardian.get(1), guardianCotactInformation.getID());
+        StudentGuardian studentGuardian = new StudentGuardian(guardian1.getID(), student.getID());
+
         JOptionPane.showMessageDialog(null, "Success");
         System.exit(0);
     }
 
     protected static void setStudentDetails(String firstName, String middleName, String lastName,
-            int user_ID, int Class_Program_ID) {
+            String Class_Program) {
 
-        studentName.add(firstName);
-        studentName.add(middleName);
-        studentName.add(lastName);
-        studentDetails.add(user_ID);
-        studentDetails.add(Class_Program_ID);
-
-    }
-
-    protected static void setParentDetails(String name, int contact_Info_ID) {
-        parentName.add(name);
-        parentDetails.add(contact_Info_ID);
+        student1.add(firstName);
+        student1.add(middleName);
+        student1.add(lastName);
+        student1.add(Class_Program);
 
     }
 
-    protected static void setStudentContactDetails(int address_ID, int contact_Info_ID) {
-        studentContactDetails.add(address_ID);
-        studentContactDetails.add(contact_Info_ID);
+    protected static void setParentDetails(String name) {
+        parent.add(name);
 
     }
 
-    protected static void setStudentGuardian(int guardian_ID) {
-        guardianDetails.add(guardian_ID);
+    protected static void setStudentContactDetails(String email, String phoneNumber) {
+        studentContactDetails.add(email);
+        studentContactDetails.add(phoneNumber);
+
     }
 
     protected static void setParentContactInformation(String email, String phoneNumber) {
@@ -92,11 +111,28 @@ public class Dashboard extends javax.swing.JFrame {
         parentDetails.add(phoneNumber);
     }
 
-    protected static void setAddress(String street, int city, String Additional) {
+    protected static void setAddress(String street, String city, String Additional) {
 
         address.add(street);
         address.add(city);
         address.add(Additional);
+    }
+
+    protected static void setGuardianAddress(String street, String city, String Additional) {
+        guardianAddress.add(street);
+        guardianAddress.add(city);
+        guardianAddress.add(Additional);
+    }
+
+    protected static void setGuardianContactInformation(String email, String phoneNumber) {
+        guardianContactInformation.add(email);
+        guardianContactInformation.add(phoneNumber);
+    }
+
+    protected static void setGuardian(String name, String relationshipToStudent) {
+        guardian.add(name);
+        guardian.add(relationshipToStudent);
+
     }
 
     /**

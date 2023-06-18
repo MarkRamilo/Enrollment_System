@@ -4,16 +4,15 @@ import Connection.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.Year;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class User implements DatabaseConnection {
 
-    public String username;
-    public String password;
+    private int user_ID;
+    private String username;
+    private String password;
 
     public User() {
         this.username = generateEmail();
@@ -26,13 +25,24 @@ public class User implements DatabaseConnection {
             PreparedStatement ps = con.prepareStatement(sql);
 
             ps.setString(1, username);
-
             ps.setString(2, password);
+
             ps.executeUpdate();
             ps.executeQuery();
-
             ps.close();
 
+            String sql2 = "SELECT User_ID FROM user WHERE Email = ?";
+            PreparedStatement ps2 = con.prepareStatement(sql2);
+            ps2.setString(1, username);
+
+            ResultSet rs = ps2.executeQuery();
+
+            if (rs.next()) {
+                this.user_ID = rs.getInt("User_ID");
+
+            }
+
+            con.close();
         } catch (Exception e) {
             e.getMessage();
         }
@@ -88,27 +98,10 @@ public class User implements DatabaseConnection {
         return sb.toString();
     }
 
-    public int getUserID() {
+    @Override
+    public int getID() {
 
-        try (Connection con = connect()) {
-
-            String sql = "SELECT User_ID FROM user WHERE Email = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, username);
-
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                int user_ID = rs.getInt("User_ID");
-                return user_ID;
-
-            }
-
-        } catch (Exception e) {
-            e.getMessage();
-        }
-
-        return 0;
+        return user_ID;
     }
 
 }

@@ -28,4 +28,6 @@ public interface DatabaseConnection {
 
         return null;
     }
+
+    public int getID();
 }
