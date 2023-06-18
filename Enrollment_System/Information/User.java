@@ -11,24 +11,23 @@ import javax.swing.JOptionPane;
 public class User implements DatabaseConnection {
 
     private int user_ID;
-    private String username;
+    private String email;
     private String password;
-
+    private boolean checkUser;
     public User() {
-        this.username = generateEmail();
-        this.password = generatePassword();
-
+        
+        this.user_ID = 0;
+        
         try (Connection con = connect()) {
 
             String sql = "INSERT INTO user(User_ID, Email, Password) VALUES(null, ?, ?) ";
 
             PreparedStatement ps = con.prepareStatement(sql);
-
+            String username = generateEmail();
             ps.setString(1, username);
-            ps.setString(2, password);
+            ps.setString(2, generatePassword());
 
             ps.executeUpdate();
-            ps.executeQuery();
             ps.close();
 
             String sql2 = "SELECT User_ID FROM user WHERE Email = ?";
@@ -47,7 +46,29 @@ public class User implements DatabaseConnection {
             e.getMessage();
         }
     }
+    public User(String email, String password) {
+        
+        this.email = email;
+        this.password = password;
+        
+        try (Connection con = connect()) {
 
+            String sql = "select User_ID from user where email = ? and password = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, email);
+            ps.setString(2, password);
+
+            ResultSet rs = ps.executeQuery();
+
+            
+            this.checkUser = rs.next();
+            
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
     private String generateEmail() {
 
         Year year = Year.now();
@@ -103,5 +124,8 @@ public class User implements DatabaseConnection {
 
         return user_ID;
     }
-
+    
+    public boolean exist() {
+        return checkUser;
+    }
 }

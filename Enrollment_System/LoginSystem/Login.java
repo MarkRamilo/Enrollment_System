@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package LoginSystem;
 
-import java.awt.Dimension;
-import javax.swing.JPanel;
-import javax.swing.JLayeredPane;
-import Design.Cover;
+import Information.User;
+import StudentDashboard.Dashboard2;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -220,6 +215,11 @@ public class Login extends javax.swing.JFrame {
 
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Login");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -336,6 +336,21 @@ public class Login extends javax.swing.JFrame {
             verify.setVisible(false);
         }
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        User user = new User(jTextField1.getText(), jPasswordField1.getText());
+        
+        if (user.exist()) {
+            JOptionPane.showMessageDialog(null, "success");
+            this.dispose();
+            Dashboard2 dashboard = new StudentDashboard.Dashboard2(user.getID());
+            dashboard.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Wrong email or password.");
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

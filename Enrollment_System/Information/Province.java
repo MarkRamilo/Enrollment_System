@@ -21,6 +21,9 @@ public class Province implements DatabaseConnection {
     private int province_ID;
     
     public Province(String Province) {
+        
+        this.province_ID = 0;
+        
         try (Connection con = connect()) {
 
             String sql = "select Province_ID from Provinces where Province = ?";
@@ -33,16 +36,12 @@ public class Province implements DatabaseConnection {
             if (rs.next()) {
                 this.province_ID = rs.getInt("Province_ID");
                 
-
             }
             con.close();
 
         } catch (SQLException e) {
             e.getMessage();
         }
-
-        this.province_ID = 0;
-
     }
     
     public Province() {

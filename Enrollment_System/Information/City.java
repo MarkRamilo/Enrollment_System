@@ -12,6 +12,9 @@ public class City implements DatabaseConnection {
     private int city_ID;
 
     public City(String city) {
+        
+        this.city_ID = 0;
+        
         try (Connection con = connect()) {
 
             String sql = "select City_ID from Cities where City = ?";
@@ -32,8 +35,6 @@ public class City implements DatabaseConnection {
             e.getMessage();
         }
 
-        this.city_ID = 0;
-
     }
 
     public City() {
@@ -50,7 +51,7 @@ public class City implements DatabaseConnection {
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, Province_ID);
 
-            ResultSet rs = pst.executeQuery(sql);
+            ResultSet rs = pst.executeQuery();
 
             // ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
             ArrayList<String> items = new ArrayList<>();

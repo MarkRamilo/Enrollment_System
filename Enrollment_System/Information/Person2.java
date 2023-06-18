@@ -3,7 +3,6 @@ package Information;
 public class Person2 {
 
     String name;
-    int address_ID;
     int contact_info_ID;
 
     public Person2(String name, int contact_info_ID) {

@@ -28,7 +28,7 @@ public class Curriculum implements DatabaseConnection {
         // get curriculum id from database using curriculum
         try (Connection con = connect()) {
             
-           String sql = "SELECT Curriculum_ID FROM Student WHERE StudentID = ?";
+           String sql = "SELECT Curriculum_ID FROM Student WHERE Student_ID = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, ClassProgramID);
             ResultSet rs = ps.executeQuery();

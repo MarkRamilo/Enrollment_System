@@ -30,7 +30,6 @@ public class ClassProgram implements DatabaseConnection {
         } catch (SQLException e) {
             e.getMessage();
         }
-        this.class_Program_ID = 0;
     }
 
     public ClassProgram() {

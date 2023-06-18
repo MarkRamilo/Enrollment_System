@@ -7,7 +7,7 @@ package Enrollment;
 import Information.Address;
 import Information.City;
 import Information.ClassProgram;
-import Information.ContactInformation;
+import Information.StudentContactInformation;
 import Information.Guardian;
 import Information.GuardianContactInformation;
 import Information.Parent;
@@ -17,7 +17,6 @@ import Information.StudentGuardian;
 import Information.User;
 import LoginSystem.Login;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 /**
@@ -62,23 +61,30 @@ public class Dashboard extends javax.swing.JFrame {
         ClassProgram classProgram = new ClassProgram(student1.get(3));
         City city = new City(address.get(1));
         Address studentAddress = new Address(address.get(0), city.getID(), address.get(2));
-        ContactInformation studentContactInformation = new ContactInformation(studentAddress.getID(),
+        System.out.println("studentAddress:" + studentAddress.getID());
+        StudentContactInformation studentContactInformation = new StudentContactInformation(studentAddress.getID(),
                 studentContactDetails.get(0), studentContactDetails.get(1));
+        System.out.println("studentContactInformation: " + studentContactInformation.getID());
         Student student = new Student(student1.get(0), student1.get(1), student1.get(2),
                 studentContactInformation.getID(), user.getID(), classProgram.getID());
-
+        System.out.println("student: " + student.getID());
         ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
                 parentDetails.get(0), parentDetails.get(1));
+        System.out.println("parent1contact: " + parentContactInformation1.getID());
         ParentContactInformation parentContactInformation2 = new ParentContactInformation(studentAddress.getID(),
-                parentDetails.get(0), parentDetails.get(1));
+                parentDetails.get(2), parentDetails.get(3));
+        System.out.println("parent2contact: " + parentContactInformation2.getID());
         Parent parent1 = new Parent(parent.get(0), parentContactInformation1.getID(), student.getID());
         Parent parent2 = new Parent(parent.get(1), parentContactInformation2.getID(), student.getID());
 
         City guardianCity = new City(guardianAddress.get(1));
         Address guardianAddress1 = new Address(guardianAddress.get(0), guardianCity.getID(), guardianAddress.get(2));
+        System.out.println("guardianaddress: " + guardianAddress1.getID());
         GuardianContactInformation guardianCotactInformation = new GuardianContactInformation(guardianAddress1.getID(),
                 guardianContactInformation.get(0), guardianContactInformation.get(1));
+        System.out.println(String.valueOf(guardianCotactInformation.getID()));
         Guardian guardian1 = new Guardian(guardian.get(0), guardian.get(1), guardianCotactInformation.getID());
+        System.out.println("Guardian: " + guardian1.getID());
         StudentGuardian studentGuardian = new StudentGuardian(guardian1.getID(), student.getID());
 
         JOptionPane.showMessageDialog(null, "Success");

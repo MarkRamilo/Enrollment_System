@@ -11,10 +11,6 @@ package Admin_Dashboard;
  */
 public class Dashboard2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Dashboard2
-     */
-    
     public static Dashboard2 dashboard;
 
     public Dashboard2() {
@@ -34,11 +30,8 @@ public class Dashboard2 extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         menu22 = new Admin_Dashboard.Menu2();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        classSetting2 = new Admin_Dashboard.MenuItems.ClassSetting();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTabbedPane2.addTab("tab1", classSetting2);
 
         jLayeredPane1.setLayer(menu22, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jTabbedPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -50,7 +43,8 @@ public class Dashboard2 extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addComponent(menu22, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2))
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +109,6 @@ public class Dashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Admin_Dashboard.MenuItems.ClassSetting classSetting2;
     private javax.swing.JLayeredPane jLayeredPane1;
     private static javax.swing.JTabbedPane jTabbedPane2;
     private Admin_Dashboard.Menu2 menu22;

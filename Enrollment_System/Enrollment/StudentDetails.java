@@ -6,9 +6,8 @@ package Enrollment;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import Connection.DatabaseConnection;
 import Information.ClassProgram;
-import Information.User;
+
 
 /**
  *
@@ -352,7 +351,6 @@ public class StudentDetails extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Invalid Input");
 
         } else {
-            ClassProgram classProgram = new ClassProgram();
             Dashboard.setStudentDetails(jTextField5.getText(), jTextField17.getText(), jTextField17.getText(),
                     String.valueOf(jComboBox1.getSelectedItem()));
             JOptionPane.showMessageDialog(null, "Success");

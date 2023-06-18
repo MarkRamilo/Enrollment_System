@@ -13,6 +13,8 @@ public class Guardian extends Person2 implements DatabaseConnection {
     public Guardian(String name, String relationshipToStudent, int contact_info_ID) {
         super(name, contact_info_ID);
 
+        this.guardian_ID = 0;
+
         try (Connection con = connect()) {
 
             String sql1 = "Select Guardian_ID from guardian where Name = ?";
@@ -31,7 +33,6 @@ public class Guardian extends Person2 implements DatabaseConnection {
                 pst1.setInt(3, contact_info_ID);
 
                 pst1.executeUpdate();
-                pst1.executeQuery();
                 pst1.close();
 
             }
@@ -62,4 +63,30 @@ public class Guardian extends Person2 implements DatabaseConnection {
 
     }
 
+    // print guardian class
+    @Override
+    public String toString() {
+        String guardian = "";
+        try (Connection con = connect()) {
+
+            String sql = "Select * from guardian where Guardian_ID = ?";
+
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, guardian_ID);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                guardian = rs.getString("Name") + " " + rs.getString("Relationship_To_Student") + " "
+                        + rs.getInt("Contact_Info_ID");
+
+            }
+            con.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+
+        }
+        return guardian;
+    }
 }

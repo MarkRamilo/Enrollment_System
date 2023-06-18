@@ -31,6 +31,12 @@ public class Parent extends Person2 implements DatabaseConnection {
             pst.executeQuery();
             System.out.println("Success adding parent");
             pst.close();
+            con.close();
+
+            System.out.println("parent details");
+            System.out.println("Name: " + name);
+            System.out.println("Contact Info ID: " + contact_info_ID);
+            System.out.println("Student ID: " + student_ID);
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block

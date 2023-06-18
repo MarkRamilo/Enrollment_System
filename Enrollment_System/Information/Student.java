@@ -15,6 +15,8 @@ public class Student extends Person implements DatabaseConnection {
             int user_ID, int Class_Program_ID) {
         super(firstName, middleName, lastName, contact_info_ID);
 
+        this.student_ID = 0;
+
         try (Connection con = connect()) {
 
             String sql = "Insert into student values(null, ?, ?, ?, ?, ?, ?)";
@@ -27,8 +29,8 @@ public class Student extends Person implements DatabaseConnection {
             pst.setInt(4, user_ID);
             pst.setInt(5, contact_info_ID);
             pst.setInt(6, Class_Program_ID);
+            
             pst.executeUpdate();
-            pst.executeQuery();
             pst.close();
 
             String sql2 = "select Student_ID from student where User_ID = ?";

@@ -14,6 +14,7 @@ public class Courses implements DatabaseConnection {
 
     public String[] getCourseInfo(String Courses_Name) {
         // get curriculum id from database using curriculum
+        
         try (Connection con = connect()) {
 
             String sql = "SELECT Courses_Name, Course_Credits, Courses_Code, class.Class_ID "
@@ -49,59 +50,11 @@ public class Courses implements DatabaseConnection {
 
         return null;
     }
+    
+    public int getID() {
+               
+        throw new UnsupportedOperationException("Unimplemented method 'getID'");
 
-    public int getCourseCredits(int Courses_ID) {
-        // get curriculum id from database using curriculum
-        try (Connection con = connect()) {
-
-            String sql = "SELECT Course_Credits FROM courses WHERE Courses_ID = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, Courses_ID);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                int Course_Credits = rs.getInt("Coures_Credits");
-                return Course_Credits;
-
-            }
-
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return 0;
-    }
-
-    public String getCode(int Courses_ID) {
-        // get curriculum id from database using curriculum
-        try (Connection con = connect()) {
-
-            String sql = "SELECT Courses_Code FROM courses WHERE Courses_ID = ?";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, Courses_ID);
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-                String Courses_Code = rs.getString("Couress_Code");
-                return Courses_Code;
-
-            }
-
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return null;
-    }
-
-    public void print(String Courses_Name) {
-        // get curriculum id from database using curriculum
-        Courses us = new Courses();
-        String[] courseInfo = new String[3];
-        courseInfo = us.getCourseInfo(Courses_Name);
-
-        for (int i = 0; i < 3; i++) {
-            System.out.println(courseInfo[i]);
-        }
-        System.out.println("Test");
     }
 
 }

@@ -1,17 +1,20 @@
 package Information;
 
+import Connection.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GuardianContactInformation extends ContactInformation {
+public class GuardianContactInformation extends ContactInformation implements DatabaseConnection {
 
     private int guardian_Contact_Info_ID;
-
+    
     public GuardianContactInformation(int Address_ID, String email, String phone_Number) {
 
         super(Address_ID, email, phone_Number);
+
+        this.guardian_Contact_Info_ID = 0;
 
         try (Connection con = connect()) {
 
@@ -23,7 +26,6 @@ public class GuardianContactInformation extends ContactInformation {
             pst.setString(3, phone_Number);
 
             pst.executeUpdate();
-            pst.executeQuery();
             pst.close();
 
             String sql2 = "select Guardian_Contact_Info_ID from guardian_contact_info where Phone_Number = ? and Email = ?";
@@ -50,5 +52,31 @@ public class GuardianContactInformation extends ContactInformation {
 
         return guardian_Contact_Info_ID;
 
+    }
+
+    // print contact information class
+    @Override
+    public String toString() {
+        String contactInfo = "";
+        try (Connection con = connect()) {
+
+            String sql = "select * from guardian_contact_info where Guardian_Contact_Info_ID = ?";
+
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, guardian_Contact_Info_ID);
+
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                contactInfo = "Guardian Contact Information ID: " + rs.getInt("Guardian_Contact_Info_ID") + "\n"
+                        + "Address ID: " + rs.getInt("Address_ID") + "\n" + "Email: " + rs.getString("Email") + "\n"
+                        + "Phone Number: " + rs.getString("Phone_Number") + "\n";
+
+            }
+            con.close();
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return contactInfo;
     }
 }
