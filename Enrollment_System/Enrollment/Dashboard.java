@@ -12,6 +12,7 @@ import Information.Guardian;
 import Information.GuardianContactInformation;
 import Information.Parent;
 import Information.ParentContactInformation;
+import Information.Reference;
 import Information.Student;
 import Information.StudentGuardian;
 import Information.User;
@@ -67,6 +68,7 @@ public class Dashboard extends javax.swing.JFrame {
         System.out.println("studentContactInformation: " + studentContactInformation.getID());
         Student student = new Student(student1.get(0), student1.get(1), student1.get(2),
                 studentContactInformation.getID(), user.getID(), classProgram.getID());
+        Reference reference = new Reference(student.getID());
         System.out.println("student: " + student.getID());
         ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
                 parentDetails.get(0), parentDetails.get(1));

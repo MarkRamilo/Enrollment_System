@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.Year;
 import java.util.Random;
-import javax.swing.JOptionPane;
 
 public class User implements DatabaseConnection {
 
@@ -14,27 +13,44 @@ public class User implements DatabaseConnection {
     private String email;
     private String password;
     private boolean checkUser;
+    
     public User() {
         
         this.user_ID = 0;
+        String username = generateEmail();
         
         try (Connection con = connect()) {
+           
+            while (true) {
+                String sql = "SELECT * FROM user WHERE email = ?";
+                
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.setString(1, username);
+                ResultSet rs = pst.executeQuery();
 
-            String sql = "INSERT INTO user(User_ID, Email, Password) VALUES(null, ?, ?) ";
+                if (!rs.next()) {
+                    break;
 
-            PreparedStatement ps = con.prepareStatement(sql);
-            String username = generateEmail();
-            ps.setString(1, username);
-            ps.setString(2, generatePassword());
+                } else {
+                    username = generateEmail();
+                }
+            }
+            
+            String sql1 = "INSERT INTO user VALUES(null, ?, ?, 1) ";
 
-            ps.executeUpdate();
-            ps.close();
+            PreparedStatement pst1 = con.prepareStatement(sql1);
+            
+            pst1.setString(1, username);
+            pst1.setString(2, generatePassword());
+
+            pst1.executeUpdate();
+            pst1.close();
 
             String sql2 = "SELECT User_ID FROM user WHERE Email = ?";
-            PreparedStatement ps2 = con.prepareStatement(sql2);
-            ps2.setString(1, username);
+            PreparedStatement pst2 = con.prepareStatement(sql2);
+            pst2.setString(1, username);
 
-            ResultSet rs = ps2.executeQuery();
+            ResultSet rs = pst2.executeQuery();
 
             if (rs.next()) {
                 this.user_ID = rs.getInt("User_ID");
@@ -69,38 +85,25 @@ public class User implements DatabaseConnection {
             e.getMessage();
         }
     }
+    
     private String generateEmail() {
 
         Year year = Year.now();
         final String domainName = "@hogwarts.com.ph";
         StringBuilder emailAddress = new StringBuilder();
 
-        try (Connection con = connect()) {
             emailAddress.append(year + "-");
             String number = "";
-            for (int i = 0; i < 5; i++) {
+            
+            for (int i = 0; i < 5; i++) {    
                 number += String.valueOf(new Random().nextInt(9));
+                
             }
+            
             emailAddress.append(number);
             emailAddress.append(domainName);
-            String sql = "SELECT * FROM user WHERE email = ?";
 
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, emailAddress.toString());
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                return generateEmail();
-
-            } else {
-                return emailAddress.toString();
-            }
-
-        } catch (Exception e) {
-            // TODO: handle exception
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        return null;
+            return emailAddress.toString();
 
     }
 

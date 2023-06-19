@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
 import Connection.DatabaseConnection;
 import Information.*;
 
@@ -14,22 +13,22 @@ import Information.*;
 public class test implements DatabaseConnection {
 
     public static void main(String[] args) {
-        //test t = new test();
+        // test t = new test();
 
-        StudentDetails us = new Information.StudentDetails();
-        
-       // String[] courseInfo = new String[3];
-        System.out.println(us.getDetails(20).toString());
-        
-        //for(int i = 0;i<3;i++){
-        //System.out.println(courseInfo[i]);
-        //}
-        
-        
+        Reference us = new Reference();
+
+        // String[] courseInfo = new String[3];
+        System.out.println(us.getReference_Number(1));
+
+        // for(int i = 0;i<3;i++){
+        // System.out.println(courseInfo[i]);
+        // }
+
     }
 
     @Override
     public int getID() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
