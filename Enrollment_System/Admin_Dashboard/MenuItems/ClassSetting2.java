@@ -27,7 +27,6 @@ public class ClassSetting2 extends javax.swing.JPanel {
         SubmitUpdateToDatabase = new javax.swing.JButton();
         DeleteToJTable = new javax.swing.JButton();
         AddToJTable = new javax.swing.JButton();
-        jTextField6 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -35,6 +34,14 @@ public class ClassSetting2 extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         SubmitUpdateToDatabase.setText("Submit");
         SubmitUpdateToDatabase.addActionListener(new java.awt.event.ActionListener() {
@@ -42,6 +49,8 @@ public class ClassSetting2 extends javax.swing.JPanel {
                 SubmitUpdateToDatabaseActionPerformed(evt);
             }
         });
+        add(SubmitUpdateToDatabase);
+        SubmitUpdateToDatabase.setBounds(810, 700, 76, 27);
 
         DeleteToJTable.setText("Delete");
         DeleteToJTable.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +58,8 @@ public class ClassSetting2 extends javax.swing.JPanel {
                 DeleteToJTableActionPerformed(evt);
             }
         });
+        add(DeleteToJTable);
+        DeleteToJTable.setBounds(900, 280, 76, 27);
 
         AddToJTable.setText("Add");
         AddToJTable.addActionListener(new java.awt.event.ActionListener() {
@@ -56,13 +67,8 @@ public class ClassSetting2 extends javax.swing.JPanel {
                 AddToJTableActionPerformed(evt);
             }
         });
-
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
+        add(AddToJTable);
+        AddToJTable.setBounds(750, 250, 76, 27);
 
         jTextField5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +76,8 @@ public class ClassSetting2 extends javax.swing.JPanel {
                 jTextField5ActionPerformed(evt);
             }
         });
+        add(jTextField5);
+        jTextField5.setBounds(370, 140, 371, 33);
 
         jTextField4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +85,8 @@ public class ClassSetting2 extends javax.swing.JPanel {
                 jTextField4ActionPerformed(evt);
             }
         });
+        add(jTextField4);
+        jTextField4.setBounds(370, 90, 191, 29);
 
         jTextField2.setToolTipText("Enter Student Number\n");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +94,8 @@ public class ClassSetting2 extends javax.swing.JPanel {
                 jTextField2ActionPerformed(evt);
             }
         });
+        add(jTextField2);
+        jTextField2.setBounds(370, 40, 127, 26);
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -91,76 +103,57 @@ public class ClassSetting2 extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1);
+        jButton1.setBounds(580, 40, 76, 27);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel3.setText("Student Number");
+        add(jLabel3);
+        jLabel3.setBounds(240, 50, 108, 16);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel1.setText("Name ");
+        add(jLabel1);
+        jLabel1.setBounds(310, 100, 42, 16);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
-        jLabel4.setText("Program Name");
+        jLabel4.setText("Program");
+        add(jLabel4);
+        jLabel4.setBounds(290, 150, 60, 16);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(121, 121, 121)
-                                .addComponent(jButton1))
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(248, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AddToJTable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DeleteToJTable)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SubmitUpdateToDatabase)
-                .addGap(96, 96, 96))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(42, 42, 42)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddToJTable)
-                    .addComponent(DeleteToJTable)
-                    .addComponent(SubmitUpdateToDatabase))
-                .addContainerGap(401, Short.MAX_VALUE))
-        );
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        add(jComboBox1);
+        jComboBox1.setBounds(370, 190, 371, 26);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel5.setText("Courses");
+        add(jLabel5);
+        jLabel5.setBounds(150, 260, 52, 16);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(60, 280, 830, 406);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        add(jComboBox2);
+        jComboBox2.setBounds(211, 250, 530, 26);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
+        jLabel6.setText("Semester");
+        add(jLabel6);
+        jLabel6.setBounds(290, 200, 60, 16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubmitUpdateToDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitUpdateToDatabaseActionPerformed
@@ -174,10 +167,6 @@ public class ClassSetting2 extends javax.swing.JPanel {
     private void AddToJTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToJTableActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AddToJTableActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
@@ -201,12 +190,17 @@ public class ClassSetting2 extends javax.swing.JPanel {
     private javax.swing.JButton DeleteToJTable;
     private javax.swing.JButton SubmitUpdateToDatabase;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
