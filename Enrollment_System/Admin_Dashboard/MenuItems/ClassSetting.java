@@ -18,7 +18,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import Information.ClassProgram;
 import Information.CurriculumCourses;
-import Tables.CoursesTable;
 import Connection.DatabaseConnection;
 import Information.Courses;
 import javax.swing.table.TableColumnModel;
@@ -58,6 +57,7 @@ public class ClassSetting extends javax.swing.JPanel implements DatabaseConnecti
             
             if(rs.next()){
             jTextField4.setText(rs.getString("Name"));
+
             int curriculumnID = rs.getInt("student.Curriculum_ID");
             int cName = curriculumnID;
             jTextField5.setText(program.getName(cName));
