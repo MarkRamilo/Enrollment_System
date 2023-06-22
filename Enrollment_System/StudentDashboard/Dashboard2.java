@@ -22,6 +22,7 @@ public class Dashboard2 extends javax.swing.JFrame {
     private static int user_ID;
     private ArrayList<String> items;
     private ArrayList<String[]> curriculumItems;
+    
     public Dashboard2() {
         initComponents();
         new TestTheme();
