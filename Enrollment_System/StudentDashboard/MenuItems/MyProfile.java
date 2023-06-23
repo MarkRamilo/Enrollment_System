@@ -21,14 +21,6 @@ public class MyProfile extends javax.swing.JPanel {
 
     public MyProfile() {
         initComponents();
-        StudentDetails studentDetails = new StudentDetails();
-        ArrayList<String> items = studentDetails.getDetails(Dashboard2.getUserID());
-        jTextField1.setText(items.get(0));
-        jTextField2.setText(items.get(1));
-        jTextField3.setText(items.get(2));
-        jTextField4.setText(items.get(3));
-        jTextField5.setText(items.get(4));
-
     }
 
     /**
@@ -140,9 +132,13 @@ public class MyProfile extends javax.swing.JPanel {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(97, 97, 97)
                 .addComponent(jLabel3)
-                .addGap(28, 28, 28)
+                .addGap(83, 83, 83)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(198, Short.MAX_VALUE))
+=======
+                .addContainerGap(173, Short.MAX_VALUE))
+>>>>>>> parent of b084a47 (update 7)
         );
 
         jPanel2.add(jPanel1);

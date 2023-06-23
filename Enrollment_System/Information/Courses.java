@@ -85,10 +85,6 @@ public class Courses implements DatabaseConnection {
         throw new UnsupportedOperationException("Unimplemented method 'getID'");
 
     }
-    
-    public Courses() {
-
-    }
 
     public ArrayList<String[]> getCourses(int user_ID) {
 
@@ -128,41 +124,5 @@ public class Courses implements DatabaseConnection {
         }
         return null;
     }
-    
-    public ArrayList<String> getCoursesRegistration(int user_ID) {
 
-        ArrayList<String> items = new ArrayList<>();
-
-        try (Connection con = connect()) {
-
-            // PreparedStatement pst = con.prepareStatement(sql);
-            String sql = "SELECT c.Courses_Name\n" +
-"from courses c, class cl, registration_details rd, registration r, reference re, student s, user u\n" +
-"WHERE c.Courses_ID = cl.Class_ID \n" +
-"AND rd.Class_ID = cl.Class_ID\n" +
-"AND rd.Registration_ID = r.Registration_ID\n" +
-"and re.Student_ID = s.Student_ID\n" +
-"AND s.User_ID = ?;";
-
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, user_ID);
-
-            ResultSet rs = pst.executeQuery();
-            ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-
-            // int columnsNumber = rsmd.getColumnCount();
-
-            while (rs.next()) {
-                items.add("Courses_Name");
-            }
-            pst.close();
-            con.close();
-            return items;
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-
-        }
-        return null;
-    }
 }

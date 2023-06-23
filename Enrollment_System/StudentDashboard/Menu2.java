@@ -34,6 +34,12 @@ public class Menu2 extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+<<<<<<< HEAD
+=======
+        jLabel8 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+>>>>>>> parent of b084a47 (update 7)
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -65,7 +71,67 @@ public class Menu2 extends javax.swing.JPanel {
             }
         });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+<<<<<<< HEAD
         jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 240, 40));
+=======
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Registration");
+        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel8MouseExited(evt);
+            }
+        });
+        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 40));
+
+        jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 240, 40));
+
+        jPanel2.setBackground(new java.awt.Color(57, 75, 88));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setForeground(new java.awt.Color(57, 75, 88));
+        jPanel2.setOpaque(false);
+        jPanel2.setPreferredSize(new java.awt.Dimension(243, 40));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Options");
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
+        jLabel2.setMaximumSize(new java.awt.Dimension(73, 20));
+        jLabel2.setMinimumSize(new java.awt.Dimension(75, 20));
+        jLabel2.setPreferredSize(new java.awt.Dimension(75, 22));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
+        });
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 40));
+
+        jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 240, -1));
+>>>>>>> parent of b084a47 (update 7)
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -101,7 +167,7 @@ public class Menu2 extends javax.swing.JPanel {
         });
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 40));
 
-        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 240, -1));
+        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 240, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -262,6 +328,12 @@ public class Menu2 extends javax.swing.JPanel {
         jLabel1.setBackground(Color.LIGHT_GRAY);
     }//GEN-LAST:event_jLabel1MouseEntered
 
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:
+        jLabel2.setBackground(Color.LIGHT_GRAY);
+
+    }//GEN-LAST:event_jLabel2MouseEntered
+
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
         // TODO add your handling code here:
         jLabel5.setBackground(Color.LIGHT_GRAY);
@@ -273,6 +345,12 @@ public class Menu2 extends javax.swing.JPanel {
         jLabel5.setBackground(Color.WHITE);
 
     }//GEN-LAST:event_jLabel5MouseExited
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        // TODO add your handling code here:
+        jLabel2.setBackground(Color.WHITE);
+
+    }//GEN-LAST:event_jLabel2MouseExited
 
     private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
         // TODO add your handling code here:
@@ -323,13 +401,13 @@ public class Menu2 extends javax.swing.JPanel {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        Dashboard2.setTab(2);
+        Dashboard2.setTab(3);
 
     }// GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-        Dashboard2.setTab(3);
+        Dashboard2.setTab(4);
 
     }// GEN-LAST:event_jLabel8MouseClicked
 
@@ -346,7 +424,7 @@ public class Menu2 extends javax.swing.JPanel {
 
     private void jPanel4MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jPanel4MouseClicked
         // TODO add your handling code here:
-        Dashboard2.setTab(0);
+        Dashboard2.setTab(4);
 
     }// GEN-LAST:event_jPanel4MouseClicked
 
@@ -363,6 +441,7 @@ public class Menu2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

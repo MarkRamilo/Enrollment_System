@@ -3,9 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package StudentDashboard;
-import Information.PaymentInfo;
-import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -16,18 +13,13 @@ public class Payment extends javax.swing.JFrame {
     /**
      * Creates new form Payment
      */
-    private int referenceNumber;
-    private String paymentAmount;
     public Payment() {
         initComponents();
     }
     
-    public Payment(String referenceNumber, String paymentAmount) {
-        this.referenceNumber = Integer.parseInt(referenceNumber);
-        this.paymentAmount = paymentAmount;
-        
+    public Payment(String referenceNumber, int paymentAmount) {
         jLabel7.setText(referenceNumber);
-        jTextField1.setText(paymentAmount);
+        jTextField1.setText(String.valueOf(paymentAmount));
     }
 
     /**
@@ -72,9 +64,7 @@ public class Payment extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setEnabled(false);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gcash", "Cash", "Paynamics" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel6.setText("Payment_Amount: ");
@@ -83,11 +73,6 @@ public class Payment extends javax.swing.JFrame {
         jLabel5.setText("Payment Method:");
 
         jButton1.setText("Pay");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel2.setText("Reference Number:");
@@ -154,12 +139,6 @@ public class Payment extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        PaymentInfo payment = new PaymentInfo(referenceNumber, paymentAmount, String.valueOf(jComboBox1.getSelectedItem()));
-        JOptionPane.showMessageDialog(null, "Success");
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
