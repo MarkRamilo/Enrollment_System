@@ -18,23 +18,17 @@ public interface DatabaseConnection {
         System.out.println("Connecting to database...");
         Connection con = null;
 
+        // return con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6");
+        // String url =
+        // "jdbc:mysql://dusk.mysql.database.azure.com:3306/test_integration?useSSL=true";
+        String url = "jdbc:mysql://localhost:3306/test7";
 
+        // String url = "jdbc:mysql://localhost:3306/test7";
 
-            //return con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6");
-        //String url = "jdbc:mysql://dusk.mysql.database.azure.com:3306/test_integration?useSSL=true";
-
-        //String url = "jdbc:mysql://localhost:3306/test7";
-        
-        String url = "jdbc:mysql://localhost:3306/test4";
-        // set url to local folder of database test7
-        //String url = "jdbc:mysql:C:\\Users\\PC\\Documents\\NetBeansProjects\\Enrollment_System\\test7.db";
-
-        //String url = "jdbc:mysql://dusk.mysql.database.azure.com:3306/test_integration?useSSL=true";
         try {
             // return con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6");
 
             return con = DriverManager.getConnection(url, "root", "");
-
 
         } catch (Exception e) {
             // TODO: handle exception
