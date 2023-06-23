@@ -4,7 +4,9 @@
  */
 package Admin_Dashboard.MenuItems;
 import Connection.DatabaseConnection;
-import Information.Courses;
+import Information.Courses; 
+import Information.Semester; 
+
 import Information.CurriculumCourses;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -75,7 +77,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(DeleteToJTable);
-        DeleteToJTable.setBounds(700, 300, 72, 23);
+        DeleteToJTable.setBounds(720, 240, 72, 23);
 
         AddToJTable.setText("Add");
         AddToJTable.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +86,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(AddToJTable);
-        AddToJTable.setBounds(620, 270, 72, 23);
+        AddToJTable.setBounds(640, 240, 72, 23);
 
         jTextField5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +95,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jTextField5);
-        jTextField5.setBounds(240, 160, 371, 33);
+        jTextField5.setBounds(100, 220, 310, 33);
 
         jTextField4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +104,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jTextField4);
-        jTextField4.setBounds(240, 100, 191, 25);
+        jTextField4.setBounds(130, 60, 191, 25);
 
         jTextField2.setToolTipText("Enter Student Number\n");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,7 +113,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jTextField2);
-        jTextField2.setBounds(240, 60, 127, 22);
+        jTextField2.setBounds(130, 20, 127, 22);
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -120,36 +122,36 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jButton1);
-        jButton1.setBounds(450, 60, 72, 23);
+        jButton1.setBounds(280, 20, 72, 23);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel3.setText("Student Number");
         add(jLabel3);
-        jLabel3.setBounds(120, 60, 108, 16);
+        jLabel3.setBounds(10, 20, 108, 16);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel1.setText("Name ");
         add(jLabel1);
-        jLabel1.setBounds(180, 110, 42, 16);
+        jLabel1.setBounds(80, 60, 60, 30);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel4.setText("Program");
         add(jLabel4);
-        jLabel4.setBounds(160, 170, 60, 16);
+        jLabel4.setBounds(20, 230, 60, 16);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Semester().getSemester()));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
         add(jComboBox1);
-        jComboBox1.setBounds(240, 210, 371, 22);
+        jComboBox1.setBounds(100, 270, 310, 22);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel5.setText("Courses");
         add(jLabel5);
-        jLabel5.setBounds(20, 270, 52, 20);
+        jLabel5.setBounds(450, 270, 52, 20);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,7 +167,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(10, 300, 680, 406);
+        jScrollPane1.setBounds(10, 300, 780, 406);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new Courses().getCourses()));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -174,12 +176,12 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jComboBox2);
-        jComboBox2.setBounds(80, 270, 280, 22);
+        jComboBox2.setBounds(510, 270, 280, 22);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel6.setText("Semester");
         add(jLabel6);
-        jLabel6.setBounds(160, 220, 60, 16);
+        jLabel6.setBounds(20, 280, 60, 16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubmitUpdateToDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitUpdateToDatabaseActionPerformed
@@ -208,7 +210,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
                  JOptionPane.showMessageDialog(null, "Student Not Found!!");
 
              }
-            JOptionPane.showMessageDialog(null, jTable1.getRowCount());
+            //JOptionPane.showMessageDialog(null, jTable1.getRowCount());
             for (int row = 0; row < jTable1.getRowCount(); row++) {
                 // Retrieve the data from column
                 String hiddenColumn4 = jTable1.getModel().getValueAt(row, 3).toString();
@@ -430,58 +432,10 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-   /*
-    public String[] getProgram(int Province_ID) {
 
-        try (Connection con = connect()) {
-
-            String sql = "select City from Cities where Province_ID = ?";
-
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, Province_ID);
-
-            ResultSet rs = pst.executeQuery();
-
-            // ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-            ArrayList<String> items = new ArrayList<>();
-
-            while (rs.next()) {
-                String a = rs.getString("City");
-                items.add(a);
-            }
-            items.add(0, "City");
-            pst.close();
-            String[] subItems = new String[items.size()];
-            items.toArray(subItems);
-            return subItems;
-
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return null;
-
-    }
-    
-    
-     jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new ClassProgram().getPrograms()));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(170, 290, 630, 22);
-*/
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-        try(Connection con = connect()){
-            //String[] Courses= new String; 
-            
-            
-        }
-        catch(SQLException e){
-             e.getMessage();
-        }
+
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
 
