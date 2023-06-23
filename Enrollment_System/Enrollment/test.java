@@ -15,10 +15,10 @@ public class test implements DatabaseConnection {
     public static void main(String[] args) {
         // test t = new test();
 
-        Reference us = new Reference();
+        User us = new User();
 
         // String[] courseInfo = new String[3];
-        System.out.println(us.getReference_Number(1));
+        System.out.println(us.ge);
 
         // for(int i = 0;i<3;i++){
         // System.out.println(courseInfo[i]);

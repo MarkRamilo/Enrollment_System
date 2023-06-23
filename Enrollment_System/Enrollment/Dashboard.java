@@ -69,7 +69,12 @@ public class Dashboard extends javax.swing.JFrame {
         Student student = new Student(student1.get(0), student1.get(1), student1.get(2),
                 studentContactInformation.getID(), user.getID(), classProgram.getID());
         Reference reference = new Reference(student.getID());
+<<<<<<< HEAD
+        System.out.println("student: " + student.getID());
+        
+=======
         Registration registration = new Registration(reference.getID());
+>>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
         ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
                 parentDetails.get(0), parentDetails.get(1));
         ParentContactInformation parentContactInformation2 = new ParentContactInformation(studentAddress.getID(),
