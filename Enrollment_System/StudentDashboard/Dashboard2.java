@@ -21,9 +21,12 @@ public class Dashboard2 extends javax.swing.JFrame {
 
     public static Dashboard2 dashboard;
     private static int user_ID;
+    private ArrayList<String> items;
+    private ArrayList<String[]> curriculumItems;
     
     public Dashboard2() {
         initComponents();
+        new TestTheme();
         this.setLocationRelativeTo(null);
 
     }
@@ -31,7 +34,14 @@ public class Dashboard2 extends javax.swing.JFrame {
     public Dashboard2(int user_ID) {
         this.user_ID = user_ID;
         initComponents();
-        this.setLocationRelativeTo(null);
+        new TestTheme();
+        
+         StudentDetails studentDetails = new StudentDetails();
+         Courses courses = new Courses();
+        this.items = studentDetails.getDetails(user_ID);
+        curriculumItems = courses.getCourses(user_ID);
+        
+        initComponents();
     }
 
     protected static void setTab(int number) {
@@ -56,13 +66,17 @@ public class Dashboard2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        options1 = new StudentDashboard.MenuItems.Options();
+        curriculum1 = new StudentDashboard.MenuItems.Curriculum();
+        registration1 = new StudentDashboard.MenuItems.Registration();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         myProfile1 = new StudentDashboard.MenuItems.MyProfile();
-        curriculum3 = new StudentDashboard.MenuItems.Curriculum();
-        registration3 = new StudentDashboard.MenuItems.Registration();
+        options2 = new StudentDashboard.MenuItems.Options();
+        curriculum2 = new StudentDashboard.MenuItems.Curriculum();
+        registration2 = new StudentDashboard.MenuItems.Registration();
         menu21 = new StudentDashboard.Menu2();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,8 +111,9 @@ public class Dashboard2 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", jPanel1);
         jTabbedPane1.addTab("tab2", myProfile1);
-        jTabbedPane1.addTab("tab3", curriculum3);
-        jTabbedPane1.addTab("tab4", registration3);
+        jTabbedPane1.addTab("tab3", options2);
+        jTabbedPane1.addTab("tab4", curriculum2);
+        jTabbedPane1.addTab("tab5", registration2);
 
         jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -35, 1010, 920));
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
@@ -166,13 +181,17 @@ public class Dashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private StudentDashboard.MenuItems.Curriculum curriculum3;
+    private StudentDashboard.MenuItems.Curriculum curriculum1;
+    private StudentDashboard.MenuItems.Curriculum curriculum2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private static javax.swing.JTabbedPane jTabbedPane1;
     private StudentDashboard.Menu2 menu21;
     private StudentDashboard.MenuItems.MyProfile myProfile1;
-    private StudentDashboard.MenuItems.Registration registration3;
+    private StudentDashboard.MenuItems.Options options1;
+    private StudentDashboard.MenuItems.Options options2;
+    private StudentDashboard.MenuItems.Registration registration1;
+    private StudentDashboard.MenuItems.Registration registration2;
     // End of variables declaration//GEN-END:variables
 }
