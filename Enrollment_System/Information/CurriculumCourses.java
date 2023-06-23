@@ -79,6 +79,7 @@ public class CurriculumCourses implements DatabaseConnection {
         }
         return 0;
     }
+<<<<<<< HEAD
 
     @Override
     public int getID() {
@@ -86,4 +87,8 @@ public class CurriculumCourses implements DatabaseConnection {
     }
     
 
+=======
+    
+
+>>>>>>> parent of 42bd827 (Eto na)
 }

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Admin_Dashboard.MenuItems;
+<<<<<<< HEAD
 import Connection.DatabaseConnection;
 import Information.Courses; 
 import Information.Semester; 
@@ -16,18 +17,18 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
+=======
+>>>>>>> parent of 42bd827 (Eto na)
 
 /**
  *
  * @author PC
  */
-public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnection {
+public class ClassSetting2 extends javax.swing.JPanel {
 
     /**
      * Creates new form ClassSetting2
      */
-    String globalStudentID;
-    String regID;
     public ClassSetting2() {
         initComponents();
     }
@@ -56,9 +57,6 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-        setDoubleBuffered(false);
-        setPreferredSize(new java.awt.Dimension(800, 800));
         setLayout(null);
 
         SubmitUpdateToDatabase.setText("Submit");
@@ -68,7 +66,11 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(SubmitUpdateToDatabase);
+<<<<<<< HEAD
         SubmitUpdateToDatabase.setBounds(720, 720, 72, 23);
+=======
+        SubmitUpdateToDatabase.setBounds(810, 700, 76, 27);
+>>>>>>> parent of 42bd827 (Eto na)
 
         DeleteToJTable.setText("Delete");
         DeleteToJTable.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +79,11 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(DeleteToJTable);
+<<<<<<< HEAD
         DeleteToJTable.setBounds(720, 240, 72, 23);
+=======
+        DeleteToJTable.setBounds(900, 280, 76, 27);
+>>>>>>> parent of 42bd827 (Eto na)
 
         AddToJTable.setText("Add");
         AddToJTable.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +92,11 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(AddToJTable);
+<<<<<<< HEAD
         AddToJTable.setBounds(640, 240, 72, 23);
+=======
+        AddToJTable.setBounds(750, 250, 76, 27);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jTextField5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +105,11 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jTextField5);
+<<<<<<< HEAD
         jTextField5.setBounds(100, 220, 310, 33);
+=======
+        jTextField5.setBounds(370, 140, 371, 33);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jTextField4.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +118,11 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jTextField4);
+<<<<<<< HEAD
         jTextField4.setBounds(130, 60, 191, 25);
+=======
+        jTextField4.setBounds(370, 90, 191, 29);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jTextField2.setToolTipText("Enter Student Number\n");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +131,11 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jTextField2);
+<<<<<<< HEAD
         jTextField2.setBounds(130, 20, 127, 22);
+=======
+        jTextField2.setBounds(370, 40, 127, 26);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,21 +144,34 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jButton1);
+<<<<<<< HEAD
         jButton1.setBounds(280, 20, 72, 23);
+=======
+        jButton1.setBounds(580, 40, 76, 27);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel3.setText("Student Number");
         add(jLabel3);
+<<<<<<< HEAD
         jLabel3.setBounds(10, 20, 108, 16);
+=======
+        jLabel3.setBounds(240, 50, 108, 16);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel1.setText("Name ");
         add(jLabel1);
+<<<<<<< HEAD
         jLabel1.setBounds(80, 60, 60, 30);
+=======
+        jLabel1.setBounds(310, 100, 42, 16);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel4.setText("Program");
         add(jLabel4);
+<<<<<<< HEAD
         jLabel4.setBounds(20, 230, 60, 16);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Semester().getSemester()));
@@ -147,11 +182,22 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         });
         add(jComboBox1);
         jComboBox1.setBounds(100, 270, 310, 22);
+=======
+        jLabel4.setBounds(290, 150, 60, 16);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        add(jComboBox1);
+        jComboBox1.setBounds(370, 190, 371, 26);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel5.setText("Courses");
         add(jLabel5);
+<<<<<<< HEAD
         jLabel5.setBounds(450, 270, 52, 20);
+=======
+        jLabel5.setBounds(150, 260, 52, 16);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -167,25 +213,33 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
+<<<<<<< HEAD
         jScrollPane1.setBounds(10, 300, 780, 406);
+=======
+        jScrollPane1.setBounds(60, 280, 830, 406);
+>>>>>>> parent of 42bd827 (Eto na)
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new Courses().getCourses()));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
-            }
-        });
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         add(jComboBox2);
+<<<<<<< HEAD
         jComboBox2.setBounds(510, 270, 280, 22);
+=======
+        jComboBox2.setBounds(211, 250, 530, 26);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel6.setText("Semester");
         add(jLabel6);
+<<<<<<< HEAD
         jLabel6.setBounds(20, 280, 60, 16);
+=======
+        jLabel6.setBounds(290, 200, 60, 16);
+>>>>>>> parent of 42bd827 (Eto na)
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubmitUpdateToDatabaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitUpdateToDatabaseActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
          try (Connection con = connect()) {
              String sql = "Select * from registration reg,reference ref " +
                           "Where reg.Reference_ID = ref.Reference_ID AND "
@@ -230,52 +284,16 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
+=======
+>>>>>>> parent of 42bd827 (Eto na)
     }//GEN-LAST:event_SubmitUpdateToDatabaseActionPerformed
 
     private void DeleteToJTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteToJTableActionPerformed
         // TODO add your handling code here:
-        int selectedRow = jTable1.getSelectedRow();
-
-        if (selectedRow != -1) { // Check if a row is selected
-            ((javax.swing.table.DefaultTableModel) jTable1.getModel()).removeRow(selectedRow);
-
-        }
     }//GEN-LAST:event_DeleteToJTableActionPerformed
 
     private void AddToJTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToJTableActionPerformed
         // TODO add your handling code here:
-        String courseName = String.valueOf(jComboBox2.getSelectedItem());
-
-        Courses c = new Courses();
-        String[] courseInfo = new String[4];
-        courseInfo = c.getCourseInfo(courseName);
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
-        Object[] rowData = { courseInfo[0], courseInfo[1], courseInfo[2], courseInfo[3] };
-
-        // Check for duplicates (GTP hehe)
-        boolean hasDuplicate = false;
-        for (int i = 0; i < jTable1.getRowCount(); i++) {
-            boolean match = true;
-            for (int j = 0; j < jTable1.getColumnCount(); j++) {
-                Object value = jTable1.getValueAt(i, j);
-                if (!rowData[j].equals(value)) {
-                    match = false;
-                    break;
-                }
-            }
-            if (match) {
-                hasDuplicate = true;
-                break;
-            }
-        }
-
-        if (!hasDuplicate) {
-            // insert row on top
-            model.insertRow(0, rowData);
-        } else {
-            JOptionPane.showMessageDialog(null, "Duplicate values found in the row!");
-        }
     }//GEN-LAST:event_AddToJTableActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
@@ -288,73 +306,13 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-        
-        
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String studentID = jTextField2.getText();
-        String curriculumID;
-        
-        //Table
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-
-                },
-                new String[] {
-                        "Courses_Name", "Course_Credits", "Courses_Code"
-                }) {
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        });
-        
-        CurriculumCourses cc = new CurriculumCourses();
-
-        
-        /*String sql = ";*/
-        
-        try(Connection con = connect()){
-            
-        String sql = "SELECT CONCAT(s.First_Name,' ',s.Middle_Name,' ',s.Last_Name) as name, "
-                + "cp.Program_Name, s.Class_Program_ID, s.Student_ID "    
-                + "FROM student s, "
-                + "class_program cp, "
-                + "User u "
-                + "WHERE cp.Class_Program_ID = s.Class_Program_ID AND "
-                + "u.User_ID = s.User_ID AND "
-                + "u.Email = ?";
-        
-        
-       
-        
-        
-        PreparedStatement pr = con.prepareStatement(sql);
-        pr.setString(1, studentID+"@hogwarts.com.ph");
-        ResultSet rs = pr.executeQuery();
-        
-        
-        if(rs.next()){
-            
-            
-            jTextField4.setText(rs.getString("name"));
-            jTextField5.setText(rs.getString("cp.Program_Name"));
-            curriculumID = rs.getString("Class_Program_ID");
-            globalStudentID = rs.getString("s.Student_ID");
-            updateTable(curriculumID);
-           
-        } else{
-            JOptionPane.showMessageDialog(null, "Student Not Found!!");
-        
-        }
-        
-        }catch (SQLException e) {
-            e.getMessage();
-        }
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+<<<<<<< HEAD
     public void updateTable(String curriculumID) {
 
         // Empty Table
@@ -438,6 +396,8 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
 
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+=======
+>>>>>>> parent of 42bd827 (Eto na)
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddToJTable;
@@ -457,9 +417,16 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+//dsafsaf
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
     @Override
     public int getID() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+=======
+>>>>>>> parent of 42bd827 (Eto na)
 }
