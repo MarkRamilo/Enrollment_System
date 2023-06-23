@@ -142,11 +142,11 @@ public class MyProfile extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(28, 28, 28)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel1);
-        jPanel1.setBounds(0, 120, 1040, 720);
+        jPanel1.setBounds(0, 150, 1040, 690);
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -166,12 +166,12 @@ public class MyProfile extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                 .addGap(24, 24, 24))
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(0, 0, 1040, 120);
+        jPanel3.setBounds(0, 0, 1040, 150);
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, -1));
     }// </editor-fold>//GEN-END:initComponents

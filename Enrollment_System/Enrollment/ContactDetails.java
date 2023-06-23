@@ -88,6 +88,7 @@ public class ContactDetails extends javax.swing.JPanel {
                 .addContainerGap(67, Short.MAX_VALUE))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(null);
 
@@ -116,22 +117,18 @@ public class ContactDetails extends javax.swing.JPanel {
         jPanel2.add(jLabel9);
         jLabel9.setBounds(20, 91, 140, 27);
         jPanel2.add(jTextField3);
-        jTextField3.setBounds(310, 390, 690, 22);
+        jTextField3.setBounds(310, 390, 690, 26);
         jPanel2.add(jTextField2);
-
-        jTextField2.setBounds(310, 260, 380, 22);
-
         jTextField2.setBounds(310, 250, 380, 26);
-
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setText("Additional Address Information : ");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(10, 390, 300, 30);
         jPanel2.add(jTextField1);
-        jTextField1.setBounds(210, 350, 780, 22);
+        jTextField1.setBounds(210, 350, 780, 26);
         jPanel2.add(jTextField8);
-        jTextField8.setBounds(163, 91, 210, 22);
+        jTextField8.setBounds(163, 91, 210, 26);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel13.setText("Phone (63+) :");
@@ -143,11 +140,11 @@ public class ContactDetails extends javax.swing.JPanel {
         jPanel2.add(jLabel12);
         jLabel12.setBounds(770, 30, 120, 27);
         jPanel2.add(jTextField10);
-        jTextField10.setBounds(900, 90, 90, 22);
+        jTextField10.setBounds(900, 90, 90, 26);
         jPanel2.add(jTextField9);
-        jTextField9.setBounds(900, 30, 90, 22);
+        jTextField9.setBounds(900, 30, 90, 26);
         jPanel2.add(jTextField4);
-        jTextField4.setBounds(160, 30, 210, 22);
+        jTextField4.setBounds(160, 30, 210, 26);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel8.setText("Street/Building Name:");
@@ -177,11 +174,7 @@ public class ContactDetails extends javax.swing.JPanel {
         jPanel2.add(jLabel14);
         jLabel14.setBounds(10, 200, 290, 30);
         jPanel2.add(jTextField11);
-
-        jTextField11.setBounds(310, 220, 210, 22);
-
         jTextField11.setBounds(310, 200, 210, 26);
-
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Province().getProvinces()));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -190,16 +183,16 @@ public class ContactDetails extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(310, 300, 110, 22);
+        jComboBox1.setBounds(310, 300, 110, 26);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         jComboBox2.setEnabled(false);
         jPanel2.add(jComboBox2);
-        jComboBox2.setBounds(520, 300, 110, 22);
+        jComboBox2.setBounds(520, 300, 110, 26);
         jPanel2.add(jTextField12);
-        jTextField12.setBounds(480, 90, 210, 22);
+        jTextField12.setBounds(480, 90, 210, 26);
         jPanel2.add(jTextField5);
-        jTextField5.setBounds(480, 30, 210, 22);
+        jTextField5.setBounds(480, 30, 210, 26);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel11.setText("Email :");
@@ -271,7 +264,6 @@ public class ContactDetails extends javax.swing.JPanel {
             Dashboard.setParentDetails(jTextField4.getText());
             Dashboard.setParentDetails(jTextField8.getText());
 
-            JOptionPane.showMessageDialog(null, "Success");
             Dashboard.setTab(3);
 
         }

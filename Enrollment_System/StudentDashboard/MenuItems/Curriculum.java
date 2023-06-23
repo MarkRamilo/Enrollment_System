@@ -56,9 +56,7 @@ public class Curriculum extends javax.swing.JPanel {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Course_Code", "Course_Name", "Course_Credits"

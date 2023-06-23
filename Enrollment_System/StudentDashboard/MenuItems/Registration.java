@@ -79,7 +79,7 @@ public class Registration extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Pre-registration/Payment");
 
-        jLabel2.setText("2022-2023");
+        jLabel2.setText("2023-2024");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
