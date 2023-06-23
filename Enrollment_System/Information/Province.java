@@ -6,6 +6,7 @@ package Information;
 
 import Connection.DatabaseConnection;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,7 +17,38 @@ import java.util.ArrayList;
  * @author PC
  */
 public class Province implements DatabaseConnection {
+   
+    private int province_ID;
+    
+    public Province(String Province) {
+        
+        this.province_ID = 0;
+        
+        try (Connection con = connect()) {
 
+            String sql = "select Province_ID from Provinces where Province = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, Province);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                this.province_ID = rs.getInt("Province_ID");
+                
+            }
+            con.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
+    
+    public Province() {
+        this.province_ID = 0;
+        
+    }
+    
     public String[] getProvinces() {
         try (Connection con = connect()) {
 
@@ -44,5 +76,11 @@ public class Province implements DatabaseConnection {
         }
         return null;
 
+    }
+
+    @Override
+    public int getID() {
+        
+        return province_ID;
     }
 }

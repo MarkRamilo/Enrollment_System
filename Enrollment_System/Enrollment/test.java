@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Enrollment;
 
 import Connection.DatabaseConnection;
 import Information.*;
@@ -14,16 +13,22 @@ import Information.*;
 public class test implements DatabaseConnection {
 
     public static void main(String[] args) {
-        //test t = new test();
+        // test t = new test();
 
-        Courses us = new Courses();
-       // String[] courseInfo = new String[3];
-        us.getCourseInfo("Computer Programming 1");
-        
-        //for(int i = 0;i<3;i++){
-        //System.out.println(courseInfo[i]);
-        //}
-        
-        
+        Reference us = new Reference();
+
+        // String[] courseInfo = new String[3];
+        System.out.println(us.getReference_Number(1));
+
+        // for(int i = 0;i<3;i++){
+        // System.out.println(courseInfo[i]);
+        // }
+
+    }
+
+    @Override
+    public int getID() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -13,7 +13,7 @@ public class StudentGuardian implements DatabaseConnection {
 
         try (Connection con = connect()) {
 
-            String sql = "insert into Student_Guardian values (null, ?, ?)";
+            String sql = "insert into Student_Guardian values(null, ?, ?)";
 
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, Guardian_ID);
@@ -27,6 +27,12 @@ public class StudentGuardian implements DatabaseConnection {
             e.getMessage();
         }
 
+    }
+
+    @Override
+    public int getID() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getID'");
     }
 
 }

@@ -8,10 +8,6 @@ package Information;
  *
  * @author PC
  */
-public class ContactInformation {
+public class Registration {
     
-
-    public ContactInformation(int Address_ID, String email, String phoneNumber) {
- 
-    }
 }

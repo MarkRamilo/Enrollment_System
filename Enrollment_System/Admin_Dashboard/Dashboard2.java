@@ -11,10 +11,6 @@ package Admin_Dashboard;
  */
 public class Dashboard2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Dashboard2
-     */
-    
     public static Dashboard2 dashboard;
 
     public Dashboard2() {
@@ -32,35 +28,36 @@ public class Dashboard2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        menu22 = new Admin_Dashboard.Menu2();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        classSetting2 = new Admin_Dashboard.MenuItems.ClassSetting();
+        jPanel1 = new javax.swing.JPanel();
+        classSetting21 = new Admin_Dashboard.MenuItems.ClassSetting2();
+        menu22 = new Admin_Dashboard.Menu2();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane2.addTab("tab1", classSetting2);
+        jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLayeredPane1.setLayer(menu22, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jTabbedPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jTabbedPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTabbedPane2.setPreferredSize(new java.awt.Dimension(1132, 833));
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(menu22, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2))
+        jPanel1.setPreferredSize(new java.awt.Dimension(1010, 885));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1008, Short.MAX_VALUE)
         );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(menu22, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 852, Short.MAX_VALUE)
         );
+
+        jTabbedPane2.addTab("tab1", jPanel1);
+        jTabbedPane2.addTab("tab2", classSetting21);
+
+        jLayeredPane1.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1010, 885));
+        jLayeredPane1.add(menu22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 885));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,8 +112,9 @@ public class Dashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Admin_Dashboard.MenuItems.ClassSetting classSetting2;
+    private Admin_Dashboard.MenuItems.ClassSetting2 classSetting21;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JPanel jPanel1;
     private static javax.swing.JTabbedPane jTabbedPane2;
     private Admin_Dashboard.Menu2 menu22;
     // End of variables declaration//GEN-END:variables

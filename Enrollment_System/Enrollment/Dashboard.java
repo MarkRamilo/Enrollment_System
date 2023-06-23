@@ -4,13 +4,22 @@
  */
 package Enrollment;
 
+import Information.Address;
+import Information.City;
+import Information.ClassProgram;
+import Information.StudentContactInformation;
+import Information.Guardian;
+import Information.GuardianContactInformation;
 import Information.Parent;
+import Information.ParentContactInformation;
+import Information.Reference;
 import Information.Student;
 import Information.StudentGuardian;
+import Information.User;
 import LoginSystem.Login;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC
@@ -22,22 +31,25 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public static Dashboard dashboard;
 
-    private static ArrayList<String> studentName;
-    private static ArrayList<Integer> studentDetails;
-    private static ArrayList<Integer> studentContactDetails;
-    private static ArrayList<Integer> guardianDetails;
-    private static ArrayList<String> parentName;
-    private static ArrayList<Integer> parentDetails;
-
+    private static ArrayList<String> student1;
+    private static ArrayList<String> studentContactDetails;
+    private static ArrayList<String> parent;
+    private static ArrayList<String> parentDetails;
+    private static ArrayList<String> address;
+    private static ArrayList<String> guardianContactInformation;
+    private static ArrayList<String> guardianAddress;
+    private static ArrayList<String> guardian;
 
     public Dashboard() {
         initComponents();
-        studentName = new ArrayList<>();
-        studentDetails = new ArrayList<>();
+        student1 = new ArrayList<>();
         studentContactDetails = new ArrayList<>();
-        parentName = new ArrayList<>();       
+        parent = new ArrayList<>();
+        address = new ArrayList<>();
         parentDetails = new ArrayList<>();
-        guardianDetails = new ArrayList<>();
+        guardianAddress = new ArrayList<>();
+        guardianContactInformation = new ArrayList<>();
+        guardian = new ArrayList<>();
     }
 
     protected static void setTab(int number) {
@@ -45,43 +57,90 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     protected static void close() {
-        Student student = new Student(studentName.get(0), studentName.get(1), studentName.get(2),
-                studentContactDetails.get(0), studentDetails.get(0), studentDetails.get(1));
-        Parent parent1 = new Parent(parentName.get(0), parentDetails.get(0), student.getStudentID());
-        parent1.printParent();
-        Parent parent2 = new Parent(parentName.get(1), parentDetails.get(1), student.getStudentID());
-        parent2.printParent();
-        StudentGuardian studentGuardian = new StudentGuardian(guardianDetails.get(0), student.getStudentID());
+
+        User user = new User();
+        ClassProgram classProgram = new ClassProgram(student1.get(3));
+        City city = new City(address.get(1));
+        Address studentAddress = new Address(address.get(0), city.getID(), address.get(2));
+        System.out.println("studentAddress:" + studentAddress.getID());
+        StudentContactInformation studentContactInformation = new StudentContactInformation(studentAddress.getID(),
+                studentContactDetails.get(0), studentContactDetails.get(1));
+        System.out.println("studentContactInformation: " + studentContactInformation.getID());
+        Student student = new Student(student1.get(0), student1.get(1), student1.get(2),
+                studentContactInformation.getID(), user.getID(), classProgram.getID());
+        Reference reference = new Reference(student.getID());
+        System.out.println("student: " + student.getID());
+        ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
+                parentDetails.get(0), parentDetails.get(1));
+        System.out.println("parent1contact: " + parentContactInformation1.getID());
+        ParentContactInformation parentContactInformation2 = new ParentContactInformation(studentAddress.getID(),
+                parentDetails.get(2), parentDetails.get(3));
+        System.out.println("parent2contact: " + parentContactInformation2.getID());
+        Parent parent1 = new Parent(parent.get(0), parentContactInformation1.getID(), student.getID());
+        Parent parent2 = new Parent(parent.get(1), parentContactInformation2.getID(), student.getID());
+
+        City guardianCity = new City(guardianAddress.get(1));
+        Address guardianAddress1 = new Address(guardianAddress.get(0), guardianCity.getID(), guardianAddress.get(2));
+        System.out.println("guardianaddress: " + guardianAddress1.getID());
+        GuardianContactInformation guardianCotactInformation = new GuardianContactInformation(guardianAddress1.getID(),
+                guardianContactInformation.get(0), guardianContactInformation.get(1));
+        System.out.println(String.valueOf(guardianCotactInformation.getID()));
+        Guardian guardian1 = new Guardian(guardian.get(0), guardian.get(1), guardianCotactInformation.getID());
+        System.out.println("Guardian: " + guardian1.getID());
+        StudentGuardian studentGuardian = new StudentGuardian(guardian1.getID(), student.getID());
+
         JOptionPane.showMessageDialog(null, "Success");
         System.exit(0);
     }
 
     protected static void setStudentDetails(String firstName, String middleName, String lastName,
-            int user_ID, int Class_Program_ID) {
+            String Class_Program) {
 
-        studentName.add(firstName);
-        studentName.add(middleName);
-        studentName.add(lastName);
-        studentDetails.add(user_ID);
-        studentDetails.add(Class_Program_ID);
-
-    }
-
-    protected static void setParentDetails(String name, int contact_Info_ID) {
-        parentName.add(name);
-        parentDetails.add(contact_Info_ID);
-        
+        student1.add(firstName);
+        student1.add(middleName);
+        student1.add(lastName);
+        student1.add(Class_Program);
 
     }
 
-    protected static void setStudentContactDetails(int address_ID, int contact_Info_ID) {
-        studentContactDetails.add(address_ID);
-        studentContactDetails.add(contact_Info_ID);
+    protected static void setParentDetails(String name) {
+        parent.add(name);
 
     }
 
-    protected static void setStudentGuardian(int guardian_ID) {
-        guardianDetails.add(guardian_ID);
+    protected static void setStudentContactDetails(String email, String phoneNumber) {
+        studentContactDetails.add(email);
+        studentContactDetails.add(phoneNumber);
+
+    }
+
+    protected static void setParentContactInformation(String email, String phoneNumber) {
+        parentDetails.add(email);
+        parentDetails.add(phoneNumber);
+    }
+
+    protected static void setAddress(String street, String city, String Additional) {
+
+        address.add(street);
+        address.add(city);
+        address.add(Additional);
+    }
+
+    protected static void setGuardianAddress(String street, String city, String Additional) {
+        guardianAddress.add(street);
+        guardianAddress.add(city);
+        guardianAddress.add(Additional);
+    }
+
+    protected static void setGuardianContactInformation(String email, String phoneNumber) {
+        guardianContactInformation.add(email);
+        guardianContactInformation.add(phoneNumber);
+    }
+
+    protected static void setGuardian(String name, String relationshipToStudent) {
+        guardian.add(name);
+        guardian.add(relationshipToStudent);
+
     }
 
     /**
@@ -92,7 +151,8 @@ public class Dashboard extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         guardianContactDetails1 = new Enrollment.GuardianContactDetails();
@@ -121,13 +181,11 @@ public class Dashboard extends javax.swing.JFrame {
         javax.swing.GroupLayout newJPanel1Layout = new javax.swing.GroupLayout(newJPanel1);
         newJPanel1.setLayout(newJPanel1Layout);
         newJPanel1Layout.setHorizontalGroup(
-            newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
-        );
+                newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1080, Short.MAX_VALUE));
         newJPanel1Layout.setVerticalGroup(
-            newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 769, Short.MAX_VALUE)
-        );
+                newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 769, Short.MAX_VALUE));
 
         jTabbedPane1.addTab("tab1", newJPanel1);
         jTabbedPane1.addTab("tab2", studentDetails1);
@@ -139,28 +197,30 @@ public class Dashboard extends javax.swing.JFrame {
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)));
         jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                jLayeredPane1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

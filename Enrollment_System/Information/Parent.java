@@ -16,12 +16,9 @@ import java.sql.PreparedStatement;
  */
 public class Parent extends Person2 implements DatabaseConnection {
 
-    int student_ID;
-
     public Parent(String name, int contact_info_ID, int student_ID) {
 
         super(name, contact_info_ID);
-        this.student_ID = student_ID;
 
         try (Connection con = connect()) {
 
@@ -34,6 +31,12 @@ public class Parent extends Person2 implements DatabaseConnection {
             pst.executeQuery();
             System.out.println("Success adding parent");
             pst.close();
+            con.close();
+
+            System.out.println("parent details");
+            System.out.println("Name: " + name);
+            System.out.println("Contact Info ID: " + contact_info_ID);
+            System.out.println("Student ID: " + student_ID);
 
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -42,9 +45,10 @@ public class Parent extends Person2 implements DatabaseConnection {
         }
     }
 
-    public void printParent() {
-        System.out.println("Parent Name: " + name);
-        System.out.println("Parent Contact Info ID: " + contact_info_ID);
-        System.out.println("Student ID: " + student_ID);
+    @Override
+    public int getID() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getID'");
     }
+
 }
