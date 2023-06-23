@@ -1,21 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Information;
 
 import Connection.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.Year;
 import java.util.Random;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author PC
- */
 public class Reference implements DatabaseConnection {
     
     private int reference_ID;

@@ -13,7 +13,6 @@ public class Address implements DatabaseConnection {
     private int city_ID;
     private String Additional;
 
-
     public Address(String street, int city_ID, String Additional) {
         // TODO Auto-generated constructor stub
         this.street = street;
