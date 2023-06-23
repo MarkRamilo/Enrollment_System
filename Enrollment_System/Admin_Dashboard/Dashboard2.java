@@ -114,7 +114,7 @@ public class Dashboard2 extends javax.swing.JFrame {
             }
         });
     }
-
+//sdafadf
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Admin_Dashboard.MenuItems.ClassSetting2 classSetting21;
     private javax.swing.JLayeredPane jLayeredPane1;

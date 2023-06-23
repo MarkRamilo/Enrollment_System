@@ -97,6 +97,13 @@ public class Login extends javax.swing.JFrame {
                         .addGap(190, 190, 190)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(186, Short.MAX_VALUE))
+<<<<<<< HEAD
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(116, 116, 116))
+>>>>>>> 7a5556e7cdb1e20538f45f735c19766b6a065500
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,6 +274,7 @@ public class Login extends javax.swing.JFrame {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
         this.dispose();
+        new Enrollment.Dashboard().setVisible(true);
         
     }//GEN-LAST:event_jLabel7MouseClicked
 
@@ -275,9 +283,11 @@ public class Login extends javax.swing.JFrame {
         User user = new User(jTextField1.getText(), jPasswordField1.getText());
         
         if (user.exist()) {
+            User user2 = new User(jTextField1.getText());
             JOptionPane.showMessageDialog(null, "success");
             this.dispose();
-            Dashboard2 dashboard = new StudentDashboard.Dashboard2(user.getID());
+            Dashboard2 dashboard = new StudentDashboard.Dashboard2(user2.getID());
+            System.out.println(user2.getID());
             dashboard.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Wrong email or password.");

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="StudentDashboard.MenuItems.Options" name="options1">
-    </Component>
-    <Component class="StudentDashboard.MenuItems.Curriculum" name="curriculum1">
-    </Component>
-    <Component class="StudentDashboard.MenuItems.Registration" name="registration1">
-    </Component>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -129,7 +121,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="StudentDashboard.MenuItems.Options" name="options2">
+            <Component class="StudentDashboard.MenuItems.Curriculum" name="curriculum3">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="tab3">
@@ -138,20 +130,11 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="StudentDashboard.MenuItems.Curriculum" name="curriculum2">
+            <Component class="StudentDashboard.MenuItems.Registration" name="registration3">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="tab4">
                     <Property name="tabTitle" type="java.lang.String" value="tab4"/>
-                  </JTabbedPaneConstraints>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="StudentDashboard.MenuItems.Registration" name="registration2">
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="tab5">
-                    <Property name="tabTitle" type="java.lang.String" value="tab5"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
