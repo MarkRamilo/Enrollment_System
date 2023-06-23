@@ -86,7 +86,7 @@ public class StudentDetails extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
+
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(303, 303, 303)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,7 +98,7 @@ public class StudentDetails extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(107, Short.MAX_VALUE))
-=======
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(310, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,7 +110,7 @@ public class StudentDetails extends javax.swing.JPanel {
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+
         );
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1070, 180));
@@ -152,11 +152,11 @@ public class StudentDetails extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jRadioButton1);
-<<<<<<< HEAD
+
         jRadioButton1.setBounds(647, 51, 66, 32);
-=======
+
         jRadioButton1.setBounds(640, 90, 68, 32);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -167,11 +167,10 @@ public class StudentDetails extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jRadioButton2);
-<<<<<<< HEAD
+
         jRadioButton2.setBounds(721, 51, 85, 32);
-=======
+
         jRadioButton2.setBounds(720, 90, 87, 32);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -182,11 +181,10 @@ public class StudentDetails extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jRadioButton3);
-<<<<<<< HEAD
+
         jRadioButton3.setBounds(826, 51, 77, 32);
-=======
+
         jRadioButton3.setBounds(820, 90, 79, 32);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
 
         jTextField9.setBackground(new java.awt.Color(204, 204, 204));
         jTextField9.setForeground(new java.awt.Color(255, 255, 255));
@@ -240,7 +238,7 @@ public class StudentDetails extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jComboBox1);
-<<<<<<< HEAD
+
         jComboBox1.setBounds(170, 290, 630, 22);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
@@ -250,7 +248,7 @@ public class StudentDetails extends javax.swing.JPanel {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" }));
         jPanel1.add(jComboBox3);
         jComboBox3.setBounds(890, 190, 72, 22);
-=======
+
         jComboBox1.setBounds(170, 330, 630, 26);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
@@ -260,7 +258,6 @@ public class StudentDetails extends javax.swing.JPanel {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" }));
         jPanel1.add(jComboBox3);
         jComboBox3.setBounds(890, 230, 76, 26);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
 
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
