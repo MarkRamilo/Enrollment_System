@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.Year;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 public class User implements DatabaseConnection {
 
@@ -35,7 +36,7 @@ public class User implements DatabaseConnection {
                     username = generateEmail();
                 }
             }
-            
+            this.email = username;
             String sql1 = "INSERT INTO user VALUES(null, ?, ?, 1) ";
 
             PreparedStatement pst1 = con.prepareStatement(sql1);
@@ -46,7 +47,7 @@ public class User implements DatabaseConnection {
             pst1.executeUpdate();
             pst1.close();
 
-            String sql2 = "SELECT User_ID FROM user WHERE Email = ?";
+            String sql2 = "SELECT User_ID, Password FROM user WHERE Email = ?";
             PreparedStatement pst2 = con.prepareStatement(sql2);
             pst2.setString(1, username);
 
@@ -54,10 +55,13 @@ public class User implements DatabaseConnection {
 
             if (rs.next()) {
                 this.user_ID = rs.getInt("User_ID");
+                this.password = rs.getString("Password");
 
             }
-
+            
+            pst2.close();
             con.close();
+            
         } catch (Exception e) {
             e.getMessage();
         }
@@ -69,7 +73,7 @@ public class User implements DatabaseConnection {
         
         try (Connection con = connect()) {
 
-            String sql = "select User_ID from user where email = ? and password = ?";
+            String sql = "select User_ID from user where email = ? and `password`= ?";
 
             PreparedStatement ps = con.prepareStatement(sql);
 
@@ -78,8 +82,30 @@ public class User implements DatabaseConnection {
 
             ResultSet rs = ps.executeQuery();
 
-            
             this.checkUser = rs.next();
+            
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    
+    public User(String email) {
+       
+        this.email = email;
+        
+        try (Connection con = connect()) {
+
+            String sql = "select User_ID from user where email = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, email);
+
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                this.user_ID = rs.getInt("User_ID");
+            }
             
         } catch (Exception e) {
             e.getMessage();
@@ -131,4 +157,33 @@ public class User implements DatabaseConnection {
     public boolean exist() {
         return checkUser;
     }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    public void changePassword(String newPassword) {
+        
+        try (Connection con = connect()) {
+
+            String sql = "update user set `password` = ? where email = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1, newPassword);
+            ps.setString(2, email);
+            
+            ps.executeUpdate();
+            ps.executeQuery();
+    
+            JOptionPane.showMessageDialog(null, "Success Changing Password.");
+            
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        
+    } 
 }

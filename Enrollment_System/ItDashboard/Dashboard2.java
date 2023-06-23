@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package StudentDashboard;
+package ItDashboard;
 
+import StudentDashboard.*;
 import Information.Courses;
 import Information.StudentDetails;
-import LoginSystem.Login;
 import java.util.ArrayList;
 
 /**
@@ -21,17 +21,26 @@ public class Dashboard2 extends javax.swing.JFrame {
 
     public static Dashboard2 dashboard;
     private static int user_ID;
+    private ArrayList<String> items;
+    private ArrayList<String[]> curriculumItems;
     
     public Dashboard2() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        new TestTheme();
 
     }
 
     public Dashboard2(int user_ID) {
         this.user_ID = user_ID;
         initComponents();
-        this.setLocationRelativeTo(null);
+        new TestTheme();
+        
+         StudentDetails studentDetails = new StudentDetails();
+         Courses courses = new Courses();
+        this.items = studentDetails.getDetails(user_ID);
+        curriculumItems = courses.getCourses(user_ID);
+        
+        initComponents();
     }
 
     protected static void setTab(int number) {
@@ -40,11 +49,6 @@ public class Dashboard2 extends javax.swing.JFrame {
     
     public static int getUserID() {
         return user_ID;
-    }
-    
-    public static void close() {
-        dashboard.dispose();
-        new Login().setVisible(true);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,13 +60,13 @@ public class Dashboard2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        options1 = new StudentDashboard.MenuItems.Options();
+        curriculum1 = new StudentDashboard.MenuItems.Curriculum();
+        registration1 = new StudentDashboard.MenuItems.Registration();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        myProfile1 = new StudentDashboard.MenuItems.MyProfile();
-        curriculum3 = new StudentDashboard.MenuItems.Curriculum();
-        registration3 = new StudentDashboard.MenuItems.Registration();
         menu21 = new StudentDashboard.Menu2();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,7 +87,7 @@ public class Dashboard2 extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(1142, 1142, 1142)
+                .addGap(1252, 1252, 1252)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -92,15 +96,12 @@ public class Dashboard2 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(299, 299, 299)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(548, Short.MAX_VALUE))
+                .addContainerGap(513, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", jPanel1);
-        jTabbedPane1.addTab("tab2", myProfile1);
-        jTabbedPane1.addTab("tab3", curriculum3);
-        jTabbedPane1.addTab("tab4", registration3);
 
-        jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -35, 1010, 920));
+        jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1010, 885));
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
 
         jLayeredPane1.add(menu21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 885));
@@ -153,6 +154,7 @@ public class Dashboard2 extends javax.swing.JFrame {
                     ex);
         }
         // </editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -166,13 +168,13 @@ public class Dashboard2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private StudentDashboard.MenuItems.Curriculum curriculum3;
+    private StudentDashboard.MenuItems.Curriculum curriculum1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private static javax.swing.JTabbedPane jTabbedPane1;
     private StudentDashboard.Menu2 menu21;
-    private StudentDashboard.MenuItems.MyProfile myProfile1;
-    private StudentDashboard.MenuItems.Registration registration3;
+    private StudentDashboard.MenuItems.Options options1;
+    private StudentDashboard.MenuItems.Registration registration1;
     // End of variables declaration//GEN-END:variables
 }

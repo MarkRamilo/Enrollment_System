@@ -4,11 +4,8 @@
  */
 package Enrollment;
 
-import Information.Address;
 import Information.City;
 import Information.Province;
-import Information.Guardian;
-import Information.GuardianContactInformation;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,6 +61,7 @@ public class GuardianContactDetails extends javax.swing.JPanel {
         jPanel3.setPreferredSize(new java.awt.Dimension(1080, 800));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setPreferredSize(new java.awt.Dimension(1060, 574));
         jPanel2.setLayout(null);
@@ -158,7 +156,8 @@ public class GuardianContactDetails extends javax.swing.JPanel {
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 196, 1070, 598));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Guardian Contact Details");
@@ -170,7 +169,7 @@ public class GuardianContactDetails extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(255, 255, 255)
                 .addComponent(jLabel1)
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +207,7 @@ public class GuardianContactDetails extends javax.swing.JPanel {
                 jTextField10.getText());
         Dashboard.setGuardianContactInformation(jTextField6.getText(), jTextField3.getText());
         Dashboard.setGuardian(jTextField1.getText(), jTextField2.getText());
-        JOptionPane.showMessageDialog(null, "Success");
+
         Dashboard.close();
 
     }// GEN-LAST:event_jButton2ActionPerformed

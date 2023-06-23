@@ -17,7 +17,7 @@ public interface DatabaseConnectionLocal {
     default Connection connect() {
         System.out.println("Connecting to database...");
         Connection con = null;
-        String url = "jdbc:mysql://localhost:3306/oop2";
+        String url = "jdbc:mysql://localhost:3306/oop2_final";
         try {
             return con = DriverManager.getConnection(url, "root","");
 

@@ -6,6 +6,19 @@ package Admin_Dashboard.MenuItems;
 
 import Connection.DatabaseConnection;
 import Information.Courses;
+import Information.Semester;
+
+import Information.CurriculumCourses;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.Connection;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
+
+import Connection.DatabaseConnection;
+import Information.Courses;
 import Information.CurriculumCourses;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -187,58 +200,113 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
 
     private void SubmitUpdateToDatabaseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SubmitUpdateToDatabaseActionPerformed
         // TODO add your handling code here:
+
         try (Connection con = connect()) {
             String sql = "Select * from registration reg,reference ref " +
                     "Where reg.Reference_ID = ref.Reference_ID AND "
                     + "ref.Student_ID = ?;";
 
-            String sqlAdd = "insert into class_student values (null,?,?)";
-            String sqlReg = "insert into registration_details values (null,?,?,?,current_timestamp())";
+            try (Connection con = connect()) {
+                String sql = "Select * from registration reg,reference ref " +
+                        "Where reg.Reference_ID = ref.Reference_ID AND "
+                        + "ref.Student_ID = ?;";
 
-            PreparedStatement ps = con.prepareStatement(sql);
-            PreparedStatement psADD = con.prepareStatement(sqlAdd);
-            PreparedStatement psReg = con.prepareStatement(sqlReg);
+                String sqlAdd = "insert into class_student values (null,?,?)";
+                String sqlReg = "insert into registration_details values (null,?,?,?,current_timestamp())";
 
-            ps.setString(1, globalStudentID);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
+                PreparedStatement ps = con.prepareStatement(sql);
+                PreparedStatement psADD = con.prepareStatement(sqlAdd);
+                PreparedStatement psReg = con.prepareStatement(sqlReg);
 
-                regID = rs.getString("Registration_ID");
+                ps.setString(1, globalStudentID);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Student Not Found!!");
+                    regID = rs.getString("Registration_ID");
 
+                } else {
+                    JOptionPane.showMessageDialog(null, "Student Not Found!!");
+
+                }
+                // JOptionPane.showMessageDialog(null, jTable1.getRowCount());
+                for (int row = 0; row < jTable1.getRowCount(); row++) {
+                    // Retrieve the data from column
+                    String hiddenColumn4 = jTable1.getModel().getValueAt(row, 3).toString();
+
+                    // Insert Class
+                    psADD.setString(1, hiddenColumn4);
+                    psADD.setString(2, globalStudentID);
+                    psADD.executeUpdate();
+
+                    // Insert Reg
+                    psReg.setString(1, hiddenColumn4);
+                    psReg.setString(2, regID);
+                    psReg.setString(3, "5");
+                    psReg.executeUpdate();
+                }
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
             }
-            // JOptionPane.showMessageDialog(null, jTable1.getRowCount());
-            for (int row = 0; row < jTable1.getRowCount(); row++) {
-                // Retrieve the data from column
-                String hiddenColumn4 = jTable1.getModel().getValueAt(row, 3).toString();
-
-                // Insert Class
-                psADD.setString(1, hiddenColumn4);
-                psADD.setString(2, globalStudentID);
-                psADD.executeUpdate();
-
-                // Insert Reg
-                psReg.setString(1, hiddenColumn4);
-                psReg.setString(2, regID);
-                psReg.setString(3, "5");
-                psReg.executeUpdate();
-            }
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
+
+        String sqlAdd = "insert into class_student values (null,?,?)";
+        String sqlReg = "insert into registration_details values (null,?,?,?,current_timestamp())";
+
+        PreparedStatement ps = con.prepareStatement(sql);
+        PreparedStatement psADD = con.prepareStatement(sqlAdd);
+        PreparedStatement psReg = con.prepareStatement(sqlReg);
+
+        ps.setString(1, globalStudentID);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+
+            regID = rs.getString("Registration_ID");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Student Not Found!!");
+
+        }
+        // JOptionPane.showMessageDialog(null, jTable1.getRowCount());
+        for (int row = 0; row < jTable1.getRowCount(); row++) {
+            // Retrieve the data from column
+            String hiddenColumn4 = jTable1.getModel().getValueAt(row, 3).toString();
+
+            // Insert Class
+            psADD.setString(1, hiddenColumn4);
+            psADD.setString(2, globalStudentID);
+            psADD.executeUpdate();
+
+            // Insert Reg
+            psReg.setString(1, hiddenColumn4);
+            psReg.setString(2, regID);
+            psReg.setString(3, "5");
+            psReg.executeUpdate();
+        }
+
+    }catch(
+
+    Exception ex)
+    {
+        JOptionPane.showMessageDialog(null, ex.getMessage());
+    }
     }// GEN-LAST:event_SubmitUpdateToDatabaseActionPerformed
 
     private void DeleteToJTableActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteToJTableActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
 
+
         if (selectedRow != -1) { // Check if a row is selected
             ((javax.swing.table.DefaultTableModel) jTable1.getModel()).removeRow(selectedRow);
 
         }
+    }if(selectedRow!=-1)
+
+    { // Check if a row is selected
+        ((javax.swing.table.DefaultTableModel) jTable1.getModel()).removeRow(selectedRow);
+
+    }
     }// GEN-LAST:event_DeleteToJTableActionPerformed
 
     private void AddToJTableActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddToJTableActionPerformed
@@ -275,6 +343,40 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         } else {
             JOptionPane.showMessageDialog(null, "Duplicate values found in the row!");
         }
+    }
+
+    Courses c = new Courses();
+    String[] courseInfo = new String[4];courseInfo=c.getCourseInfo(courseName);
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+
+    Object[] rowData = { courseInfo[0], courseInfo[1], courseInfo[2], courseInfo[3] };
+
+    // Check for duplicates (GTP hehe)
+    boolean hasDuplicate = false;for(
+    int i = 0;i<jTable1.getRowCount();i++)
+    {
+        boolean match = true;
+        for (int j = 0; j < jTable1.getColumnCount(); j++) {
+            Object value = jTable1.getValueAt(i, j);
+            if (!rowData[j].equals(value)) {
+                match = false;
+                break;
+            }
+        }
+        if (match) {
+            hasDuplicate = true;
+            break;
+        }
+    }
+
+    if(!hasDuplicate)
+    {
+        // insert row on top
+        model.insertRow(0, rowData);
+    }else
+    {
+        JOptionPane.showMessageDialog(null, "Duplicate values found in the row!");
+    }
     }// GEN-LAST:event_AddToJTableActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField5ActionPerformed
@@ -287,6 +389,8 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
+        
+    }
 
     }// GEN-LAST:event_jTextField2ActionPerformed
 
@@ -294,6 +398,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         // TODO add your handling code here:
         String studentID = jTextField2.getText();
         String curriculumID;
+
 
         // Table
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -346,6 +451,65 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
 
     }// GEN-LAST:event_jButton1ActionPerformed
 
+
+        
+        //Table
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][] {
+
+                },
+                new String[] {
+                        "Courses_Name", "Course_Credits", "Courses_Code"
+                }) {
+
+    public boolean isCellEditable(int row, int column) {
+                return false;
+            }});
+
+    CurriculumCourses cc = new CurriculumCourses();
+
+    /* String sql = "; */
+
+    try(Connection con = connect()){
+            
+        String sql = "SELECT CONCAT(s.First_Name,' ',s.Middle_Name,' ',s.Last_Name) as name, "
+                + "cp.Program_Name, s.Class_Program_ID, s.Student_ID "    
+                + "FROM student s, "
+                + "class_program cp, "
+                + "User u "
+                + "WHERE cp.Class_Program_ID = s.Class_Program_ID AND "
+                + "u.User_ID = s.User_ID AND "
+                + "u.Email = ?";
+        
+        
+       
+        
+        
+        PreparedStatement pr = con.prepareStatement(sql);
+        pr.setString(1, studentID+"@hogwarts.com.ph");
+        ResultSet rs = pr.executeQuery();
+        
+        
+        if(rs.next()){
+            
+            
+            jTextField4.setText(rs.getString("name"));
+            jTextField5.setText(rs.getString("cp.Program_Name"));
+            curriculumID = rs.getString("Class_Program_ID");
+            globalStudentID = rs.getString("s.Student_ID");
+            updateTable(curriculumID);
+           
+        } else{
+            JOptionPane.showMessageDialog(null, "Student Not Found!!");
+        
+        }
+        
+        }catch (SQLException e) {
+            e.getMessage();
+        }
+        
+    }
+
     public void updateTable(String curriculumID) {
 
         // Empty Table
@@ -386,6 +550,9 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
 
             com.mysql.cj.jdbc.result.ResultSetMetaData rsmd = (com.mysql.cj.jdbc.result.ResultSetMetaData) rs
                     .getMetaData();
+            com.mysql.cj.jdbc.result.ResultSetMetaData rsmd = (com.mysql.cj.jdbc.result.ResultSetMetaData) rs
+                    .getMetaData();
+
             // int columnsNumber = rsmd.getColumnCount();
             String[] rowNames = new String[4];
 
@@ -419,6 +586,15 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         }
 
     }
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+
+    }// GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
