@@ -34,9 +34,18 @@ public class Menu2 extends javax.swing.JPanel {
         jPanel7 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+<<<<<<< HEAD
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+=======
+<<<<<<< HEAD
+=======
+        jLabel8 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+>>>>>>> parent of b084a47 (update 7)
+>>>>>>> ba008d99dad85d29dd000202b221215b9f406d5e
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -64,6 +73,12 @@ public class Menu2 extends javax.swing.JPanel {
             }
         });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 240, 40));
+=======
+>>>>>>> ba008d99dad85d29dd000202b221215b9f406d5e
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -121,6 +136,10 @@ public class Menu2 extends javax.swing.JPanel {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 40));
 
         jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 240, -1));
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b084a47 (update 7)
+>>>>>>> ba008d99dad85d29dd000202b221215b9f406d5e
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -282,7 +301,7 @@ public class Menu2 extends javax.swing.JPanel {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
-        Dashboard2.setTab(2);
+        Dashboard2.setTab(3);
 
     }// GEN-LAST:event_jLabel2MouseClicked
 

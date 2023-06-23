@@ -134,7 +134,15 @@ public class MyProfile extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addGap(83, 83, 83)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(173, Short.MAX_VALUE))
+=======
+<<<<<<< HEAD
+                .addContainerGap(198, Short.MAX_VALUE))
+=======
+                .addContainerGap(173, Short.MAX_VALUE))
+>>>>>>> parent of b084a47 (update 7)
+>>>>>>> ba008d99dad85d29dd000202b221215b9f406d5e
         );
 
         jPanel2.add(jPanel1);
