@@ -119,10 +119,17 @@ public class ContactDetails extends javax.swing.JPanel {
         jTextField3.setBounds(310, 390, 690, 22);
         jPanel2.add(jTextField2);
 <<<<<<< HEAD
+
         jTextField2.setBounds(310, 260, 380, 22);
+
 =======
+<<<<<<< HEAD
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
         jTextField2.setBounds(310, 250, 380, 26);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+        jTextField2.setBounds(310, 260, 380, 26);
+>>>>>>> parent of 42bd827 (Eto na)
+
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setText("Additional Address Information : ");
@@ -178,10 +185,17 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel14.setBounds(10, 200, 290, 30);
         jPanel2.add(jTextField11);
 <<<<<<< HEAD
+
         jTextField11.setBounds(310, 220, 210, 22);
+
 =======
+<<<<<<< HEAD
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
         jTextField11.setBounds(310, 200, 210, 26);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+        jTextField11.setBounds(310, 220, 210, 26);
+>>>>>>> parent of 42bd827 (Eto na)
+
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Province().getProvinces()));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {

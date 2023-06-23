@@ -100,7 +100,7 @@ public class Dashboard2 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(299, 299, 299)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(513, Short.MAX_VALUE))
+                .addContainerGap(548, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", jPanel1);
@@ -109,7 +109,7 @@ public class Dashboard2 extends javax.swing.JFrame {
         jTabbedPane1.addTab("tab4", curriculum2);
         jTabbedPane1.addTab("tab5", registration2);
 
-        jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 1010, 885));
+        jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, -35, 1010, 920));
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
 
         jLayeredPane1.add(menu21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 885));

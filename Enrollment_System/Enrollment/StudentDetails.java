@@ -33,7 +33,7 @@ public class StudentDetails extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -85,8 +85,9 @@ public class StudentDetails extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 <<<<<<< HEAD
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(303, 303, 303)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -98,7 +99,7 @@ public class StudentDetails extends javax.swing.JPanel {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(107, Short.MAX_VALUE))
-=======
+
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(310, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,8 +111,23 @@ public class StudentDetails extends javax.swing.JPanel {
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+
         );
+=======
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(303, 303, 303)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(307, Short.MAX_VALUE)));
+        jPanel3Layout.setVerticalGroup(
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(107, Short.MAX_VALUE)));
+>>>>>>> parent of 42bd827 (Eto na)
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1070, 180));
 
@@ -153,10 +169,17 @@ public class StudentDetails extends javax.swing.JPanel {
         });
         jPanel1.add(jRadioButton1);
 <<<<<<< HEAD
+
         jRadioButton1.setBounds(647, 51, 66, 32);
+
 =======
+<<<<<<< HEAD
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
         jRadioButton1.setBounds(640, 90, 68, 32);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+        jRadioButton1.setBounds(647, 51, 68, 32);
+>>>>>>> parent of 42bd827 (Eto na)
+
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -168,10 +191,16 @@ public class StudentDetails extends javax.swing.JPanel {
         });
         jPanel1.add(jRadioButton2);
 <<<<<<< HEAD
+
         jRadioButton2.setBounds(721, 51, 85, 32);
+
 =======
+<<<<<<< HEAD
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
         jRadioButton2.setBounds(720, 90, 87, 32);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+        jRadioButton2.setBounds(721, 51, 87, 32);
+>>>>>>> parent of 42bd827 (Eto na)
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -183,10 +212,16 @@ public class StudentDetails extends javax.swing.JPanel {
         });
         jPanel1.add(jRadioButton3);
 <<<<<<< HEAD
+
         jRadioButton3.setBounds(826, 51, 77, 32);
+
 =======
+<<<<<<< HEAD
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
         jRadioButton3.setBounds(820, 90, 79, 32);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+        jRadioButton3.setBounds(826, 51, 79, 32);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jTextField9.setBackground(new java.awt.Color(204, 204, 204));
         jTextField9.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,6 +230,7 @@ public class StudentDetails extends javax.swing.JPanel {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField9FocusGained(evt);
             }
+
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextField9FocusLost(evt);
             }
@@ -218,10 +254,17 @@ public class StudentDetails extends javax.swing.JPanel {
         jLabel13.setBounds(550, 160, 39, 28);
         jPanel1.add(jTextField10);
 <<<<<<< HEAD
+<<<<<<< HEAD
         jTextField10.setBounds(600, 130, 31, 22);
 =======
         jTextField10.setBounds(600, 170, 31, 26);
 >>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+        jTextField10.setBounds(600, 170, 31, 26);
+=======
+        jTextField10.setBounds(600, 130, 31, 26);
+>>>>>>> parent of 42bd827 (Eto na)
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel9.setText("Course:");
@@ -234,13 +277,9 @@ public class StudentDetails extends javax.swing.JPanel {
         jLabel14.setBounds(550, 230, 114, 28);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new ClassProgram().getPrograms()));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jComboBox1);
 <<<<<<< HEAD
+
         jComboBox1.setBounds(170, 290, 630, 22);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
@@ -250,17 +289,33 @@ public class StudentDetails extends javax.swing.JPanel {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" }));
         jPanel1.add(jComboBox3);
         jComboBox3.setBounds(890, 190, 72, 22);
+
 =======
+<<<<<<< HEAD
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
         jComboBox1.setBounds(170, 330, 630, 26);
+=======
+        jComboBox1.setBounds(170, 290, 630, 26);
+>>>>>>> parent of 42bd827 (Eto na)
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(
+                new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         jPanel1.add(jComboBox2);
+<<<<<<< HEAD
         jComboBox2.setBounds(790, 230, 76, 26);
+=======
+        jComboBox2.setBounds(790, 190, 76, 26);
+>>>>>>> parent of 42bd827 (Eto na)
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6",
+                "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                "25", "26", "27", "28", "29", "30", "31" }));
         jPanel1.add(jComboBox3);
+<<<<<<< HEAD
         jComboBox3.setBounds(890, 230, 76, 26);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+        jComboBox3.setBounds(890, 190, 76, 26);
+>>>>>>> parent of 42bd827 (Eto na)
 
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -304,6 +359,7 @@ public class StudentDetails extends javax.swing.JPanel {
         jPanel1.add(jTextField7);
         jTextField7.setBounds(170, 240, 162, 30);
 
+<<<<<<< HEAD
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year", "2023"}));
         jPanel1.add(jComboBox4);
 <<<<<<< HEAD
@@ -311,6 +367,18 @@ public class StudentDetails extends javax.swing.JPanel {
 =======
         jComboBox4.setBounds(680, 230, 76, 26);
 >>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+=======
+<<<<<<< HEAD
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997",
+            "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+jPanel1.add(jComboBox4);
+jComboBox4.setBounds(680, 230, 76, 26);
+=======
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2023" }));
+        jPanel1.add(jComboBox4);
+        jComboBox4.setBounds(683, 190, 76, 26);
+>>>>>>> parent of 42bd827 (Eto na)
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setText("Personal Information");
@@ -322,11 +390,19 @@ public class StudentDetails extends javax.swing.JPanel {
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 1090, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+<<<<<<< HEAD
     private void jTextField9MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jTextField9MouseClicked
+=======
+    private void jTextField9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField9MouseClicked
+=======
+    private void jTextField9MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jTextField9MouseClicked
+>>>>>>> parent of 42bd827 (Eto na)
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
         // TODO add your handling code here:
         jTextField9.setText("");
         jRadioButton3.setSelected(true);

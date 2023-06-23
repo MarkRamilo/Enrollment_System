@@ -79,10 +79,16 @@ public class CurriculumCourses implements DatabaseConnection {
         }
         return 0;
     }
+<<<<<<< HEAD
 
     @Override
     public int getID() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+
+=======
+    
+
+>>>>>>> parent of 42bd827 (Eto na)
 }

@@ -70,11 +70,17 @@ public class Dashboard extends javax.swing.JFrame {
                 studentContactInformation.getID(), user.getID(), classProgram.getID());
         Reference reference = new Reference(student.getID());
 <<<<<<< HEAD
+
         System.out.println("student: " + student.getID());
-        
 =======
+<<<<<<< HEAD
+>>>>>>> 54aacf60387559cd1089fa0c4ec8f18d8d1ca73c
+        
         Registration registration = new Registration(reference.getID());
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+
+=======
+        System.out.println("student: " + student.getID());
+>>>>>>> parent of 42bd827 (Eto na)
         ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
                 parentDetails.get(0), parentDetails.get(1));
         ParentContactInformation parentContactInformation2 = new ParentContactInformation(studentAddress.getID(),
@@ -160,14 +166,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         guardianContactDetails1 = new Enrollment.GuardianContactDetails();
         guardianContactDetails2 = new Enrollment.GuardianContactDetails();
-        contactDetails2 = new Enrollment.ContactDetails();
         guardianContactDetails3 = new Enrollment.GuardianContactDetails();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         newJPanel1 = new Enrollment.NewJPanel();
         newJPanel2 = new Enrollment.NewJPanel();
-        studentDetails1 = new Enrollment.StudentDetails();
-        contactDetails1 = new Enrollment.ContactDetails();
         guardianContactDetails4 = new Enrollment.GuardianContactDetails();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -197,8 +200,6 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("tab1", newJPanel1);
-        jTabbedPane1.addTab("tab2", studentDetails1);
-        jTabbedPane1.addTab("tab3", contactDetails1);
         jTabbedPane1.addTab("tab4", guardianContactDetails4);
 
         jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, 830));
@@ -263,8 +264,6 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Enrollment.ContactDetails contactDetails1;
-    private Enrollment.ContactDetails contactDetails2;
     private Enrollment.GuardianContactDetails guardianContactDetails1;
     private Enrollment.GuardianContactDetails guardianContactDetails2;
     private Enrollment.GuardianContactDetails guardianContactDetails3;
@@ -273,6 +272,5 @@ public class Dashboard extends javax.swing.JFrame {
     private static javax.swing.JTabbedPane jTabbedPane1;
     private Enrollment.NewJPanel newJPanel1;
     private Enrollment.NewJPanel newJPanel2;
-    private Enrollment.StudentDetails studentDetails1;
     // End of variables declaration//GEN-END:variables
 }
