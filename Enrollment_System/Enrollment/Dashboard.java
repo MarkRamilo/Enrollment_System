@@ -69,9 +69,13 @@ public class Dashboard extends javax.swing.JFrame {
         Student student = new Student(student1.get(0), student1.get(1), student1.get(2),
                 studentContactInformation.getID(), user.getID(), classProgram.getID());
         Reference reference = new Reference(student.getID());
+<<<<<<< HEAD
         
         Registration registration = new Registration(reference.getID());
 
+=======
+        System.out.println("student: " + student.getID());
+>>>>>>> parent of 42bd827 (Eto na)
         ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
                 parentDetails.get(0), parentDetails.get(1));
         ParentContactInformation parentContactInformation2 = new ParentContactInformation(studentAddress.getID(),
