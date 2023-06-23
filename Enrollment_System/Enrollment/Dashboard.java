@@ -70,6 +70,7 @@ public class Dashboard extends javax.swing.JFrame {
                 studentContactInformation.getID(), user.getID(), classProgram.getID());
         Reference reference = new Reference(student.getID());
         System.out.println("student: " + student.getID());
+        
         ParentContactInformation parentContactInformation1 = new ParentContactInformation(studentAddress.getID(),
                 parentDetails.get(0), parentDetails.get(1));
         System.out.println("parent1contact: " + parentContactInformation1.getID());

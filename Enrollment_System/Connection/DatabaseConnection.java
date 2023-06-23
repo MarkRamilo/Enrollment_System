@@ -17,9 +17,11 @@ public interface DatabaseConnection {
     default Connection connect() {
         System.out.println("Connecting to database...");
         Connection con = null;
-        String url = "jdbc:mysql://dusk.mysql.database.azure.com:3306/test_integration?useSSL=true";
+        String url = "jdbc:mysql://localhost:3306/test4?useSSL=true";
+        //String url = "jdbc:mysql://dusk.mysql.database.azure.com:3306/test_integration?useSSL=true";
         try {
-            return con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6");
+            return con = DriverManager.getConnection(url, "root", "");
+            //return con = DriverManager.getConnection(url, "Arceus", "m67Ds#rAm6");
 
         } catch (Exception e) {
             // TODO: handle exception

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 
     public class TableClass extends JTable implements DatabaseConnection {
-       
+       private 
     public TableClass(int CoursesID){
         super();
     }

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import Connection.DatabaseConnection;
 import com.mysql.cj.jdbc.result.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -51,6 +52,34 @@ public class Courses implements DatabaseConnection {
         return null;
     }
 
+     public String[] getCourses() {
+        // get curriculum id from database using curriculum
+
+        try (Connection con = connect()) {
+            
+            Statement st = con.createStatement();
+            String sql = "SELECT Courses_Name FROM courses ";
+                  ResultSet rs = st.executeQuery(sql);
+
+            // ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+            ArrayList<String> items = new ArrayList<>();
+
+            while (rs.next()) {
+                String a = rs.getString("Courses_Name");
+                items.add(a);
+            }
+            items.add(0, "Courses");
+            st.close();
+            String[] subItems = new String[items.size()];
+            items.toArray(subItems);
+            return subItems;
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+        return null;
+    }
+    
     public int getID() {
 
         throw new UnsupportedOperationException("Unimplemented method 'getID'");

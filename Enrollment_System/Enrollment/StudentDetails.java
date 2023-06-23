@@ -33,7 +33,7 @@ public class StudentDetails extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
@@ -84,19 +84,19 @@ public class StudentDetails extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(303, 303, 303)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(307, Short.MAX_VALUE)));
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(303, 303, 303)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(307, Short.MAX_VALUE))
+        );
         jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(107, Short.MAX_VALUE)));
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(107, Short.MAX_VALUE))
+        );
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1070, 200));
 
@@ -140,7 +140,7 @@ public class StudentDetails extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jRadioButton1);
-        jRadioButton1.setBounds(647, 51, 68, 32);
+        jRadioButton1.setBounds(647, 51, 66, 32);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -151,7 +151,7 @@ public class StudentDetails extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jRadioButton2);
-        jRadioButton2.setBounds(721, 51, 87, 32);
+        jRadioButton2.setBounds(721, 51, 85, 32);
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -162,7 +162,7 @@ public class StudentDetails extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jRadioButton3);
-        jRadioButton3.setBounds(826, 51, 79, 32);
+        jRadioButton3.setBounds(826, 51, 77, 32);
 
         jTextField9.setBackground(new java.awt.Color(204, 204, 204));
         jTextField9.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,7 +171,6 @@ public class StudentDetails extends javax.swing.JPanel {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField9FocusGained(evt);
             }
-
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextField9FocusLost(evt);
             }
@@ -194,7 +193,7 @@ public class StudentDetails extends javax.swing.JPanel {
         jPanel1.add(jLabel13);
         jLabel13.setBounds(557, 125, 39, 28);
         jPanel1.add(jTextField10);
-        jTextField10.setBounds(600, 130, 31, 26);
+        jTextField10.setBounds(600, 130, 31, 22);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel9.setText("Course:");
@@ -207,19 +206,21 @@ public class StudentDetails extends javax.swing.JPanel {
         jLabel14.setBounds(557, 187, 114, 28);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new ClassProgram().getPrograms()));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(170, 290, 630, 26);
+        jComboBox1.setBounds(170, 290, 630, 22);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(
-                new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
         jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(790, 190, 76, 26);
+        jComboBox2.setBounds(790, 190, 72, 22);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1", "2", "3", "4", "5", "6",
-                "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
-                "25", "26", "27", "28", "29", "30", "31" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Day", "1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" }));
         jPanel1.add(jComboBox3);
-        jComboBox3.setBounds(890, 190, 76, 26);
+        jComboBox3.setBounds(890, 190, 72, 22);
 
         jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -263,14 +264,18 @@ public class StudentDetails extends javax.swing.JPanel {
         jPanel1.add(jTextField7);
         jTextField7.setBounds(170, 200, 162, 30);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2023" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year", "2023"}));
         jPanel1.add(jComboBox4);
-        jComboBox4.setBounds(683, 190, 76, 26);
+        jComboBox4.setBounds(683, 190, 72, 22);
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 1070, 540));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 1090, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTextField9MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jTextField9MouseClicked
         // TODO add your handling code here:
