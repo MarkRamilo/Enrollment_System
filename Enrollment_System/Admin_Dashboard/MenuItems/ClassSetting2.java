@@ -68,7 +68,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(SubmitUpdateToDatabase);
-        SubmitUpdateToDatabase.setBounds(620, 720, 72, 23);
+        SubmitUpdateToDatabase.setBounds(720, 720, 72, 23);
 
         DeleteToJTable.setText("Delete");
         DeleteToJTable.addActionListener(new java.awt.event.ActionListener() {
