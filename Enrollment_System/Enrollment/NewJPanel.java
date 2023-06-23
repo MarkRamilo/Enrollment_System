@@ -24,19 +24,101 @@ public class NewJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("ARTICLE I: PURPOSE AND SCOPE\n1. Purpose of DPA. The purpose of this DPA is to describe the duties and responsibilities to protect student data transmitted to Provider from the LEA, including compliance with all applicable privacy\nstatutes, including the FERPA, PPRA, and COPPA. In performing these services, the Provider shall be considered a School Official with a legitimate educational interest, and performing services\notherwise provided by the LEA. Provider shall be under the direct control and supervision of the LEA. Control duties are set forth below.\n2. Nature of Services Provided. The Provider has agreed to provide the following digital educational services described below and as may be further outlined in Exhibit \"A\" hereto:\nAssessment Reporting and Data Analytics\n3. Student Data to Be Provided. In order to perform the Services, LEA shall provide the categories of data described below or as indicated in the Schedule of Data, attached hereto as Exhibit \"B\":\nSee Exhibit B\n4. DPA Definitions. The definition of terms used in this DPA is found in Exhibit \"C\". In the event of a conflict, definitions used in this DPA shall prevail over any term used in any agreement for Services.\n2\nARTICLE II: DATA OWNERSHIP AND AUTHORIZED ACCESS\n1. Student Data Property of LEA. All Student Data or any other Pupil Records transmitted to the Provider is and will continue to be the property of and under the control of the LEA. The Parties\nagree that as between them, all rights, including all intellectual property rights in and to Student Data or any other Pupil Records contemplated shall remain the exclusive property of the LEA. For the\npurposes of FERPA, the Provider shall be considered a School Official, under the control and direction of the LEAs as it pertains to the use of student data notwithstanding the above. Provider\nmay create a transfer pupil-generated content to a separate account, according to the procedures set forth below.\n2. Parent Access. Provider and the LEA shall establish reasonable procedures by which a parent, legal guardian, or eligible student may review personally identifiable information on the pupil's records,\ncorrect erroneous information, and procedures for the transfer of pupil-generated  content to a personal account, consistent with the functionality of services. Provider shall respond in a reasonably\ntimely manner to the LEA's request for personally identifiable information in a pupil's records held by the Provider to view or correct as necessary. In the event that a parent of a pupil or otherindividual contacts the Provider to review any of the Pupil Records of Student Data accessed\npursuant to the Service Agreement, the Provider shall refer the parent or individual to the LEA, who will follow the necessary and proper procedures regarding the requested information.\n3. Separate Account. Provider shall, at the request of the LEA, transfer Student generated content to as eparate student account.\n4. Third Party Request. Should a Third Party, including law enforcement and government entities,contact Provider with a request for data held by the Provider pursuant to the Service Agreement, the\nProvider shall redirect the Third Party to request the data directly from the LEA. Provider shall notify the LEA in advance of a compelled disclosure to a Third Party unless legally prohibited.\n5. No Unauthorized Use. Provider shall not use Student Data or information in a Pupil Record for any purpose other than as explicitly specified in the Service Agreement.\n6. Subprocessors. Provider shall enter into written agreements with all Subprocessors performing\nfunctions pursuant to the Service Agreement, whereby the Subprocessors agree to be bound by the terms of this DPA.\nARTICLE III: DUTIES OF LEA\n1. Provide Data In Compliance With FERPA. LEA shall provide data for the purposes of the Service Agreement in compliance with the Family Educational Rights and Privacy Act (\"FERPA\"),\n20 U.S.C. section 1232 g, AB 1584 and the other privacy statutes quoted in this DPA.\n2. Reasonable Precautions. LEA shall take reasonable precautions to secure usernames, passwords, nd any other means of gaining access to the services and hosted data.\n3. Unauthorized Access Notification. LEA shall notify Provider promptly of any known or suspected unauthorized access. LEA will assist Provider in any efforts by Provider to investigate and respond\nto any unauthorized access.\n4. LEA Representative. At request of Provider, LEA shall designate an employee or agent of the LEA as the LEA representative for the coordination and fulfillment of the duties of this DPA.\n\n");
+        jTextArea1.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.setBackground(new java.awt.Color(234, 234, 234));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("Data Privacy Agreement");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(344, 344, 344))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        jButton1.setText("Accept");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Disagree");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 841, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(722, 722, 722)
+                        .addComponent(jButton2))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 877, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(36, 36, 36))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Dashboard.formClose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Dashboard.setTab(1);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

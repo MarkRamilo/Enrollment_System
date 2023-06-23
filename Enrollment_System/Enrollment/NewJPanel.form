@@ -16,13 +16,108 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="841" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="722" max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" min="-2" pref="877" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="104" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="570" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="554" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="ARTICLE I: PURPOSE AND SCOPE&#xa;1. Purpose of DPA. The purpose of this DPA is to describe the duties and responsibilities to protect student data transmitted to Provider from the LEA, including compliance with all applicable privacy&#xa;statutes, including the FERPA, PPRA, and COPPA. In performing these services, the Provider shall be considered a School Official with a legitimate educational interest, and performing services&#xa;otherwise provided by the LEA. Provider shall be under the direct control and supervision of the LEA. Control duties are set forth below.&#xa;2. Nature of Services Provided. The Provider has agreed to provide the following digital educational services described below and as may be further outlined in Exhibit &quot;A&quot; hereto:&#xa;Assessment Reporting and Data Analytics&#xa;3. Student Data to Be Provided. In order to perform the Services, LEA shall provide the categories of data described below or as indicated in the Schedule of Data, attached hereto as Exhibit &quot;B&quot;:&#xa;See Exhibit B&#xa;4. DPA Definitions. The definition of terms used in this DPA is found in Exhibit &quot;C&quot;. In the event of a conflict, definitions used in this DPA shall prevail over any term used in any agreement for Services.&#xa;2&#xa;ARTICLE II: DATA OWNERSHIP AND AUTHORIZED ACCESS&#xa;1. Student Data&#x202f;Property&#x202f;of&#x202f;LEA. All Student Data or any other Pupil Records transmitted to the Provider is and will continue to be the property of and under the control of the LEA. The Parties&#xa;agree that as between them, all rights, including all intellectual property rights in and to Student Data or any other Pupil Records contemplated shall remain the exclusive property of the&#x202f;LEA. For the&#xa;purposes of FERPA, the Provider shall be considered a School Official, under the control and direction of the LEAs as it pertains to the use of student data notwithstanding the above. Provider&#xa;may create a transfer pupil-generated content to a separate account, according to the procedures set forth below.&#xa;2. Parent Access. Provider and the LEA shall establish reasonable procedures by which a parent, legal guardian, or eligible student may review personally identifiable information on the pupil&apos;s records,&#xa;correct erroneous information, and procedures for the transfer of pupil-generated&#x202f; content to a personal account, consistent with the functionality of services. Provider shall respond in a reasonably&#xa;timely manner to the LEA&apos;s request for personally identifiable information in a pupil&apos;s records held by the Provider to view or correct as necessary. In the event that a parent of a pupil or otherindividual contacts the Provider to review any of the Pupil Records of Student Data accessed&#xa;pursuant to the Service Agreement, the Provider shall refer the parent or individual to the LEA, who will follow the necessary and proper procedures regarding the requested information.&#xa;3. Separate Account. Provider shall, at the request of the LEA, transfer Student generated content to as eparate student account.&#xa;4. Third Party Request. Should a Third Party, including law enforcement and government entities,contact Provider with a request for data held by the Provider pursuant to the Service Agreement, the&#xa;Provider shall redirect the Third Party to request the data directly from the LEA. Provider shall notify the LEA in advance of a compelled disclosure to a Third Party unless legally prohibited.&#xa;5. No Unauthorized Use. Provider shall not use Student Data or information in a Pupil Record for any purpose other than as explicitly specified in the Service Agreement.&#xa;6. Subprocessors. Provider shall enter into written agreements with all Subprocessors performing&#xa;functions pursuant to the Service Agreement, whereby the Subprocessors agree to be bound by the terms of this DPA.&#xa;ARTICLE III: DUTIES OF LEA&#xa;1. Provide Data In Compliance With FERPA. LEA shall provide data for the purposes of the Service Agreement in compliance with the Family Educational Rights and Privacy Act (&quot;FERPA&quot;),&#xa;20 U.S.C. section 1232 g, AB 1584 and the other privacy statutes quoted in this DPA.&#xa;2. Reasonable Precautions. LEA shall take reasonable precautions to secure usernames, passwords, nd any other means of gaining access to the services and hosted data.&#xa;3. Unauthorized Access Notification. LEA shall notify Provider promptly of any known or suspected unauthorized access. LEA will assist Provider in any efforts by Provider to investigate and respond&#xa;to any unauthorized access.&#xa;4. LEA Representative. At request of Provider, LEA shall designate an employee or agent of the LEA as the LEA representative for the coordination and fulfillment of the duties of this DPA.&#xa;&#xa;"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ea" green="ea" red="ea" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="77" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="36" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Data Privacy Agreement"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Accept"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Disagree"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>

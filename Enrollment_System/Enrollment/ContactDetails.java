@@ -65,7 +65,8 @@ public class ContactDetails extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1080, 800));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBackground(new java.awt.Color(241, 241, 241));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 0, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Contact Details");
@@ -75,16 +76,16 @@ public class ContactDetails extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(368, 368, 368)
+                .addGap(371, 371, 371)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(378, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(63, 63, 63)
                 .addComponent(jLabel1)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -93,7 +94,7 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel3.setText("Email Address :");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(160, 260, 140, 30);
+        jLabel3.setBounds(160, 250, 140, 30);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel4.setText("Region :");
@@ -117,7 +118,11 @@ public class ContactDetails extends javax.swing.JPanel {
         jPanel2.add(jTextField3);
         jTextField3.setBounds(310, 390, 690, 22);
         jPanel2.add(jTextField2);
+<<<<<<< HEAD
         jTextField2.setBounds(310, 260, 380, 22);
+=======
+        jTextField2.setBounds(310, 250, 380, 26);
+>>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel7.setText("Additional Address Information : ");
@@ -170,9 +175,13 @@ public class ContactDetails extends javax.swing.JPanel {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel14.setText("Student Contact Number (63+) :");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(10, 220, 290, 30);
+        jLabel14.setBounds(10, 200, 290, 30);
         jPanel2.add(jTextField11);
+<<<<<<< HEAD
         jTextField11.setBounds(310, 220, 210, 22);
+=======
+        jTextField11.setBounds(310, 200, 210, 26);
+>>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Province().getProvinces()));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -216,9 +225,10 @@ public class ContactDetails extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
