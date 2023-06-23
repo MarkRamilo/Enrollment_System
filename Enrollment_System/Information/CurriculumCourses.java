@@ -85,9 +85,5 @@ public class CurriculumCourses implements DatabaseConnection {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
- @Override
-    public int getID() {
-        throw new UnsupportedOperationException("Unimplemented method 'getID'");
 
-    }
 }

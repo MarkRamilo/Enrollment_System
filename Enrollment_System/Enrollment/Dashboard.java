@@ -159,14 +159,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         guardianContactDetails1 = new Enrollment.GuardianContactDetails();
         guardianContactDetails2 = new Enrollment.GuardianContactDetails();
-        contactDetails2 = new Enrollment.ContactDetails();
         guardianContactDetails3 = new Enrollment.GuardianContactDetails();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         newJPanel1 = new Enrollment.NewJPanel();
         newJPanel2 = new Enrollment.NewJPanel();
-        studentDetails1 = new Enrollment.StudentDetails();
-        contactDetails1 = new Enrollment.ContactDetails();
         guardianContactDetails4 = new Enrollment.GuardianContactDetails();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -196,8 +193,6 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("tab1", newJPanel1);
-        jTabbedPane1.addTab("tab2", studentDetails1);
-        jTabbedPane1.addTab("tab3", contactDetails1);
         jTabbedPane1.addTab("tab4", guardianContactDetails4);
 
         jLayeredPane1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, 830));
@@ -262,8 +257,6 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Enrollment.ContactDetails contactDetails1;
-    private Enrollment.ContactDetails contactDetails2;
     private Enrollment.GuardianContactDetails guardianContactDetails1;
     private Enrollment.GuardianContactDetails guardianContactDetails2;
     private Enrollment.GuardianContactDetails guardianContactDetails3;
@@ -272,6 +265,5 @@ public class Dashboard extends javax.swing.JFrame {
     private static javax.swing.JTabbedPane jTabbedPane1;
     private Enrollment.NewJPanel newJPanel1;
     private Enrollment.NewJPanel newJPanel2;
-    private Enrollment.StudentDetails studentDetails1;
     // End of variables declaration//GEN-END:variables
 }
