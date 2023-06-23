@@ -207,7 +207,7 @@ public class GuardianContactDetails extends javax.swing.JPanel {
                 jTextField10.getText());
         Dashboard.setGuardianContactInformation(jTextField6.getText(), jTextField3.getText());
         Dashboard.setGuardian(jTextField1.getText(), jTextField2.getText());
-
+        JOptionPane.showMessageDialog(null, "Success");
         Dashboard.close();
 
     }// GEN-LAST:event_jButton2ActionPerformed

@@ -457,7 +457,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
-//dsafsaf
+
     @Override
     public int getID() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

@@ -36,7 +36,7 @@ public class User implements DatabaseConnection {
                     username = generateEmail();
                 }
             }
-            this.email = username;
+            
             String sql1 = "INSERT INTO user VALUES(null, ?, ?, 1) ";
 
             PreparedStatement pst1 = con.prepareStatement(sql1);
@@ -47,7 +47,7 @@ public class User implements DatabaseConnection {
             pst1.executeUpdate();
             pst1.close();
 
-            String sql2 = "SELECT User_ID, Password FROM user WHERE Email = ?";
+            String sql2 = "SELECT User_ID FROM user WHERE Email = ?";
             PreparedStatement pst2 = con.prepareStatement(sql2);
             pst2.setString(1, username);
 
@@ -55,13 +55,10 @@ public class User implements DatabaseConnection {
 
             if (rs.next()) {
                 this.user_ID = rs.getInt("User_ID");
-                this.password = rs.getString("Password");
 
             }
-            
-            pst2.close();
+
             con.close();
-            
         } catch (Exception e) {
             e.getMessage();
         }
@@ -73,7 +70,7 @@ public class User implements DatabaseConnection {
         
         try (Connection con = connect()) {
 
-            String sql = "select User_ID from user where email = ? and `password`= ?";
+            String sql = "select User_ID from user where email = ? and password = ?";
 
             PreparedStatement ps = con.prepareStatement(sql);
 
@@ -82,6 +79,7 @@ public class User implements DatabaseConnection {
 
             ResultSet rs = ps.executeQuery();
 
+            
             this.checkUser = rs.next();
             
         } catch (Exception e) {
@@ -102,10 +100,8 @@ public class User implements DatabaseConnection {
             ps.setString(1, email);
 
             ResultSet rs = ps.executeQuery();
-            
-            if (rs.next()) {
-                this.user_ID = rs.getInt("User_ID");
-            }
+
+            this.checkUser = rs.next();
             
         } catch (Exception e) {
             e.getMessage();
@@ -158,13 +154,6 @@ public class User implements DatabaseConnection {
         return checkUser;
     }
     
-    public String getPassword() {
-        return password;
-    }
-    
-    public String getEmail() {
-        return email;
-    }
     public void changePassword(String newPassword) {
         
         try (Connection con = connect()) {

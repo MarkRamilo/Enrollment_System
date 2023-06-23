@@ -69,6 +69,8 @@ public class Dashboard extends javax.swing.JFrame {
         Student student = new Student(student1.get(0), student1.get(1), student1.get(2),
                 studentContactInformation.getID(), user.getID(), classProgram.getID());
         Reference reference = new Reference(student.getID());
+
+        System.out.println("student: " + student.getID());
         
         Registration registration = new Registration(reference.getID());
 
@@ -87,10 +89,7 @@ public class Dashboard extends javax.swing.JFrame {
         StudentGuardian studentGuardian = new StudentGuardian(guardian1.getID(), student.getID());
 
         JOptionPane.showMessageDialog(null, "Success");
-        JOptionPane.showMessageDialog(null, "Email: " + user.getEmail() + "\n"
-                + "Password: " + user.getPassword());
-        dashboard.dispose();
-        new Login().setVisible(true);
+        System.exit(0);
     }
 
     protected static void setStudentDetails(String firstName, String middleName, String lastName,
