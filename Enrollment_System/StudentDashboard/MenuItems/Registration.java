@@ -4,14 +4,18 @@
  */
 package StudentDashboard.MenuItems;
 
+import Information.Courses;
 import Information.Reference;
 import StudentDashboard.Dashboard2;
+import StudentDashboard.Payment;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +36,15 @@ public class Registration extends javax.swing.JPanel {
         Reference reference = new Reference();
         int reference_Number = reference.getReference_Number(user_ID);
         jLabel7.setText(String.valueOf(reference_Number));
+        
+        Courses courses = new Courses();
+        
+        ArrayList<String> items = courses.getCoursesRegistration(user_ID);
+        DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
+
+        for (String item : items) {
+            tableModel.addRow(new String[] {item});
+        }
         
     }
 
@@ -55,6 +68,11 @@ public class Registration extends javax.swing.JPanel {
         jTextArea2 = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -100,9 +118,9 @@ public class Registration extends javax.swing.JPanel {
         jLabel4.setBounds(481, 7, 98, 25);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel3.setText("Reference Number: ");
+        jLabel3.setText("Total :");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(190, 470, 180, 27);
+        jLabel3.setBounds(190, 370, 180, 27);
 
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -113,9 +131,9 @@ public class Registration extends javax.swing.JPanel {
         jPanel2.add(jScrollPane2);
         jScrollPane2.setBounds(52, 58, 930, 310);
 
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("72, 964");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(380, 470, 270, 30);
+        jLabel7.setBounds(380, 370, 70, 30);
 
         jButton1.setText("print");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +142,47 @@ public class Registration extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(430, 660, 76, 27);
+        jButton1.setBounds(460, 650, 100, 40);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel5.setText("Reference Number: ");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(190, 430, 180, 27);
+
+        jLabel8.setText("jLabel7");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(390, 430, 270, 30);
+
+        jButton2.setText("Pay");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(550, 370, 79, 27);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Course_Name"
+            }
+        ));
+        jTable1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jTable1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(60, 480, 920, 140);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -203,18 +261,34 @@ public class Registration extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Payment payment = new Payment(jLabel7.getText(), jLabel8.getText());
+        payment.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable1AncestorAdded
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTable1AncestorAdded
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }

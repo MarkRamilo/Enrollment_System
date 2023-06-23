@@ -70,7 +70,7 @@ public class User implements DatabaseConnection {
         
         try (Connection con = connect()) {
 
-            String sql = "select User_ID from user where email = ? and password = ?";
+            String sql = "select User_ID from user where email = ? and `password`= ?";
 
             PreparedStatement ps = con.prepareStatement(sql);
 
@@ -79,7 +79,6 @@ public class User implements DatabaseConnection {
 
             ResultSet rs = ps.executeQuery();
 
-            
             this.checkUser = rs.next();
             
         } catch (Exception e) {
@@ -100,8 +99,10 @@ public class User implements DatabaseConnection {
             ps.setString(1, email);
 
             ResultSet rs = ps.executeQuery();
-
-            this.checkUser = rs.next();
+            
+            if (rs.next()) {
+                this.user_ID = rs.getInt("User_ID");
+            }
             
         } catch (Exception e) {
             e.getMessage();

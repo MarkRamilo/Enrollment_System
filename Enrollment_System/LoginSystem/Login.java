@@ -274,9 +274,11 @@ public class Login extends javax.swing.JFrame {
         User user = new User(jTextField1.getText(), jPasswordField1.getText());
         
         if (user.exist()) {
+            User user2 = new User(jTextField1.getText());
             JOptionPane.showMessageDialog(null, "success");
             this.dispose();
-            Dashboard2 dashboard = new StudentDashboard.Dashboard2(user.getID());
+            Dashboard2 dashboard = new StudentDashboard.Dashboard2(user2.getID());
+            System.out.println(user2.getID());
             dashboard.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Wrong email or password.");
