@@ -102,7 +102,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jTextField4);
-        jTextField4.setBounds(240, 110, 191, 25);
+        jTextField4.setBounds(240, 100, 191, 25);
 
         jTextField2.setToolTipText("Enter Student Number\n");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -125,12 +125,12 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel3.setText("Student Number");
         add(jLabel3);
-        jLabel3.setBounds(110, 70, 108, 16);
+        jLabel3.setBounds(120, 60, 108, 16);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel1.setText("Name ");
         add(jLabel1);
-        jLabel1.setBounds(180, 120, 42, 16);
+        jLabel1.setBounds(180, 110, 42, 16);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel4.setText("Program");
@@ -174,7 +174,7 @@ public class ClassSetting2 extends javax.swing.JPanel implements DatabaseConnect
             }
         });
         add(jComboBox2);
-        jComboBox2.setBounds(80, 270, 530, 22);
+        jComboBox2.setBounds(80, 270, 280, 22);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         jLabel6.setText("Semester");
