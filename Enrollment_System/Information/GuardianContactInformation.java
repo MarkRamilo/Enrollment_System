@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class GuardianContactInformation extends ContactInformation implements DatabaseConnection {
 
     private int guardian_Contact_Info_ID;
-    
+
     public GuardianContactInformation(int Address_ID, String email, String phone_Number) {
 
         super(Address_ID, email, phone_Number);
@@ -54,29 +54,4 @@ public class GuardianContactInformation extends ContactInformation implements Da
 
     }
 
-    // print contact information class
-    @Override
-    public String toString() {
-        String contactInfo = "";
-        try (Connection con = connect()) {
-
-            String sql = "select * from guardian_contact_info where Guardian_Contact_Info_ID = ?";
-
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, guardian_Contact_Info_ID);
-
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                contactInfo = "Guardian Contact Information ID: " + rs.getInt("Guardian_Contact_Info_ID") + "\n"
-                        + "Address ID: " + rs.getInt("Address_ID") + "\n" + "Email: " + rs.getString("Email") + "\n"
-                        + "Phone Number: " + rs.getString("Phone_Number") + "\n";
-
-            }
-            con.close();
-        } catch (SQLException e) {
-            e.getMessage();
-        }
-        return contactInfo;
-    }
 }

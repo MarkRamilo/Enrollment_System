@@ -26,6 +26,7 @@ public class Dashboard2 extends javax.swing.JFrame {
     public Dashboard2() {
         initComponents();
         new TestTheme();
+        this.setLocationRelativeTo(null);
 
     }
 

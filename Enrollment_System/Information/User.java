@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.Year;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 public class User implements DatabaseConnection {
 
@@ -86,6 +87,27 @@ public class User implements DatabaseConnection {
         }
     }
     
+    public User(String email) {
+       
+        this.email = email;
+        
+        try (Connection con = connect()) {
+
+            String sql = "select User_ID from user where email = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, email);
+
+            ResultSet rs = ps.executeQuery();
+
+            this.checkUser = rs.next();
+            
+        } catch (Exception e) {
+            e.getMessage();
+        }
+    }
+    
     private String generateEmail() {
 
         Year year = Year.now();
@@ -131,4 +153,26 @@ public class User implements DatabaseConnection {
     public boolean exist() {
         return checkUser;
     }
+    
+    public void changePassword(String newPassword) {
+        
+        try (Connection con = connect()) {
+
+            String sql = "update user set `password` = ? where email = ?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1, newPassword);
+            ps.setString(2, email);
+            
+            ps.executeUpdate();
+            ps.executeQuery();
+    
+            JOptionPane.showMessageDialog(null, "Success Changing Password.");
+            
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        
+    } 
 }

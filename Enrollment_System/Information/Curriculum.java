@@ -44,6 +44,11 @@ public class Curriculum implements DatabaseConnection {
         }
         return 0;
     }
+
+    @Override
+    public int getID() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 
 }
