@@ -11,26 +11,64 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
-public class Semester implements DatabaseConnection {
+public class Courses implements DatabaseConnection {
 
-     public String[] getSemester() {
+    public String[] getCourseInfo(String Courses_Name) {
+        // get curriculum id from database using curriculum
+
+        try (Connection con = connect()) {
+
+            String sql = "SELECT Courses_Name, Course_Credits, Courses_Code, class.Class_ID "
+                    + "FROM courses "
+                    + "left join class on class.Courses_ID = courses.Courses_ID "
+                    + "WHERE Courses_Name = ?;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, Courses_Name);
+            ResultSet rs = ps.executeQuery();
+
+            ArrayList<String> items = new ArrayList();
+            if (rs.next()) {
+                // System.out.println("Check");
+                String a = rs.getString("Courses_Name");
+                String b = rs.getString("Course_Credits");
+                String c = rs.getString("Courses_Code");
+                String d = rs.getString("class.Class_ID");
+
+                items.add(a);
+                items.add(b);
+                items.add(c);
+                items.add(d);
+
+            }
+
+            String[] subItems = new String[items.size()];
+            items.toArray(subItems);
+            return subItems;
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+
+        return null;
+    }
+
+     public String[] getCourses() {
         // get curriculum id from database using curriculum
 
         try (Connection con = connect()) {
             
             Statement st = con.createStatement();
-            String sql = "SELECT Semester FROM semester s, academic_year a " +
-                          "where s.Academic_Year_ID = a.Academic_Year_ID AND a.Academic_Year = 2023";
+            String sql = "SELECT Courses_Name FROM courses ";
                   ResultSet rs = st.executeQuery(sql);
-                  
+
             // ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
             ArrayList<String> items = new ArrayList<>();
 
             while (rs.next()) {
-                String a = rs.getString("Semester");
+                String a = rs.getString("Courses_Name");
                 items.add(a);
             }
-            items.add(0, "Semester");
+            items.add(0, "Courses");
             st.close();
             String[] subItems = new String[items.size()];
             items.toArray(subItems);
