@@ -215,11 +215,10 @@ public class StudentDetails extends javax.swing.JPanel {
         jPanel1.add(jLabel13);
         jLabel13.setBounds(550, 160, 39, 28);
         jPanel1.add(jTextField10);
-<<<<<<< HEAD
+
         jTextField10.setBounds(600, 130, 31, 22);
-=======
+
         jTextField10.setBounds(600, 170, 31, 26);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel9.setText("Course:");
@@ -303,11 +302,11 @@ public class StudentDetails extends javax.swing.JPanel {
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year", "2023"}));
         jPanel1.add(jComboBox4);
-<<<<<<< HEAD
+
         jComboBox4.setBounds(683, 190, 72, 22);
-=======
+
         jComboBox4.setBounds(680, 230, 76, 26);
->>>>>>> e20b219ef4a3a2fdf3b5f35aec557c6770ef985d
+
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setText("Personal Information");
